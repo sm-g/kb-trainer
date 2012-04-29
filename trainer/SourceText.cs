@@ -13,6 +13,11 @@ namespace trainer
         public SourceText(string filePath)
         {
             textData = File.ReadAllLines(filePath, Encoding.Default);
+            for (int i = 0; i < textData.Length - 1; i++)
+            {
+                textData[i].Trim();
+                textData[i] += ' ';
+            }
         }
 
         public string[] Lines

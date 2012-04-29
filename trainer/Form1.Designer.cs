@@ -63,8 +63,10 @@
             // 
             // richTextBoxSourceView
             // 
+            this.richTextBoxSourceView.BackColor = System.Drawing.Color.White;
             this.richTextBoxSourceView.DetectUrls = false;
             this.richTextBoxSourceView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBoxSourceView.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxSourceView.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxSourceView.Name = "richTextBoxSourceView";
             this.richTextBoxSourceView.ReadOnly = true;
@@ -122,7 +124,10 @@
             this.richTextBoxInput.Size = new System.Drawing.Size(690, 20);
             this.richTextBoxInput.TabIndex = 2;
             this.richTextBoxInput.Text = "";
+            this.richTextBoxInput.SelectionChanged += new System.EventHandler(this.richTextBoxInput_SelectionChanged);
+            this.richTextBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyDown);
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
+            this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
             // 
             // Form1
             // 

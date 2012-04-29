@@ -12,17 +12,33 @@ namespace trainer
         private SourceText sourceText;
         private int markerPosition;
         private int linePosition;
-        private int errorCounter;
-        private bool correcting;
+        private int errorsCounter;
+        private int deletedCharsCounter;
+        private int typedChars;
+        private int wrongChars;
+
+        public int Errors
+        {
+            get { return errorsCounter; }
+        }
+        public int RichTextPosition
+        {
+            get
+            {
+                if (markerPosition == 0 && linePosition != 0)
+                    return typedChars - deletedCharsCounter + linePosition - 2;
+                else
+                    return typedChars - deletedCharsCounter + linePosition - 1;
+            }
+        }
+        public bool IsCorrecting
+        {
+            get { return wrongChars > 0; }
+        }
 
         public CharHandler(SourceText _sourceText)
         {
             sourceText = _sourceText;
-        }
-
-        public int Errors
-        {
-            get { return errorCounter; }
         }
 
         private void MoveMarkerForward()
@@ -43,11 +59,14 @@ namespace trainer
         }
         private void MoveLineForward()
         {
-            linePosition++;
-            markerPosition = 0;
-            if (linePosition == sourceText.Lines.Length)
+            if (linePosition == sourceText.Lines.Length - 1)
             {
                 OnRaiseTextEnds(new EventArgs());
+            }
+            else
+            {
+                linePosition++;
+                markerPosition = 0;
             }
         }
         private void MoveLineBack()
@@ -64,30 +83,29 @@ namespace trainer
         }
         private void AddError()
         {
-            if (!correcting)
+            if (!IsCorrecting)
             {
-                errorCounter++;
-                correcting = true;
+                errorsCounter++;
             }
+            wrongChars++;
         }
-        private void DeleteChar()
+        public void DeleteChar()
         {
-            if (!correcting)
+            deletedCharsCounter++;
+            if (!IsCorrecting)
             {
                 MoveMarkerBack();
+            }
+            else
+            {
+                wrongChars--;
             }
         }
         public bool Validate(char ch)
         {
-            if (ch == '\b')
+            typedChars++;
+            if (!IsCorrecting && sourceText.Lines[linePosition][markerPosition] == ch)
             {
-                DeleteChar();
-                return true;
-            }
-
-            if (sourceText.Lines[linePosition][markerPosition] == ch)
-            {
-                correcting = false;
                 MoveMarkerForward();
                 return true;
             }
