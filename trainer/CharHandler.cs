@@ -20,7 +20,6 @@ namespace trainer
         {
             get { return statistic.Errors; }
         }
-
         public int RichTextPosition
         {
             get
@@ -36,10 +35,10 @@ namespace trainer
             get { return wrongChars > 0; }
         }
 
-        public CharHandler(SourceText _sourceText, ref Statistic _statistic)
+        public CharHandler(SourceText _sourceText, Statistic _statistic)
         {
             sourceText = _sourceText;
-            statistic = new Statistic();
+            statistic = _statistic;
         }
 
         private void MoveMarkerForward()
