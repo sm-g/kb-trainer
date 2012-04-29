@@ -32,14 +32,10 @@ namespace trainer
 
         private void richTextBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsControl(e.KeyChar))
+            if (Char.IsControl(e.KeyChar)) // перехват управляющих клавиш
                 return;
 
-            if (!charHandler.ValidateChar(e.KeyChar))
-            {
-                DisplayError();
-            }
-            else
+            if (charHandler.ValidateChar(e.KeyChar))
             {
                 DisplayPassed();
                 if (e.KeyChar == ' ')
@@ -47,6 +43,10 @@ namespace trainer
                     e.Handled = true;
                     ChangeWord();
                 }
+            }
+            else
+            {
+                DisplayError();
             }
         }
 
@@ -61,7 +61,7 @@ namespace trainer
 
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
         {
-            richTextBoxInput.SelectionStart = richTextBoxInput.Text.Length;
+            richTextBoxInput.SelectionStart = richTextBoxInput.Text.Length; // ввод только с конца
         }
 
         private void ChangeWord()

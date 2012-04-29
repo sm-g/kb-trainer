@@ -20,16 +20,22 @@ namespace trainer
         {
             get { return statistic.Errors; }
         }
+        /// <summary>
+        /// Положение курсора в richTextBoxSourceView перед введённой буквой
+        /// </summary>
         public int RichTextPosition
         {
             get
             {
-                if (markerPosition == 0 && linePosition != 0)
+                if (markerPosition == 0 && linePosition != 0) // учитывает дополнительный невидимый символ (перевода строки) после ввода последнего символа в строке  
                     return statistic.PassedChars + linePosition - 2;
                 else
                     return statistic.PassedChars + linePosition - 1;
             }
         }
+        /// <summary>
+        /// Корректируется ли ошибка
+        /// </summary>
         public bool IsCorrecting
         {
             get { return wrongChars > 0; }
@@ -41,6 +47,8 @@ namespace trainer
             statistic = _statistic;
         }
 
+        #region Перемещение позиции ввода
+     
         private void MoveMarkerForward()
         {
             markerPosition++;
@@ -81,6 +89,9 @@ namespace trainer
                 markerPosition = 0;
             }
         }
+
+        #endregion
+
         private void AddWrongChar(char ch)
         {
             if (!IsCorrecting)
