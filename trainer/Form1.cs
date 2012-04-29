@@ -13,6 +13,7 @@ namespace trainer
         static Color clearColor = Color.White;
         SourceText sourceText;
         CharHandler charHandler;
+        Statistic statistic;
 
         public Form1()
         {
@@ -23,7 +24,7 @@ namespace trainer
         private void LoadSource(string path)
         {
             sourceText = new SourceText(path);
-            charHandler = new CharHandler(sourceText);
+            charHandler = new CharHandler(sourceText, ref statistic);
             charHandler.TextEnds += FinishTyping;
 
             richTextBoxSourceView.Lines = sourceText.Lines;
@@ -34,7 +35,7 @@ namespace trainer
             if (Char.IsControl(e.KeyChar))
                 return;
 
-            if (!charHandler.Validate(e.KeyChar))
+            if (!charHandler.ValidateChar(e.KeyChar))
             {
                 DisplayError();
             }

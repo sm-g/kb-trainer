@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace trainer
 {
@@ -10,25 +11,24 @@ namespace trainer
         public event EventHandler TextEnds;
 
         private SourceText sourceText;
+        private Statistic statistic;
         private int markerPosition;
         private int linePosition;
-        private int errorsCounter;
-        private int deletedCharsCounter;
-        private int typedChars;
         private int wrongChars;
 
         public int Errors
         {
-            get { return errorsCounter; }
+            get { return statistic.Errors; }
         }
+
         public int RichTextPosition
         {
             get
             {
                 if (markerPosition == 0 && linePosition != 0)
-                    return typedChars - deletedCharsCounter + linePosition - 2;
+                    return statistic.PassedChars + linePosition - 2;
                 else
-                    return typedChars - deletedCharsCounter + linePosition - 1;
+                    return statistic.PassedChars + linePosition - 1;
             }
         }
         public bool IsCorrecting
@@ -36,9 +36,10 @@ namespace trainer
             get { return wrongChars > 0; }
         }
 
-        public CharHandler(SourceText _sourceText)
+        public CharHandler(SourceText _sourceText, ref Statistic _statistic)
         {
             sourceText = _sourceText;
+            statistic = new Statistic();
         }
 
         private void MoveMarkerForward()
@@ -81,17 +82,17 @@ namespace trainer
                 markerPosition = 0;
             }
         }
-        private void AddError()
+        private void AddWrongChar(char ch)
         {
             if (!IsCorrecting)
             {
-                errorsCounter++;
+                statistic.AddError(ch);
             }
             wrongChars++;
         }
         public void DeleteChar()
         {
-            deletedCharsCounter++;
+            statistic.AddDeletion();
             if (!IsCorrecting)
             {
                 MoveMarkerBack();
@@ -101,9 +102,9 @@ namespace trainer
                 wrongChars--;
             }
         }
-        public bool Validate(char ch)
+        public bool ValidateChar(char ch)
         {
-            typedChars++;
+            statistic.AddChar(ch);
             if (!IsCorrecting && sourceText.Lines[linePosition][markerPosition] == ch)
             {
                 MoveMarkerForward();
@@ -111,7 +112,7 @@ namespace trainer
             }
             else
             {
-                AddError();
+                AddWrongChar(ch);
                 return false;
             }
         }
