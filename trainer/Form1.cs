@@ -100,7 +100,15 @@ namespace trainer
 
         private void FinishTyping(object sender, EventArgs e)
         {
-            richTextBoxInput.Enabled = false;        
+            richTextBoxInput.Enabled = false;
+            timerResultDelay.Enabled = true;
+        }
+
+        private void timerResultDelay_Tick(object sender, EventArgs e)
+        {
+            timerResultDelay.Enabled = false;
+            Result resultForm = new Result(statistic.GetResultInfo());
+            resultForm.ShowDialog();
         }
     }
 }
