@@ -14,23 +14,21 @@ namespace trainer
         /// </summary>
         public class Velocity
         {
-            const int MIN_KEYS      = 2; // минимум нажатий для рассчета скорости
-            private int instantSpan = 3; // количество нажатий для рассчета мгновенной скорости
+            const int MIN_KEYS = 2; // минимум нажатий для рассчета скорости
+            const int MIN_MSEC = 1; // минимальный промежуток времени (в мс)
+            private int instantSpan = 3;
             private Statistic parent;
-            
-            public int InstantSpan { get { return instantSpan; } set { if (value < 1) value = 1; instantSpan = value; } }           
-            
-            public Velocity(Statistic _parent)
-            {
-                parent = _parent;
-            }
+            /// <summary>
+            /// Количество нажатий для рассчета мгновенной скорости
+            /// </summary>
+            public int InstantSpan { get { return instantSpan; } set { if (value < 1) value = 1; instantSpan = value; } }
             public double Average
             {
                 get
                 {
                     if (parent.timesList.Count < MIN_KEYS)
                         return 0;
-                    return 60 * parent.PassedChars / TimeSpan.FromMilliseconds(parent.TotalPrintingTime).TotalSeconds;
+                    return GetAverage(TimeSpan.FromMilliseconds(parent.TotalPrintingTime), parent.PassedChars);
                 }
             }
             public double Instant
@@ -39,11 +37,30 @@ namespace trainer
                 {
                     if (parent.timesList.Count < MIN_KEYS)
                         return 0;
-                    return 60 * InstantSpan / TimeSpan.FromMilliseconds(parent.TotalPrintingTime - parent.timesList[parent.timesList.Count - InstantSpan - 1].DownTime).TotalSeconds;
+                    return GetInstant(TimeSpan.FromMilliseconds(parent.timesList[parent.timesList.Count - InstantSpan - 1].DownTime),
+                                      TimeSpan.FromMilliseconds(parent.TotalPrintingTime),
+                                      InstantSpan);
                 }
             }
+
+            public Velocity(Statistic _parent)
+            {
+                parent = _parent;
+            }
+            public static double GetAverage(TimeSpan time, int count)
+            {
+                if (time.TotalMilliseconds < MIN_MSEC)
+                    return 0;
+                return 60 * count / time.TotalSeconds;
+            }
+            public static double GetInstant(TimeSpan first, TimeSpan last, int span)
+            {
+                if ((last - first).TotalMilliseconds < MIN_MSEC)
+                    return 0;
+                return 60 * span / (last - first).TotalSeconds;
+            }
         }
-        
+
         private Stopwatch globalStopwatch;
         private List<KeystrokeInfo> timesList;
         private int errorsCounter;
