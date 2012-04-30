@@ -16,10 +16,6 @@ namespace trainer
         private int linePosition;
         private int wrongChars;
 
-        public int Errors
-        {
-            get { return statistic.Errors; }
-        }
         /// <summary>
         /// Положение курсора в richTextBoxSourceView перед введённой буквой
         /// </summary>
@@ -100,9 +96,9 @@ namespace trainer
             }
             wrongChars++;
         }
-        public void DeleteChar()
+        public void DeleteChar(char ch)
         {
-            statistic.AddDeletion();
+            statistic.AddDeletion(ch);
             if (!IsCorrecting)
             {
                 MoveMarkerBack();

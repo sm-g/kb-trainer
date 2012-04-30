@@ -7,7 +7,7 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        const string defaultTextPath = "..\\..\\..\\text\\a.txt";
+        const string defaultTextPath = "..\\..\\..\\text\\dict a.txt";
         static Color errorColor = Color.Chocolate;
         static Color passedColor = Color.Gray;
         static Color clearColor = Color.White;
@@ -54,9 +54,15 @@ namespace trainer
         {
             if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
-                DeleteLetter();
+                DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
             }
-            statistic.RegisterKeyDown();
+            statistic.RegisterKeyDown(e.KeyCode);
+        }
+
+        private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            statistic.RegisterKeyUp(e.KeyCode);
+            labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
         }
 
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
@@ -69,10 +75,10 @@ namespace trainer
             richTextBoxInput.Clear();
         }
 
-        private void DeleteLetter()
+        private void DeleteLetter(char ch)
         {
             PaintLetters(richTextBoxSourceView, clearColor);
-            charHandler.DeleteChar();
+            charHandler.DeleteChar(ch);
         }
 
         private void DisplayPassed()
@@ -83,7 +89,7 @@ namespace trainer
         private void DisplayError()
         {
             PaintLetters(richTextBoxSourceView, errorColor);
-            labelErrors.Text = "ошибки: " + charHandler.Errors.ToString();
+            labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
 
         private void PaintLetters(RichTextBox richTextBox, Color color)
@@ -94,13 +100,7 @@ namespace trainer
 
         private void FinishTyping(object sender, EventArgs e)
         {
-            richTextBoxInput.Enabled = false;
-        }
-
-        private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
-        {
-            statistic.RegisterKeyUp((char)e.KeyCode);
-            labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
+            richTextBoxInput.Enabled = false;        
         }
     }
 }

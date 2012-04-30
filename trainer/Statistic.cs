@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace trainer
 {
@@ -43,7 +44,6 @@ namespace trainer
             }
         }
         
-        private Stopwatch currentStopwatch;
         private Stopwatch globalStopwatch;
         private List<KeystrokeInfo> timesList;
         private int errorsCounter;
@@ -72,7 +72,6 @@ namespace trainer
         {
             Speed = new Velocity(this);
             timesList = new List<KeystrokeInfo>();
-            currentStopwatch = new Stopwatch();
             globalStopwatch = new Stopwatch();
         }
 
@@ -86,41 +85,39 @@ namespace trainer
             errorsCounter++;
         }
 
-        public void AddDeletion()
+        public void AddDeletion(char ch)
         {
             deletedCharsCounter++;
         }
 
-        public void RegisterKeyDown()
+        public void RegisterKeyDown(Keys key)
         {
-            currentStopwatch.Restart();
             if (IsEmpty)
             {
                 globalStopwatch.Start();
             }
+            timesList.Add(new KeystrokeInfo(globalStopwatch.ElapsedMilliseconds, key));
         }
 
-        public void RegisterKeyUp(char ch)
+        public void RegisterKeyUp(Keys key)
         {
-            timesList.Add(new KeystrokeInfo(globalStopwatch.ElapsedMilliseconds, currentStopwatch.ElapsedMilliseconds, ch));
-            currentStopwatch.Stop();
+            timesList.Last(item => item.Key == key).UpTime = globalStopwatch.ElapsedMilliseconds;
         }
     }
     /// <summary>
     /// Информация об отдельном нажатии
     /// </summary>
-    class KeystrokeInfo
+    public class KeystrokeInfo
     {
         public long DownTime { get; set; }
-        public long UpTime { get { return DownTime + Duration; } }
-        public long Duration { get; set; }
-        public char Char { get; set; }
+        public long UpTime { get; set; }
+        public long Duration { get { return UpTime - DownTime; } }
+        public Keys Key { get; set; }
 
-        public KeystrokeInfo(long globalSpan, long durationSpan, char ch)
+        public KeystrokeInfo(long downTime, Keys key)
         {
-            DownTime = globalSpan;
-            Duration = durationSpan;
-            Char = ch;            
+            DownTime = downTime;
+            Key = key;
         }
     }
 }
