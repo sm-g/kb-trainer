@@ -37,7 +37,7 @@ namespace trainer
                 {
                     if (parent.keystrokesList.Count < MIN_KEYS)
                         return 0;
-                    return GetInstant(TimeSpan.FromMilliseconds(parent.keystrokesList[parent.keystrokesList.Count - InstantSpan - 1].DownTime),
+                    return GetInstant(TimeSpan.FromMilliseconds(parent.keystrokesList[parent.keystrokesList.Count - InstantSpan].DownTime),
                                       TimeSpan.FromMilliseconds(parent.TotalPrintingTime),
                                       InstantSpan);
                 }
@@ -114,7 +114,9 @@ namespace trainer
         }
         public void RegisterKeyUp(Keys key)
         {
-            keystrokesList.Last(item => item.Key == key).UpTime = globalStopwatch.ElapsedMilliseconds;
+            KeystrokeInfo keystroke = keystrokesList.LastOrDefault(item => item.Key == key && item.UpTime == 0);
+            if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша
+                keystroke.UpTime = globalStopwatch.ElapsedMilliseconds;;
         }
         public void Pause()
         {
