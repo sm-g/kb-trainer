@@ -37,6 +37,7 @@
             this.textBoxAvSpeed = new System.Windows.Forms.TextBox();
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.labelTime = new System.Windows.Forms.Label();
+            this.buttonContinue = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonOk.AutoSize = true;
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Location = new System.Drawing.Point(61, 143);
             this.buttonOk.Name = "buttonOk";
@@ -57,8 +59,9 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonOk, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonContinue, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonOk, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -153,6 +156,18 @@
             this.labelTime.TabIndex = 4;
             this.labelTime.Text = "Время:";
             // 
+            // buttonContinue
+            // 
+            this.buttonContinue.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonContinue.AutoSize = true;
+            this.buttonContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonContinue.Location = new System.Drawing.Point(255, 143);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(80, 23);
+            this.buttonContinue.TabIndex = 2;
+            this.buttonContinue.Text = "Продолжить";
+            this.buttonContinue.UseVisualStyleBackColor = true;
+            // 
             // Result
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +178,7 @@
             this.Name = "Result";
             this.Text = "Результат";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -180,5 +196,6 @@
         private System.Windows.Forms.TextBox textBoxAvSpeed;
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Button buttonContinue;
     }
 }

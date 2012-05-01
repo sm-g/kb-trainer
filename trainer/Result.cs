@@ -5,9 +5,16 @@ namespace trainer
 {
     public partial class Result : Form
     {
-        public Result(ResultInfo info)
+        public Result(ResultInfo info, SourceInfo source)
         {
             InitializeComponent();
+
+            if (source.Length <= info.PassedChars) // нельзя продолжить
+            {
+                buttonContinue.Enabled = false;
+                AcceptButton = buttonOk;
+                CancelButton = buttonOk;
+            }
 
             textBoxAvSpeed.Text = info.Speed.ToString("F") + " зн/мин";
             textBoxErrors.Text = ((double)info.Errors / info.PassedChars).ToString("F2") + " %";

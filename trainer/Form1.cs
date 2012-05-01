@@ -52,6 +52,11 @@ namespace trainer
 
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyData == Keys.Escape)
+            {
+                FinishTyping(sender, e);
+                return; // не записывается в статистику
+            }
             if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
@@ -100,15 +105,34 @@ namespace trainer
 
         private void FinishTyping(object sender, EventArgs e)
         {
+            statistic.Pause();
             richTextBoxInput.Enabled = false;
             timerResultDelay.Enabled = true;
+        }
+
+        private void ResumeTyping()
+        {
+            richTextBoxInput.Enabled = true;
+            richTextBoxInput.Focus();
+        }
+
+        private void EndExercise()
+        {
+            //
         }
 
         private void timerResultDelay_Tick(object sender, EventArgs e)
         {
             timerResultDelay.Enabled = false;
-            Result resultForm = new Result(statistic.GetResultInfo());
-            resultForm.ShowDialog();
+            Result resultForm = new Result(statistic.GetResultInfo(), sourceText.GetInfo());
+            if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                EndExercise();
+            }
+            else
+            {
+                ResumeTyping();
+            }
         }
     }
 }

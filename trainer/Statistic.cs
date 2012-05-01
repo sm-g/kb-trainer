@@ -96,31 +96,30 @@ namespace trainer
         {
             typedCharsCounter++;
         }
-
         public void AddError(char ch)
         {
             errorsCounter++;
         }
-
         public void AddDeletion(char ch)
         {
             deletedCharsCounter++;
         }
-
         public void RegisterKeyDown(Keys key)
         {
-            if (IsEmpty)
+            if (!globalStopwatch.IsRunning)
             {
                 globalStopwatch.Start();
             }
             keystrokesList.Add(new KeystrokeInfo(globalStopwatch.ElapsedMilliseconds, key));
         }
-
         public void RegisterKeyUp(Keys key)
         {
             keystrokesList.Last(item => item.Key == key).UpTime = globalStopwatch.ElapsedMilliseconds;
         }
-
+        public void Pause()
+        {
+            globalStopwatch.Stop();
+        }
         public ResultInfo GetResultInfo()
         {
             return new ResultInfo(Speed.Average, Errors, PassedChars, keystrokesList);

@@ -10,6 +10,19 @@ namespace trainer
     {
         private string[] textData;
 
+        public int Length
+        {
+            get
+            {
+                int result = 0;
+                foreach (string s in textData)
+                {
+                    result += s.Length;
+                }
+                return result;
+            }
+        }
+
         public SourceText(string filePath)
         {
             textData = File.ReadAllLines(filePath, Encoding.Default);
@@ -23,6 +36,20 @@ namespace trainer
         public string[] Lines
         {
             get { return textData; }
+        }
+        public SourceInfo GetInfo()
+        {
+            return new SourceInfo(Length);
+        }
+    }
+
+    public struct SourceInfo
+    {
+        public int Length;
+
+        public SourceInfo(int length)
+        {
+            Length = length;
         }
     }
 }
