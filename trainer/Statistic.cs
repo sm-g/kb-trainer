@@ -95,14 +95,17 @@ namespace trainer
         public void AddChar(char ch)
         {
             typedCharsCounter++;
+            keystrokesList[keystrokesList.Count - 1].Char = ch;
         }
         public void AddError(char ch)
         {
             errorsCounter++;
+            keystrokesList[keystrokesList.Count - 1].IsError = true;
         }
         public void AddDeletion(char ch)
         {
             deletedCharsCounter++;
+            keystrokesList[keystrokesList.Count - 1].Char = ch;
         }
         public void RegisterKeyDown(Keys key)
         {
@@ -136,6 +139,8 @@ namespace trainer
         public long UpTime { get; set; }
         public long Duration { get { return UpTime - DownTime; } }
         public Keys Key { get; set; }
+        public char Char { get; set; }
+        public bool IsError { get; set; }
 
         public KeystrokeInfo(long downTime, Keys key)
         {

@@ -57,11 +57,12 @@ namespace trainer
                 FinishTyping(sender, e);
                 return; // не записывается в статистику
             }
+            statistic.RegisterKeyDown(e.KeyCode);            
             if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
             }
-            statistic.RegisterKeyDown(e.KeyCode);
+
         }
 
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
