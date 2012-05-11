@@ -10,7 +10,7 @@ namespace trainer
     {
         public event EventHandler TextEnds;
 
-        private SourceText sourceText;
+        private SourceText source;
         private Statistic statistic;
         private int markerPosition;
         private int linePosition;
@@ -37,9 +37,9 @@ namespace trainer
             get { return wrongChars > 0; }
         }
 
-        public CharHandler(SourceText _sourceText, Statistic _statistic)
+        public CharHandler(SourceText sourceText, Statistic _statistic)
         {
-            sourceText = _sourceText;
+            source = sourceText;
             statistic = _statistic;
         }
 
@@ -48,9 +48,9 @@ namespace trainer
         private void MoveMarkerForward()
         {
             markerPosition++;
-            if (markerPosition == sourceText.Lines[linePosition].Length)
+            if (markerPosition == source.Lines[linePosition].Length)
             {
-                MoveLineForward();
+                MoveLineDown();
             }
         }
         private void MoveMarkerBack()
@@ -58,12 +58,12 @@ namespace trainer
             markerPosition--;
             if (markerPosition == -1)
             {
-                MoveLineBack();
+                MoveLineUp();
             }
         }
-        private void MoveLineForward()
+        private void MoveLineDown()
         {
-            if (linePosition == sourceText.Lines.Length - 1)
+            if (linePosition == source.Lines.Length - 1)
             {
                 OnRaiseTextEnds(new EventArgs());
             }
@@ -73,12 +73,12 @@ namespace trainer
                 markerPosition = 0;
             }
         }
-        private void MoveLineBack()
+        private void MoveLineUp()
         {
             if (linePosition > 0)
             {
                 linePosition--;
-                markerPosition = sourceText.Lines[linePosition].Length - 1;
+                markerPosition = source.Lines[linePosition].Length - 1;
             }
             else
             {
@@ -111,7 +111,7 @@ namespace trainer
         public bool ValidateChar(char ch)
         {
             statistic.AddChar(ch);
-            if (!IsCorrecting && sourceText.Lines[linePosition][markerPosition] == ch)
+            if (!IsCorrecting && source.Lines[linePosition][markerPosition] == ch)
             {
                 MoveMarkerForward();
                 return true;
