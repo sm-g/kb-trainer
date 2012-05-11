@@ -7,7 +7,7 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        const string defaultTextPath = "..\\..\\..\\text\\dict a.txt";
+        const string defaultTextPath = "..\\..\\..\\text\\a.txt";
         static Color errorColor = Color.Chocolate;
         static Color passedColor = Color.Gray;
         static Color clearColor = Color.White;
@@ -28,6 +28,7 @@ namespace trainer
             charHandler = new CharHandler(sourceText, statistic);
             charHandler.TextEnds += FinishTyping;
             richTextBoxSourceView.Lines = sourceText.Lines;
+            Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
 
         private void richTextBoxInput_KeyPress(object sender, KeyPressEventArgs e)

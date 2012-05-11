@@ -22,10 +22,24 @@ namespace trainer
                 return result;
             }
         }
+        public string Title
+        {
+            get
+            {
+                return textData[0];
+            }
+        }
+        public string FileName
+        {
+            get;
+            private set;
+        }
 
         public SourceText(string filePath)
         {
             textData = File.ReadAllLines(filePath, Encoding.Default);
+            FileName = Path.GetFileName(filePath);
+
             for (int i = 0; i < textData.Length - 1; i++)
             {
                 textData[i].Trim();
