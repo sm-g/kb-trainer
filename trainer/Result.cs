@@ -6,26 +6,25 @@ namespace trainer
 {
     public partial class Result : Form
     {
-        public Result(ResultInfo info, SourceInfo source)
+        public Result(ResultInfo result, SourceInfo source)
         {
             InitializeComponent();
 
-            if (source.Length <= info.PassedChars) // нельзя продолжить
+            if (source.Length <= result.PassedChars) // нельзя продолжить
             {
                 buttonContinue.Enabled = false;
-                AcceptButton = buttonOk;
-                CancelButton = buttonOk;
+                CancelButton = buttonEnd;
             }
 
-            textBoxAvSpeed.Text = info.Speed.ToString("F") + " зн/мин";
-            textBoxErrors.Text = ((double)info.Errors / info.PassedChars).ToString("F2") + " %";
-            TimeSpan time = info.Keystrokes[info.Keystrokes.Count - 1].DownTime;
-            string formattedTime = string.Format("{0}{1}{2}", time.Hours > 0 ? string.Format("{0:0}:", time.Hours) : string.Empty,
-                string.Format("{0:0}:", time.Minutes),
-                string.Format("{0:00}", time.Seconds));
+            TimeSpan time = result.Keystrokes[result.Keystrokes.Count - 1].DownTime;
+            string hours = time.Hours > 0 ? string.Format("{0:0}:", time.Hours) : string.Empty;
+            string formattedTime = string.Format("{0}{1:0}:{2:00}", hours, time.Minutes, time.Seconds);
+
+            textBoxAvSpeed.Text = result.Speed.ToString("F") + " зн/мин";
+            textBoxErrors.Text = ((double)result.Errors / result.PassedChars).ToString("F2") + " %";
             textBoxTime.Text = formattedTime;
 
-            graph.Add(info.Keystrokes);
+            graph.Add(result.Keystrokes);
         }
     }
 }

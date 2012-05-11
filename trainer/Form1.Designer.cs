@@ -41,7 +41,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.текстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeyboard)).BeginInit();
@@ -154,7 +154,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StartToolStripMenuItem,
-            this.текстToolStripMenuItem});
+            this.TextToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(794, 24);
@@ -170,14 +170,14 @@
             this.StartToolStripMenuItem.Text = "Старт";
             this.StartToolStripMenuItem.Click += new System.EventHandler(this.StartToolStripMenuItem_Click);
             // 
-            // текстToolStripMenuItem
+            // TextToolStripMenuItem
             // 
-            this.текстToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TextToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenFileToolStripMenuItem,
             this.RandomTextToolStripMenuItem});
-            this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
-            this.текстToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.текстToolStripMenuItem.Text = "Текст";
+            this.TextToolStripMenuItem.Name = "TextToolStripMenuItem";
+            this.TextToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.TextToolStripMenuItem.Text = "Текст";
             // 
             // OpenFileToolStripMenuItem
             // 
@@ -233,7 +233,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
     }

@@ -8,7 +8,7 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        const string defaultPath = "..\\..\\..\\text";
+        static string textsPath  = Path.Combine(Application.StartupPath, "..\\..\\..\\text");
         static Color errorColor  = Color.Chocolate;
         static Color passedColor = Color.Gray;
         static Color clearColor  = Color.White;
@@ -19,7 +19,7 @@ namespace trainer
         public Form1()
         {
             InitializeComponent();
-            ChooseRandomText(defaultPath);
+            ChooseRandomText(textsPath);
         }
 
         private void LoadSource(string path)
@@ -28,6 +28,7 @@ namespace trainer
             statistic = new Statistic();
             charHandler = new CharHandler(sourceText, statistic);
             charHandler.TextEnds += FinishTyping;
+
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
         private void ChooseRandomText(string directoryPath)
@@ -45,7 +46,7 @@ namespace trainer
 
             if (charHandler.ValidateChar(e.KeyChar))
             {
-                DisplayPassed();
+                DisplayPassedLetter();
                 if (e.KeyChar == ' ')
                 {
                     e.Handled = true;
@@ -54,7 +55,7 @@ namespace trainer
             }
             else
             {
-                DisplayError();
+                DisplayWrongLetter();
             }
         }
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
@@ -78,6 +79,7 @@ namespace trainer
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
         {
             richTextBoxInput.SelectionStart = richTextBoxInput.Text.Length; // ввод только с конца
+
         }
         private void ChangeWord()
         {
@@ -86,27 +88,27 @@ namespace trainer
 
         private void DeleteLetter(char ch)
         {
-            PaintLetters(richTextBoxSourceView, clearColor);
+            PaintLetter(richTextBoxSourceView, clearColor);
             charHandler.DeleteChar(ch);
         }
-        private void DisplayPassed()
+        private void DisplayPassedLetter()
         {
-            PaintLetters(richTextBoxSourceView, passedColor);
+            PaintLetter(richTextBoxSourceView, passedColor);
         }
-        private void DisplayError()
+        private void DisplayWrongLetter()
         {
-            PaintLetters(richTextBoxSourceView, errorColor);
+            PaintLetter(richTextBoxSourceView, errorColor);
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
-        private void PaintLetters(RichTextBox richTextBox, Color color)
+        private void PaintLetter(RichTextBox richTextBox, Color color)
         {
-            richTextBox.Select(charHandler.RichTextPosition, 1);
+            richTextBox.Select(charHandler.MarkerPosition - 1, 1);
             richTextBox.SelectionBackColor = color;
         }
 
         private void FinishTyping(object sender, EventArgs e)
         {
-            statistic.Pause();
+            statistic.PauseTimer();
             richTextBoxInput.Enabled = false;
             timerResultDelay.Enabled = true;
         }
@@ -150,12 +152,10 @@ namespace trainer
                 RandomTextToolStripMenuItem.Checked = false;
             }
         }
-
         private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartExercise();
         }
-
         private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             OpenFileToolStripMenuItem.Checked = false;
@@ -165,7 +165,7 @@ namespace trainer
         private void RandomTextToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             if (RandomTextToolStripMenuItem.Checked)
-                ChooseRandomText(defaultPath);
+                ChooseRandomText(textsPath);
         }
     }
 }

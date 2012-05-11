@@ -7,67 +7,15 @@ using System.Windows.Forms;
 
 namespace trainer
 {
-    class Statistic
+    partial class Statistic
     {
-        /// <summary>
-        /// Скорость набора (нажатий в минуту)
-        /// </summary>
-        public class Velocity
-        {
-            const int MIN_KEYS = 2; // минимум нажатий для рассчета скорости
-            const int MIN_MSEC = 1; // минимальный промежуток времени (в мс)
-            private int instantSpan = 3;
-            private Statistic parent;
-            /// <summary>
-            /// Количество нажатий для рассчета мгновенной скорости
-            /// </summary>
-            public int InstantSpan { get { return instantSpan; } set { if (value < 1) value = 1; instantSpan = value; } }
-            public double Average
-            {
-                get
-                {
-                    if (parent.keystrokes.Count < MIN_KEYS)
-                        return 0;
-                    return GetAverage(parent.TotalPrintingTime, parent.PassedChars);
-                }
-            }
-            public double Instant
-            {
-                get
-                {
-                    if (parent.keystrokes.Count < MIN_KEYS)
-                        return 0;
-                    return GetInstant(parent.keystrokes[parent.keystrokes.Count - InstantSpan].DownTime,
-                                      parent.TotalPrintingTime,
-                                      InstantSpan);
-                }
-            }
-
-            public Velocity(Statistic _parent)
-            {
-                parent = _parent;
-            }
-            public static double GetAverage(TimeSpan time, int count)
-            {
-                if (time.TotalMilliseconds < MIN_MSEC)
-                    return 0;
-                return 60 * count / time.TotalSeconds;
-            }
-            public static double GetInstant(TimeSpan first, TimeSpan last, int span)
-            {
-                if ((last - first).TotalMilliseconds < MIN_MSEC)
-                    return 0;
-                return 60 * span / (last - first).TotalSeconds;
-            }
-        }
-
         private Stopwatch stopwatch;
         private List<Keystroke> keystrokes;
         private int errorsCounter;
         private int deletedCharsCounter;
         private int typedCharsCounter;
 
-        public Velocity Speed { get; set; }
+        public TypingSpeed Speed { get; set; }
         public int PassedChars
         {
             get { return typedCharsCounter - deletedCharsCounter; }
@@ -87,7 +35,7 @@ namespace trainer
 
         public Statistic()
         {
-            Speed = new Velocity(this);
+            Speed = new TypingSpeed(this);
             keystrokes = new List<Keystroke>();
             stopwatch = new Stopwatch();
         }
@@ -118,10 +66,10 @@ namespace trainer
         public void RegisterKeyUp(Keys key)
         {
             Keystroke keystroke = keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
-            if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша
-                keystroke.UpTime = stopwatch.Elapsed;            
+            if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша (её не будет в списке)
+                keystroke.UpTime = stopwatch.Elapsed;
         }
-        public void Pause()
+        public void PauseTimer()
         {
             stopwatch.Stop();
         }
@@ -130,9 +78,7 @@ namespace trainer
             return new ResultInfo(Speed.Average, Errors, PassedChars, keystrokes);
         }
     }
-    /// <summary>
-    /// Информация об отдельном нажатии
-    /// </summary>
+
     public class Keystroke
     {
         public TimeSpan DownTime { get; set; }
@@ -149,9 +95,7 @@ namespace trainer
             Key = key;
         }
     }
-    /// <summary>
-    /// Данные о результате
-    /// </summary>
+
     public struct ResultInfo
     {
         public double Speed;

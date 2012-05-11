@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="SourceText.cs" />
     <Compile Include="Statistic.cs" />
+    <Compile Include="TypingSpeed.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

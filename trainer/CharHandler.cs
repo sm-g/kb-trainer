@@ -12,27 +12,21 @@ namespace trainer
 
         private SourceText source;
         private Statistic statistic;
-        private int markerPosition;
-        private int linePosition;
+        private int inLinePosition;
+        private int lineNumber;
         private int wrongChars;
 
-        /// <summary>
-        /// Положение курсора в richTextBoxSourceView перед введённой буквой
-        /// </summary>
-        public int RichTextPosition
+        public int MarkerPosition
         {
             get
             {
-                if (markerPosition == 0 && linePosition != 0) // учитывает дополнительный невидимый символ (перевода строки) после ввода последнего символа в строке  
-                    return statistic.PassedChars + linePosition - 2;
+                if (inLinePosition == 0 && lineNumber != 0) // учитывает невидимый символ перевода строки после ввода последней в строке буквы
+                    return statistic.PassedChars + lineNumber - 1;
                 else
-                    return statistic.PassedChars + linePosition - 1;
+                    return statistic.PassedChars + lineNumber;
             }
         }
-        /// <summary>
-        /// Корректируется ли ошибка
-        /// </summary>
-        public bool IsCorrecting
+        public bool IsCorrectingWrongChars
         {
             get { return wrongChars > 0; }
         }
@@ -43,54 +37,50 @@ namespace trainer
             statistic = _statistic;
         }
 
-        #region Перемещение позиции ввода
-     
         private void MoveMarkerForward()
         {
-            markerPosition++;
-            if (markerPosition == source.Lines[linePosition].Length)
+            inLinePosition++;
+            if (inLinePosition == source.Lines[lineNumber].Length)
             {
-                MoveLineDown();
+                MoveMarkerToNextLine();
             }
         }
         private void MoveMarkerBack()
         {
-            markerPosition--;
-            if (markerPosition == -1)
+            inLinePosition--;
+            if (inLinePosition == -1)
             {
-                MoveLineUp();
+                MoveMarkerToPrevLine();
             }
         }
-        private void MoveLineDown()
+        private void MoveMarkerToNextLine()
         {
-            if (linePosition == source.Lines.Length - 1)
+            if (lineNumber == source.Lines.Length - 1)
             {
                 OnRaiseTextEnds(new EventArgs());
             }
             else
             {
-                linePosition++;
-                markerPosition = 0;
+                lineNumber++;
+                inLinePosition = 0;
             }
         }
-        private void MoveLineUp()
+        private void MoveMarkerToPrevLine()
         {
-            if (linePosition > 0)
+            if (lineNumber > 0)
             {
-                linePosition--;
-                markerPosition = source.Lines[linePosition].Length - 1;
+                lineNumber--;
+                inLinePosition = source.Lines[lineNumber].Length - 1;
             }
             else
             {
-                markerPosition = 0;
+                inLinePosition = 0;
             }
         }
 
-        #endregion
-
         private void AddWrongChar(char ch)
         {
-            if (!IsCorrecting)
+            if (!IsCorrectingWrongChars)
             {
                 statistic.AddError(ch);
             }
@@ -99,7 +89,7 @@ namespace trainer
         public void DeleteChar(char ch)
         {
             statistic.AddDeletion(ch);
-            if (!IsCorrecting)
+            if (!IsCorrectingWrongChars)
             {
                 MoveMarkerBack();
             }
@@ -111,7 +101,7 @@ namespace trainer
         public bool ValidateChar(char ch)
         {
             statistic.AddChar(ch);
-            if (!IsCorrecting && source.Lines[linePosition][markerPosition] == ch)
+            if (!IsCorrectingWrongChars && source.Lines[lineNumber][inLinePosition] == ch)
             {
                 MoveMarkerForward();
                 return true;
