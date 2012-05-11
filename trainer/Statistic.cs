@@ -26,19 +26,19 @@ namespace trainer
             {
                 get
                 {
-                    if (parent.keystrokesList.Count < MIN_KEYS)
+                    if (parent.keystrokes.Count < MIN_KEYS)
                         return 0;
-                    return GetAverage(TimeSpan.FromMilliseconds(parent.TotalPrintingTime), parent.PassedChars);
+                    return GetAverage(parent.TotalPrintingTime, parent.PassedChars);
                 }
             }
             public double Instant
             {
                 get
                 {
-                    if (parent.keystrokesList.Count < MIN_KEYS)
+                    if (parent.keystrokes.Count < MIN_KEYS)
                         return 0;
-                    return GetInstant(TimeSpan.FromMilliseconds(parent.keystrokesList[parent.keystrokesList.Count - InstantSpan].DownTime),
-                                      TimeSpan.FromMilliseconds(parent.TotalPrintingTime),
+                    return GetInstant(parent.keystrokes[parent.keystrokes.Count - InstantSpan].DownTime,
+                                      parent.TotalPrintingTime,
                                       InstantSpan);
                 }
             }
@@ -61,8 +61,8 @@ namespace trainer
             }
         }
 
-        private Stopwatch globalStopwatch;
-        private List<KeystrokeInfo> keystrokesList;
+        private Stopwatch stopwatch;
+        private List<Keystroke> keystrokes;
         private int errorsCounter;
         private int deletedCharsCounter;
         private int typedCharsCounter;
@@ -78,71 +78,72 @@ namespace trainer
         }
         public bool IsEmpty
         {
-            get { return keystrokesList.Count == 0; }
+            get { return keystrokes.Count == 0; }
         }
-        public long TotalPrintingTime
+        public TimeSpan TotalPrintingTime
         {
-            get { return keystrokesList[keystrokesList.Count - 1].DownTime; }
+            get { return keystrokes[keystrokes.Count - 1].DownTime; }
         }
 
         public Statistic()
         {
             Speed = new Velocity(this);
-            keystrokesList = new List<KeystrokeInfo>();
-            globalStopwatch = new Stopwatch();
+            keystrokes = new List<Keystroke>();
+            stopwatch = new Stopwatch();
         }
 
         public void AddChar(char ch)
         {
             typedCharsCounter++;
-            keystrokesList[keystrokesList.Count - 1].Char = ch;
+            keystrokes[keystrokes.Count - 1].Char = ch;
         }
         public void AddError(char ch)
         {
             errorsCounter++;
-            keystrokesList[keystrokesList.Count - 1].IsError = true;
+            keystrokes[keystrokes.Count - 1].IsError = true;
         }
         public void AddDeletion(char ch)
         {
             deletedCharsCounter++;
-            keystrokesList[keystrokesList.Count - 1].Char = ch;
+            keystrokes[keystrokes.Count - 1].Char = ch;
         }
         public void RegisterKeyDown(Keys key)
         {
-            if (!globalStopwatch.IsRunning)
+            if (!stopwatch.IsRunning)
             {
-                globalStopwatch.Start();
+                stopwatch.Start();
             }
-            keystrokesList.Add(new KeystrokeInfo(globalStopwatch.ElapsedMilliseconds, key));
+            keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
         }
         public void RegisterKeyUp(Keys key)
         {
-            KeystrokeInfo keystroke = keystrokesList.LastOrDefault(item => item.Key == key && item.UpTime == 0);
+            Keystroke keystroke = keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
             if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша
-                keystroke.UpTime = globalStopwatch.ElapsedMilliseconds;;
+                keystroke.UpTime = stopwatch.Elapsed;            
         }
         public void Pause()
         {
-            globalStopwatch.Stop();
+            stopwatch.Stop();
         }
         public ResultInfo GetResultInfo()
         {
-            return new ResultInfo(Speed.Average, Errors, PassedChars, keystrokesList);
+            return new ResultInfo(Speed.Average, Errors, PassedChars, keystrokes);
         }
     }
     /// <summary>
     /// Информация об отдельном нажатии
     /// </summary>
-    public class KeystrokeInfo
+    public class Keystroke
     {
-        public long DownTime { get; set; }
-        public long UpTime { get; set; }
-        public long Duration { get { return UpTime - DownTime; } }
+        public TimeSpan DownTime { get; set; }
+        public TimeSpan UpTime { get; set; }
+        public TimeSpan Duration { get { return UpTime - DownTime; } }
         public Keys Key { get; set; }
         public char Char { get; set; }
         public bool IsError { get; set; }
+        public bool IsCompleted { get { return UpTime != TimeSpan.Zero; } }
 
-        public KeystrokeInfo(long downTime, Keys key)
+        public Keystroke(TimeSpan downTime, Keys key)
         {
             DownTime = downTime;
             Key = key;
@@ -155,10 +156,10 @@ namespace trainer
     {
         public double Speed;
         public int Errors;
-        public List<KeystrokeInfo> Keystrokes;
+        public List<Keystroke> Keystrokes;
         public int PassedChars;
 
-        public ResultInfo(double speed, int errors, int passedChars, List<KeystrokeInfo> keystrokes)
+        public ResultInfo(double speed, int errors, int passedChars, List<Keystroke> keystrokes)
         {
             Speed = speed;
             Errors = errors;
