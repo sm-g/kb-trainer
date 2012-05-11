@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace trainer
@@ -20,6 +20,20 @@ namespace trainer
                                                                                  keystrokes[i].DownTime,
                                                                                  span));
             }
+        }
+
+        private void SaveGraphToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            if (saveFileDialogGraph.ShowDialog() == DialogResult.OK)
+            {
+                chart.SaveImage(saveFileDialogGraph.FileName, ImageFormat.Png);
+            }
+        }
+
+        private void chart_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+                contextMenuStripGraph.Show(this, e.Location);
         }
     }
 }
