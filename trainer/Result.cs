@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace trainer
 {
@@ -23,6 +24,8 @@ namespace trainer
                 string.Format("{0:0}:", time.Minutes),
                 string.Format("{0:00}", time.Seconds));
             textBoxTime.Text = formattedTime;
+
+            graph.Add(info.Keystrokes);
         }
     }
 }

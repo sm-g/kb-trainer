@@ -38,6 +38,7 @@
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
+            this.graph = new trainer.Graph();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             this.buttonOk.Location = new System.Drawing.Point(61, 143);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
-            this.buttonOk.TabIndex = 0;
+            this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "Хорошо";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
@@ -62,6 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonContinue, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonOk, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.graph, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,7 +71,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(394, 176);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -91,7 +93,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(191, 60);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
             // textBoxErrors
             // 
@@ -122,7 +124,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Ошибок:";
             // 
             // textBoxAvSpeed
@@ -133,7 +135,7 @@
             this.textBoxAvSpeed.Name = "textBoxAvSpeed";
             this.textBoxAvSpeed.ReadOnly = true;
             this.textBoxAvSpeed.Size = new System.Drawing.Size(90, 13);
-            this.textBoxAvSpeed.TabIndex = 2;
+            this.textBoxAvSpeed.TabIndex = 1;
             // 
             // textBoxTime
             // 
@@ -164,9 +166,17 @@
             this.buttonContinue.Location = new System.Drawing.Point(255, 143);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(80, 23);
-            this.buttonContinue.TabIndex = 2;
+            this.buttonContinue.TabIndex = 0;
             this.buttonContinue.Text = "Продолжить";
             this.buttonContinue.UseVisualStyleBackColor = true;
+            // 
+            // graph
+            // 
+            this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graph.Location = new System.Drawing.Point(200, 3);
+            this.graph.Name = "graph";
+            this.graph.Size = new System.Drawing.Size(191, 134);
+            this.graph.TabIndex = 3;
             // 
             // Result
             // 
@@ -197,5 +207,6 @@
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button buttonContinue;
+        private Graph graph;
     }
 }
