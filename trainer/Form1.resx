@@ -121,8 +121,8 @@
   <data name="pictureBoxKeyboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqMAAADMCAYAAABHoqrOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOsQAA
-        DrEBnIwf2gAAPDZJREFUeF7tXUvIZkfRHjc/DAhCZmdciGQ94CIOoosgKOqIC3EjGFcyQdyNayXGjCYa
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOrQAA
+        Dq0BDu+AZwAAPDZJREFUeF7tXUvIZkfRHjc/DAhCZmdciGQ94CIOoosgKOqIC3EjGFcyQdyNayXGjCYa
         TbyNxtvES6LG22jUzGpU3AQMRDAaXZiF4IC60MnGgJfzW9+kZvrrr093VXdVn+73fV44zOXt06f6qae6
         n67uPu+Lnv71E8ux/32+e/ES/dH986IXvUj1TE15TVkyQlNeU3akukeyBRimqa/BRVN2X3y/L+309D0w
         HDs24Z92/wDDdgxN+yASo3Tdeeedm1wf/OAHF8111113LdLrQx/60KK57r777kV6nTt3btFcH/7whxfp
@@ -384,5 +384,11 @@
   </data>
   <metadata name="timerResultDelay.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>153, 17</value>
+  </metadata>
+  <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>277, 17</value>
   </metadata>
 </root>

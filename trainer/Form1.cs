@@ -27,7 +27,6 @@ namespace trainer
             statistic = new Statistic();
             charHandler = new CharHandler(sourceText, statistic);
             charHandler.TextEnds += FinishTyping;
-            richTextBoxSourceView.Lines = sourceText.Lines;
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
 
@@ -50,7 +49,6 @@ namespace trainer
                 DisplayError();
             }
         }
-
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Escape)
@@ -58,25 +56,21 @@ namespace trainer
                 FinishTyping(sender, e);
                 return; // не записывается в статистику
             }
-            statistic.RegisterKeyDown(e.KeyCode);            
+            statistic.RegisterKeyDown(e.KeyCode);
             if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
             }
-
         }
-
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
             statistic.RegisterKeyUp(e.KeyCode);
             labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
         }
-
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
         {
             richTextBoxInput.SelectionStart = richTextBoxInput.Text.Length; // ввод только с конца
         }
-
         private void ChangeWord()
         {
             richTextBoxInput.Clear();
@@ -87,18 +81,15 @@ namespace trainer
             PaintLetters(richTextBoxSourceView, clearColor);
             charHandler.DeleteChar(ch);
         }
-
         private void DisplayPassed()
         {
             PaintLetters(richTextBoxSourceView, passedColor);
         }
-
         private void DisplayError()
         {
             PaintLetters(richTextBoxSourceView, errorColor);
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
-
         private void PaintLetters(RichTextBox richTextBox, Color color)
         {
             richTextBox.Select(charHandler.RichTextPosition, 1);
@@ -111,7 +102,6 @@ namespace trainer
             richTextBoxInput.Enabled = false;
             timerResultDelay.Enabled = true;
         }
-
         private void ResumeTyping()
         {
             richTextBoxInput.Enabled = true;
@@ -121,6 +111,12 @@ namespace trainer
         private void EndExercise()
         {
             //
+        }
+        private void StartExercise()
+        {
+            richTextBoxInput.Enabled = true;
+            richTextBoxInput.Focus();
+            richTextBoxSourceView.Lines = sourceText.Lines;
         }
 
         private void timerResultDelay_Tick(object sender, EventArgs e)
@@ -135,6 +131,19 @@ namespace trainer
             {
                 ResumeTyping();
             }
+        }
+
+        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                LoadSource(openFileDialog.FileName);
+            }
+        }
+
+        private void StartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartExercise();
         }
     }
 }
