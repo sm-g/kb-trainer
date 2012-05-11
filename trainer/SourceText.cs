@@ -42,7 +42,7 @@ namespace trainer
 
             for (int i = 0; i < textData.Length - 1; i++)
             {
-                textData[i].Trim();
+                textData[i] = textData[i].Trim();
                 textData[i] += ' '; // для разрыва со словом из следующей строки
             }
         }
