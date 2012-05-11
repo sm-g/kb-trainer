@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -7,10 +8,10 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        const string defaultTextPath = "..\\..\\..\\text\\a.txt";
-        static Color errorColor = Color.Chocolate;
+        const string defaultPath = "..\\..\\..\\text";
+        static Color errorColor  = Color.Chocolate;
         static Color passedColor = Color.Gray;
-        static Color clearColor = Color.White;
+        static Color clearColor  = Color.White;
         SourceText sourceText;
         CharHandler charHandler;
         Statistic statistic;
@@ -18,7 +19,7 @@ namespace trainer
         public Form1()
         {
             InitializeComponent();
-            LoadSource(defaultTextPath);
+            ChooseRandomText(defaultPath);
         }
 
         private void LoadSource(string path)
@@ -28,6 +29,13 @@ namespace trainer
             charHandler = new CharHandler(sourceText, statistic);
             charHandler.TextEnds += FinishTyping;
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
+        }
+        private void ChooseRandomText(string directoryPath)
+        {
+            string[] fileNames = Directory.GetFiles(directoryPath, "*.txt");
+            Random r = new Random();
+            string chosenFileName = fileNames[r.Next(fileNames.Length)];
+            LoadSource(chosenFileName);
         }
 
         private void richTextBoxInput_KeyPress(object sender, KeyPressEventArgs e)
@@ -138,12 +146,26 @@ namespace trainer
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 LoadSource(openFileDialog.FileName);
+                OpenFileToolStripMenuItem.Checked = true;
+                RandomTextToolStripMenuItem.Checked = false;
             }
         }
 
         private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartExercise();
+        }
+
+        private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            OpenFileToolStripMenuItem.Checked = false;
+            RandomTextToolStripMenuItem.Checked = true;
+        }
+
+        private void RandomTextToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RandomTextToolStripMenuItem.Checked)
+                ChooseRandomText(defaultPath);
         }
     }
 }

@@ -43,6 +43,7 @@
             this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.текстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeyboard)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -172,7 +173,8 @@
             // текстToolStripMenuItem
             // 
             this.текстToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OpenFileToolStripMenuItem});
+            this.OpenFileToolStripMenuItem,
+            this.RandomTextToolStripMenuItem});
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
             this.текстToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.текстToolStripMenuItem.Text = "Текст";
@@ -185,6 +187,16 @@
             this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.OpenFileToolStripMenuItem.Text = "Из файла...";
             this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
+            // 
+            // RandomTextToolStripMenuItem
+            // 
+            this.RandomTextToolStripMenuItem.Checked = true;
+            this.RandomTextToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RandomTextToolStripMenuItem.Name = "RandomTextToolStripMenuItem";
+            this.RandomTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.RandomTextToolStripMenuItem.Text = "Случайный";
+            this.RandomTextToolStripMenuItem.CheckedChanged += new System.EventHandler(this.RandomTextToolStripMenuItem_CheckedChanged);
+            this.RandomTextToolStripMenuItem.Click += new System.EventHandler(this.RandomTextToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -223,5 +235,6 @@
         private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
     }
 }
