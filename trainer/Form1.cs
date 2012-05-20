@@ -47,6 +47,9 @@ namespace trainer
             if (charHandler.ValidateChar(e.KeyChar))
             {
                 DisplayPassedLetter();
+
+                keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
+
                 if (e.KeyChar == ' ')
                 {
                     e.Handled = true;
@@ -69,7 +72,11 @@ namespace trainer
             if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
+
+                keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
             }
+            
+            Console.Write(charHandler.NextChar);
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
@@ -127,6 +134,8 @@ namespace trainer
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
             richTextBoxSourceView.Lines = sourceText.Lines;
+
+            keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
         }
 
         private void timerResultDelay_Tick(object sender, EventArgs e)

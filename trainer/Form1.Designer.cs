@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelVelocity = new System.Windows.Forms.Label();
             this.labelErrors = new System.Windows.Forms.Label();
             this.richTextBoxSourceView = new System.Windows.Forms.RichTextBox();
-            this.pictureBoxKeyboard = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
@@ -44,7 +42,7 @@
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeyboard)).BeginInit();
+            this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -54,7 +52,7 @@
             // 
             this.labelVelocity.AutoSize = true;
             this.labelVelocity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelVelocity.Location = new System.Drawing.Point(717, 334);
+            this.labelVelocity.Location = new System.Drawing.Point(717, 338);
             this.labelVelocity.Name = "labelVelocity";
             this.labelVelocity.Size = new System.Drawing.Size(57, 13);
             this.labelVelocity.TabIndex = 2;
@@ -84,17 +82,6 @@
             this.richTextBoxSourceView.TabStop = false;
             this.richTextBoxSourceView.Text = "";
             // 
-            // pictureBoxKeyboard
-            // 
-            this.pictureBoxKeyboard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxKeyboard.Image")));
-            this.pictureBoxKeyboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBoxKeyboard.Location = new System.Drawing.Point(82, 337);
-            this.pictureBoxKeyboard.Name = "pictureBoxKeyboard";
-            this.pictureBoxKeyboard.Size = new System.Drawing.Size(629, 204);
-            this.pictureBoxKeyboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxKeyboard.TabIndex = 0;
-            this.pictureBoxKeyboard.TabStop = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -102,9 +89,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBoxKeyboard, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelVelocity, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelErrors, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.keyboard, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -122,7 +109,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(82, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(629, 298);
+            this.panel1.Size = new System.Drawing.Size(629, 302);
             this.panel1.TabIndex = 0;
             // 
             // richTextBoxInput
@@ -130,7 +117,7 @@
             this.richTextBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxInput.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.richTextBoxInput.Enabled = false;
-            this.richTextBoxInput.Location = new System.Drawing.Point(0, 278);
+            this.richTextBoxInput.Location = new System.Drawing.Point(0, 282);
             this.richTextBoxInput.Multiline = false;
             this.richTextBoxInput.Name = "richTextBoxInput";
             this.richTextBoxInput.Size = new System.Drawing.Size(629, 20);
@@ -198,6 +185,14 @@
             this.RandomTextToolStripMenuItem.CheckedChanged += new System.EventHandler(this.RandomTextToolStripMenuItem_CheckedChanged);
             this.RandomTextToolStripMenuItem.Click += new System.EventHandler(this.RandomTextToolStripMenuItem_Click);
             // 
+            // keyboard
+            // 
+            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +204,6 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Keyboard Trainer";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeyboard)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -222,7 +216,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxKeyboard;
         private System.Windows.Forms.Label labelVelocity;
         private System.Windows.Forms.Label labelErrors;
         private System.Windows.Forms.RichTextBox richTextBoxSourceView;
@@ -236,5 +229,6 @@
         private System.Windows.Forms.ToolStripMenuItem TextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
+        private Keyboard keyboard;
     }
 }

@@ -26,6 +26,16 @@ namespace trainer
                     return statistic.PassedChars + lineNumber;
             }
         }
+        public char NextChar
+        {
+            get
+            {
+                if (inLinePosition < source.Lines[lineNumber].Length)
+                    return source.Lines[lineNumber][inLinePosition];
+                else
+                    return '\0';
+            }
+        }
         public bool IsCorrectingWrongChars
         {
             get { return wrongChars > 0; }
@@ -35,6 +45,34 @@ namespace trainer
         {
             source = sourceText;
             statistic = _statistic;
+        }
+
+        public static char CharToKeyLabel(char ch)
+        {            
+            if (Char.IsLetterOrDigit(ch))
+                return Char.ToUpper(ch);
+            Dictionary<char, char> d = new Dictionary<char, char>() { { '!', '1' }, 
+                                                                      { '@', '2' }, 
+                                                                      { '"', '2' }, 
+                                                                      { '№', '3' }, 
+                                                                      { ';', '4' }, 
+                                                                      { '$', '4' }, 
+                                                                      { '%', '5' }, 
+                                                                      { ':', '6' }, 
+                                                                      { '^', '6' }, 
+                                                                      { '&', '7' }, 
+                                                                      { '?', '7' }, 
+                                                                      { '*', '8' }, 
+                                                                      { '(', '9' }, 
+                                                                      { ')', '0' }, 
+                                                                      { '_', '-' }, 
+                                                                      { '+', '=' }, 
+                                                                      { ',', '.' }, 
+                                                                      { ' ', ' ' } };
+            char result;
+            if (d.TryGetValue(ch, out result))
+                return result;
+            return '\0';
         }
 
         private void MoveMarkerForward()
