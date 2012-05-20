@@ -8,7 +8,7 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        static string textsPath  = Path.Combine(Application.StartupPath, "..\\..\\..\\text");
+        static string textsPath  = Path.Combine(Application.StartupPath, "text");
         static Color errorColor  = Color.Chocolate;
         static Color passedColor = Color.Gray;
         static Color clearColor  = Color.White;
