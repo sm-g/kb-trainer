@@ -16,7 +16,6 @@ namespace trainer
             InitializeComponent();
         }
 
-
         public void HighlightKey(char ch)
         {
             if (ch != '\0')
@@ -26,7 +25,7 @@ namespace trainer
                     for (int j = 0; j < tableLayoutPanel.Controls[i].Controls.Count; j++)
                     {
                         kb = (KeyButton)tableLayoutPanel.Controls[i].Controls[j];
-                        if (kb.ch == ch)
+                        if (kb.Char == ch)
                         {
                             kb.Highlight();
                         }

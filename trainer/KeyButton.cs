@@ -20,7 +20,7 @@ namespace trainer
 
         Color bColor = backColor;
 
-        public char ch { get; set; }
+        public char Char { get; set; }
         public string Label
         {
             get
@@ -32,12 +32,11 @@ namespace trainer
                 label.Text = value;
             }
         }
-        public Fingers finger;
+        public Fingers finger { get; set; }
 
         public KeyButton()
         {
             InitializeComponent();
-            DrawRoundedRectangle(label.CreateGraphics(), new Rectangle(1, 1, 25, 25), 2, new Pen(Color.Green), Color.Honeydew);
         }
 
         private void DrawRoundedRectangle(Graphics gfx, Rectangle Bounds, int CornerRadius, Pen DrawPen, Color FillColor)
@@ -80,7 +79,8 @@ namespace trainer
     public enum Fingers
     {
         First,
-        Second,
+        SecondLeft,
+        SecondRight,
         Third,
         Fourth,
         Fifth

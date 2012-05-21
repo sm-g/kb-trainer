@@ -289,8 +289,9 @@
             // keyButton14
             // 
             this.keyButton14.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton14.ch = '\0';
+            this.keyButton14.Char = '\0';
             this.keyButton14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton14.finger = trainer.Fingers.First;
             this.keyButton14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton14.Label = "←";
             this.keyButton14.Location = new System.Drawing.Point(549, 3);
@@ -303,8 +304,9 @@
             // keyButton13
             // 
             this.keyButton13.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton13.ch = '=';
+            this.keyButton13.Char = '=';
             this.keyButton13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton13.finger = trainer.Fingers.Fifth;
             this.keyButton13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton13.Label = "=";
             this.keyButton13.Location = new System.Drawing.Point(507, 3);
@@ -317,8 +319,9 @@
             // keyButton12
             // 
             this.keyButton12.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton12.ch = '-';
+            this.keyButton12.Char = '-';
             this.keyButton12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton12.finger = trainer.Fingers.Fifth;
             this.keyButton12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton12.Label = "-";
             this.keyButton12.Location = new System.Drawing.Point(465, 3);
@@ -331,8 +334,9 @@
             // keyButton11
             // 
             this.keyButton11.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton11.ch = '0';
+            this.keyButton11.Char = '0';
             this.keyButton11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton11.finger = trainer.Fingers.Fifth;
             this.keyButton11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton11.Label = "0";
             this.keyButton11.Location = new System.Drawing.Point(423, 3);
@@ -345,8 +349,9 @@
             // keyButton10
             // 
             this.keyButton10.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton10.ch = '\0';
+            this.keyButton10.Char = '\0';
             this.keyButton10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton10.finger = trainer.Fingers.Fourth;
             this.keyButton10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton10.Label = "9";
             this.keyButton10.Location = new System.Drawing.Point(381, 3);
@@ -359,8 +364,9 @@
             // keyButton9
             // 
             this.keyButton9.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton9.ch = '9';
+            this.keyButton9.Char = '9';
             this.keyButton9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton9.finger = trainer.Fingers.Third;
             this.keyButton9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton9.Label = "8";
             this.keyButton9.Location = new System.Drawing.Point(339, 3);
@@ -373,8 +379,9 @@
             // keyButton8
             // 
             this.keyButton8.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton8.ch = '7';
+            this.keyButton8.Char = '7';
             this.keyButton8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton8.finger = trainer.Fingers.SecondRight;
             this.keyButton8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton8.Label = "7";
             this.keyButton8.Location = new System.Drawing.Point(297, 3);
@@ -387,8 +394,9 @@
             // keyButton7
             // 
             this.keyButton7.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton7.ch = '6';
+            this.keyButton7.Char = '6';
             this.keyButton7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton7.finger = trainer.Fingers.SecondLeft;
             this.keyButton7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton7.Label = "6";
             this.keyButton7.Location = new System.Drawing.Point(255, 3);
@@ -401,8 +409,9 @@
             // keyButton6
             // 
             this.keyButton6.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton6.ch = '5';
+            this.keyButton6.Char = '5';
             this.keyButton6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton6.finger = trainer.Fingers.SecondLeft;
             this.keyButton6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton6.Label = "5";
             this.keyButton6.Location = new System.Drawing.Point(213, 3);
@@ -415,8 +424,9 @@
             // keyButton5
             // 
             this.keyButton5.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton5.ch = '4';
+            this.keyButton5.Char = '4';
             this.keyButton5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton5.finger = trainer.Fingers.Third;
             this.keyButton5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton5.Label = "4";
             this.keyButton5.Location = new System.Drawing.Point(171, 3);
@@ -429,8 +439,9 @@
             // keyButton4
             // 
             this.keyButton4.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton4.ch = '3';
+            this.keyButton4.Char = '3';
             this.keyButton4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton4.finger = trainer.Fingers.Fourth;
             this.keyButton4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton4.Label = "3";
             this.keyButton4.Location = new System.Drawing.Point(129, 3);
@@ -443,8 +454,9 @@
             // keyButton3
             // 
             this.keyButton3.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton3.ch = '\0';
+            this.keyButton3.Char = '\0';
             this.keyButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton3.finger = trainer.Fingers.Fifth;
             this.keyButton3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton3.Label = "2";
             this.keyButton3.Location = new System.Drawing.Point(87, 3);
@@ -457,8 +469,9 @@
             // keyButton2
             // 
             this.keyButton2.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton2.ch = '2';
+            this.keyButton2.Char = '2';
             this.keyButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton2.finger = trainer.Fingers.Fifth;
             this.keyButton2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton2.Label = "1";
             this.keyButton2.Location = new System.Drawing.Point(45, 3);
@@ -471,8 +484,9 @@
             // keyButton1
             // 
             this.keyButton1.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton1.ch = 'Ё';
+            this.keyButton1.Char = 'Ё';
             this.keyButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton1.finger = trainer.Fingers.Fifth;
             this.keyButton1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton1.Label = "ё";
             this.keyButton1.Location = new System.Drawing.Point(3, 3);
@@ -485,8 +499,9 @@
             // keyButton15
             // 
             this.keyButton15.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton15.ch = '\\';
+            this.keyButton15.Char = '\\';
             this.keyButton15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton15.finger = trainer.Fingers.First;
             this.keyButton15.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton15.Label = "\\";
             this.keyButton15.Location = new System.Drawing.Point(561, 3);
@@ -499,8 +514,9 @@
             // keyButton16
             // 
             this.keyButton16.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton16.ch = 'Ъ';
+            this.keyButton16.Char = 'Ъ';
             this.keyButton16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton16.finger = trainer.Fingers.Fifth;
             this.keyButton16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton16.Label = "ъ";
             this.keyButton16.Location = new System.Drawing.Point(519, 3);
@@ -513,8 +529,9 @@
             // keyButton17
             // 
             this.keyButton17.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton17.ch = 'Х';
+            this.keyButton17.Char = 'Х';
             this.keyButton17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton17.finger = trainer.Fingers.Fifth;
             this.keyButton17.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton17.Label = "х";
             this.keyButton17.Location = new System.Drawing.Point(477, 3);
@@ -527,8 +544,9 @@
             // keyButton18
             // 
             this.keyButton18.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton18.ch = 'З';
+            this.keyButton18.Char = 'З';
             this.keyButton18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton18.finger = trainer.Fingers.Fifth;
             this.keyButton18.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton18.Label = "з";
             this.keyButton18.Location = new System.Drawing.Point(435, 3);
@@ -541,8 +559,9 @@
             // keyButton19
             // 
             this.keyButton19.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton19.ch = 'Щ';
+            this.keyButton19.Char = 'Щ';
             this.keyButton19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton19.finger = trainer.Fingers.Fourth;
             this.keyButton19.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton19.Label = "щ";
             this.keyButton19.Location = new System.Drawing.Point(393, 3);
@@ -555,8 +574,9 @@
             // keyButton20
             // 
             this.keyButton20.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton20.ch = 'Ш';
+            this.keyButton20.Char = 'Ш';
             this.keyButton20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton20.finger = trainer.Fingers.Third;
             this.keyButton20.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton20.Label = "ш";
             this.keyButton20.Location = new System.Drawing.Point(351, 3);
@@ -569,8 +589,9 @@
             // keyButton21
             // 
             this.keyButton21.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton21.ch = 'Г';
+            this.keyButton21.Char = 'Г';
             this.keyButton21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton21.finger = trainer.Fingers.SecondRight;
             this.keyButton21.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton21.Label = "г";
             this.keyButton21.Location = new System.Drawing.Point(309, 3);
@@ -583,8 +604,9 @@
             // keyButton22
             // 
             this.keyButton22.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton22.ch = 'Н';
+            this.keyButton22.Char = 'Н';
             this.keyButton22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton22.finger = trainer.Fingers.SecondRight;
             this.keyButton22.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton22.Label = "н";
             this.keyButton22.Location = new System.Drawing.Point(267, 3);
@@ -597,8 +619,9 @@
             // keyButton23
             // 
             this.keyButton23.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton23.ch = 'Е';
+            this.keyButton23.Char = 'Е';
             this.keyButton23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton23.finger = trainer.Fingers.SecondLeft;
             this.keyButton23.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton23.Label = "е";
             this.keyButton23.Location = new System.Drawing.Point(225, 3);
@@ -611,8 +634,9 @@
             // keyButton24
             // 
             this.keyButton24.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton24.ch = 'К';
+            this.keyButton24.Char = 'К';
             this.keyButton24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton24.finger = trainer.Fingers.SecondLeft;
             this.keyButton24.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton24.Label = "к";
             this.keyButton24.Location = new System.Drawing.Point(183, 3);
@@ -625,8 +649,9 @@
             // keyButton25
             // 
             this.keyButton25.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton25.ch = 'У';
+            this.keyButton25.Char = 'У';
             this.keyButton25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton25.finger = trainer.Fingers.Third;
             this.keyButton25.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton25.Label = "у";
             this.keyButton25.Location = new System.Drawing.Point(141, 3);
@@ -639,8 +664,9 @@
             // keyButton26
             // 
             this.keyButton26.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton26.ch = 'Ц';
+            this.keyButton26.Char = 'Ц';
             this.keyButton26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton26.finger = trainer.Fingers.Fourth;
             this.keyButton26.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton26.Label = "ц";
             this.keyButton26.Location = new System.Drawing.Point(99, 3);
@@ -653,8 +679,9 @@
             // keyButton27
             // 
             this.keyButton27.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton27.ch = 'Й';
+            this.keyButton27.Char = 'Й';
             this.keyButton27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton27.finger = trainer.Fingers.Fifth;
             this.keyButton27.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton27.Label = "й";
             this.keyButton27.Location = new System.Drawing.Point(57, 3);
@@ -667,8 +694,9 @@
             // keyButton28
             // 
             this.keyButton28.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton28.ch = '\0';
+            this.keyButton28.Char = '\0';
             this.keyButton28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton28.finger = trainer.Fingers.First;
             this.keyButton28.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton28.Label = "Tab";
             this.keyButton28.Location = new System.Drawing.Point(3, 3);
@@ -681,8 +709,9 @@
             // keyButton30
             // 
             this.keyButton30.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton30.ch = '\0';
+            this.keyButton30.Char = '\0';
             this.keyButton30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton30.finger = trainer.Fingers.First;
             this.keyButton30.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton30.Label = "Enter";
             this.keyButton30.Location = new System.Drawing.Point(468, 3);
@@ -695,8 +724,9 @@
             // keyButton31
             // 
             this.keyButton31.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton31.ch = 'Э';
+            this.keyButton31.Char = 'Э';
             this.keyButton31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton31.finger = trainer.Fingers.Fifth;
             this.keyButton31.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton31.Label = "э";
             this.keyButton31.Location = new System.Drawing.Point(438, 3);
@@ -709,8 +739,9 @@
             // keyButton32
             // 
             this.keyButton32.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton32.ch = 'Ж';
+            this.keyButton32.Char = 'Ж';
             this.keyButton32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton32.finger = trainer.Fingers.Fifth;
             this.keyButton32.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton32.Label = "ж";
             this.keyButton32.Location = new System.Drawing.Point(408, 3);
@@ -723,8 +754,9 @@
             // keyButton33
             // 
             this.keyButton33.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton33.ch = 'Д';
+            this.keyButton33.Char = 'Д';
             this.keyButton33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton33.finger = trainer.Fingers.Fourth;
             this.keyButton33.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton33.Label = "д";
             this.keyButton33.Location = new System.Drawing.Point(378, 3);
@@ -737,8 +769,9 @@
             // keyButton34
             // 
             this.keyButton34.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton34.ch = 'Л';
+            this.keyButton34.Char = 'Л';
             this.keyButton34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton34.finger = trainer.Fingers.Third;
             this.keyButton34.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton34.Label = "л";
             this.keyButton34.Location = new System.Drawing.Point(348, 3);
@@ -751,8 +784,9 @@
             // keyButton35
             // 
             this.keyButton35.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton35.ch = 'О';
+            this.keyButton35.Char = 'О';
             this.keyButton35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton35.finger = trainer.Fingers.SecondRight;
             this.keyButton35.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton35.Label = "о";
             this.keyButton35.Location = new System.Drawing.Point(318, 3);
@@ -765,8 +799,9 @@
             // keyButton36
             // 
             this.keyButton36.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton36.ch = 'Р';
+            this.keyButton36.Char = 'Р';
             this.keyButton36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton36.finger = trainer.Fingers.SecondRight;
             this.keyButton36.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton36.Label = "р";
             this.keyButton36.Location = new System.Drawing.Point(288, 3);
@@ -779,8 +814,9 @@
             // keyButton37
             // 
             this.keyButton37.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton37.ch = 'П';
+            this.keyButton37.Char = 'П';
             this.keyButton37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton37.finger = trainer.Fingers.SecondLeft;
             this.keyButton37.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton37.Label = "п";
             this.keyButton37.Location = new System.Drawing.Point(258, 3);
@@ -793,8 +829,9 @@
             // keyButton38
             // 
             this.keyButton38.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton38.ch = 'А';
+            this.keyButton38.Char = 'А';
             this.keyButton38.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton38.finger = trainer.Fingers.SecondLeft;
             this.keyButton38.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton38.Label = "а";
             this.keyButton38.Location = new System.Drawing.Point(228, 3);
@@ -807,8 +844,9 @@
             // keyButton39
             // 
             this.keyButton39.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton39.ch = 'В';
+            this.keyButton39.Char = 'В';
             this.keyButton39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton39.finger = trainer.Fingers.Third;
             this.keyButton39.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton39.Label = "в";
             this.keyButton39.Location = new System.Drawing.Point(198, 3);
@@ -821,8 +859,9 @@
             // keyButton40
             // 
             this.keyButton40.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton40.ch = 'Ы';
+            this.keyButton40.Char = 'Ы';
             this.keyButton40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton40.finger = trainer.Fingers.Fourth;
             this.keyButton40.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton40.Label = "ы";
             this.keyButton40.Location = new System.Drawing.Point(168, 3);
@@ -835,8 +874,9 @@
             // keyButton41
             // 
             this.keyButton41.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton41.ch = 'Ф';
+            this.keyButton41.Char = 'Ф';
             this.keyButton41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton41.finger = trainer.Fingers.Fifth;
             this.keyButton41.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton41.Label = "ф";
             this.keyButton41.Location = new System.Drawing.Point(138, 3);
@@ -849,8 +889,9 @@
             // keyButton42
             // 
             this.keyButton42.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton42.ch = '\0';
+            this.keyButton42.Char = '\0';
             this.keyButton42.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton42.finger = trainer.Fingers.First;
             this.keyButton42.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton42.Label = "Caps Lock";
             this.keyButton42.Location = new System.Drawing.Point(3, 3);
@@ -863,8 +904,9 @@
             // keyButton44
             // 
             this.keyButton44.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton44.ch = 'Х';
+            this.keyButton44.Char = 'Х';
             this.keyButton44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton44.finger = trainer.Fingers.First;
             this.keyButton44.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton44.Label = "Shift";
             this.keyButton44.Location = new System.Drawing.Point(453, 3);
@@ -877,8 +919,9 @@
             // keyButton45
             // 
             this.keyButton45.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton45.ch = '.';
+            this.keyButton45.Char = '.';
             this.keyButton45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton45.finger = trainer.Fingers.Fifth;
             this.keyButton45.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton45.Label = ".";
             this.keyButton45.Location = new System.Drawing.Point(423, 3);
@@ -891,8 +934,9 @@
             // keyButton46
             // 
             this.keyButton46.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton46.ch = 'Ю';
+            this.keyButton46.Char = 'Ю';
             this.keyButton46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton46.finger = trainer.Fingers.Fourth;
             this.keyButton46.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton46.Label = "ю";
             this.keyButton46.Location = new System.Drawing.Point(393, 3);
@@ -905,8 +949,9 @@
             // keyButton47
             // 
             this.keyButton47.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton47.ch = 'Б';
+            this.keyButton47.Char = 'Б';
             this.keyButton47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton47.finger = trainer.Fingers.Third;
             this.keyButton47.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton47.Label = "б";
             this.keyButton47.Location = new System.Drawing.Point(363, 3);
@@ -919,8 +964,9 @@
             // keyButton48
             // 
             this.keyButton48.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton48.ch = 'Ь';
+            this.keyButton48.Char = 'Ь';
             this.keyButton48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton48.finger = trainer.Fingers.SecondRight;
             this.keyButton48.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton48.Label = "ь";
             this.keyButton48.Location = new System.Drawing.Point(333, 3);
@@ -933,8 +979,9 @@
             // keyButton49
             // 
             this.keyButton49.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton49.ch = 'Т';
+            this.keyButton49.Char = 'Т';
             this.keyButton49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton49.finger = trainer.Fingers.SecondRight;
             this.keyButton49.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton49.Label = "т";
             this.keyButton49.Location = new System.Drawing.Point(303, 3);
@@ -947,8 +994,9 @@
             // keyButton50
             // 
             this.keyButton50.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton50.ch = 'И';
+            this.keyButton50.Char = 'И';
             this.keyButton50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton50.finger = trainer.Fingers.SecondLeft;
             this.keyButton50.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton50.Label = "и";
             this.keyButton50.Location = new System.Drawing.Point(273, 3);
@@ -961,8 +1009,9 @@
             // keyButton51
             // 
             this.keyButton51.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton51.ch = 'М';
+            this.keyButton51.Char = 'М';
             this.keyButton51.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton51.finger = trainer.Fingers.SecondLeft;
             this.keyButton51.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton51.Label = "м";
             this.keyButton51.Location = new System.Drawing.Point(243, 3);
@@ -975,8 +1024,9 @@
             // keyButton52
             // 
             this.keyButton52.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton52.ch = 'С';
+            this.keyButton52.Char = 'С';
             this.keyButton52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton52.finger = trainer.Fingers.Third;
             this.keyButton52.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton52.Label = "с";
             this.keyButton52.Location = new System.Drawing.Point(213, 3);
@@ -989,8 +1039,9 @@
             // keyButton53
             // 
             this.keyButton53.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton53.ch = 'Ч';
+            this.keyButton53.Char = 'Ч';
             this.keyButton53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton53.finger = trainer.Fingers.Fourth;
             this.keyButton53.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton53.Label = "ч";
             this.keyButton53.Location = new System.Drawing.Point(183, 3);
@@ -1003,8 +1054,9 @@
             // keyButton54
             // 
             this.keyButton54.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton54.ch = 'Я';
+            this.keyButton54.Char = 'Я';
             this.keyButton54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton54.finger = trainer.Fingers.Fifth;
             this.keyButton54.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton54.Label = "я";
             this.keyButton54.Location = new System.Drawing.Point(153, 3);
@@ -1017,8 +1069,9 @@
             // keyButton55
             // 
             this.keyButton55.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton55.ch = '\0';
+            this.keyButton55.Char = '\0';
             this.keyButton55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton55.finger = trainer.Fingers.First;
             this.keyButton55.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton55.Label = "Shift";
             this.keyButton55.Location = new System.Drawing.Point(3, 3);
@@ -1031,8 +1084,9 @@
             // keyButton29
             // 
             this.keyButton29.BackColor = System.Drawing.Color.Transparent;
-            this.keyButton29.ch = ' ';
+            this.keyButton29.Char = ' ';
             this.keyButton29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButton29.finger = trainer.Fingers.First;
             this.keyButton29.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton29.Label = "";
             this.keyButton29.Location = new System.Drawing.Point(151, 3);
