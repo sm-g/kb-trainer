@@ -26,6 +26,7 @@ namespace trainer
                     return statistic.PassedChars + lineNumber;
             }
         }
+        public int TextProgress { get { return (int)(100 * statistic.PassedChars / source.Length); } }
         public char NextChar
         {
             get

@@ -217,6 +217,7 @@ namespace trainer
         private void timerTypingTime_Tick(object sender, EventArgs e)
         {
             labelTime.Text = Result.FormatTimeSpan(statistic.Now);
+            progressBar.Value = charHandler.TextProgress;
         }
 
     }

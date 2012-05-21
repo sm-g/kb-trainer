@@ -42,9 +42,10 @@
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keyboard = new trainer.Keyboard();
             this.labelTime = new System.Windows.Forms.Label();
             this.timerTypingTime = new System.Windows.Forms.Timer(this.components);
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -95,6 +96,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelErrors, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.keyboard, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelTime, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.progressBar, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -187,14 +189,6 @@
             this.RandomTextToolStripMenuItem.Text = "Случайный";
             this.RandomTextToolStripMenuItem.Click += new System.EventHandler(this.RandomTextToolStripMenuItem_Click);
             // 
-            // keyboard
-            // 
-            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyboard.Location = new System.Drawing.Point(82, 341);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(629, 200);
-            this.keyboard.TabIndex = 4;
-            // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
@@ -207,6 +201,22 @@
             // 
             this.timerTypingTime.Interval = 1000;
             this.timerTypingTime.Tick += new System.EventHandler(this.timerTypingTime_Tick);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar.Location = new System.Drawing.Point(82, 3);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(629, 24);
+            this.progressBar.TabIndex = 6;
+            // 
+            // keyboard
+            // 
+            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
             // 
             // Form1
             // 
@@ -247,5 +257,6 @@
         private Keyboard keyboard;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timerTypingTime;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
