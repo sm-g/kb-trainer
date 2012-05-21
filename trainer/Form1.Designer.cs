@@ -43,7 +43,7 @@
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelTime = new System.Windows.Forms.Label();
-            this.timerTypingTime = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
@@ -197,10 +197,10 @@
             this.labelTime.Size = new System.Drawing.Size(0, 13);
             this.labelTime.TabIndex = 5;
             // 
-            // timerTypingTime
+            // timerUpdateWidgets
             // 
-            this.timerTypingTime.Interval = 1000;
-            this.timerTypingTime.Tick += new System.EventHandler(this.timerTypingTime_Tick);
+            this.timerUpdateWidgets.Interval = 1000;
+            this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
             // 
             // progressBar
             // 
@@ -256,7 +256,7 @@
         private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
         private Keyboard keyboard;
         private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.Timer timerTypingTime;
+        private System.Windows.Forms.Timer timerUpdateWidgets;
         private System.Windows.Forms.ProgressBar progressBar;
     }
 }

@@ -29,7 +29,7 @@ namespace trainer
             sourceText = new SourceText(filePath);
             statistic = new Statistic();
             charHandler = new CharHandler(sourceText, statistic);
-            charHandler.TextEnds += FinishTyping;
+            charHandler.TextEnds += StopTyping;
 
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
@@ -45,9 +45,9 @@ namespace trainer
             string newFile;
             do
             {
-                newFile = Path.GetFileName(GetRandomTextFile(textsPath));
+                newFile = GetRandomTextFile(textsPath);
             }
-            while (newFile == currentFile && Directory.GetFiles(textsPath, "*.txt").Length > 1);
+            while (Path.GetFileName(newFile) == currentFile && Directory.GetFiles(textsPath, "*.txt").Length > 1);
             LoadSource(newFile);
         }
 
@@ -65,7 +65,7 @@ namespace trainer
                 if (e.KeyChar == ' ')
                 {
                     e.Handled = true;
-                    ChangeWord();
+                    CleanInput();
                 }
             }
             else
@@ -77,7 +77,7 @@ namespace trainer
         {
             if (e.KeyData == Keys.Escape)
             {
-                FinishTyping(sender, e);
+                StopTyping(sender, e);
                 return; // не записывается в статистику
             }
             statistic.RegisterKeyDown(e.KeyCode);
@@ -100,7 +100,7 @@ namespace trainer
             richTextBoxInput.SelectionStart = richTextBoxInput.Text.Length; // ввод только с конца
 
         }
-        private void ChangeWord()
+        private void CleanInput()
         {
             richTextBoxInput.Clear();
         }
@@ -126,43 +126,42 @@ namespace trainer
             richTextBox.SelectionBackColor = color;
         }
 
-        private void FinishTyping(object sender, EventArgs e)
+        private void StopTyping(object sender, EventArgs e)
         {
             statistic.PauseTimer();
 
             richTextBoxInput.Enabled = false;
             timerResultDelay.Enabled = true;
-
-            timerTypingTime.Enabled = false;
         }
         private void ResumeTyping()
         {
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
-
-            timerTypingTime.Enabled = true;
         }
 
-        private void EndExercise()
+        private void FinishExercise()
         {
             exerciseStarted = false;
             StartEndToolStripMenuItem.Text = "Старт";
 
-            if (charHandler.TextEnded)
-                ChangeText();
+            timerUpdateWidgets.Enabled = false;
         }
         private void StartExercise()
         {
             exerciseStarted = true;
             StartEndToolStripMenuItem.Text = "Финиш";
-
+            
+            PrepareTextBoxes();
             ResumeTyping();
 
+            timerUpdateWidgets.Enabled = true;
+            keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
+        }
+        private void PrepareTextBoxes()
+        {
+            CleanInput();
             richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = sourceText.Lines;
-
-
-            keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
         }
 
         private void timerResultDelay_Tick(object sender, EventArgs e)
@@ -171,7 +170,7 @@ namespace trainer
             Result resultForm = new Result(statistic.GetResultInfo(), sourceText.GetInfo());
             if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                EndExercise();
+                FinishExercise();
             }
             else
             {
@@ -185,17 +184,19 @@ namespace trainer
             {
                 textOpenedFromFile = true;
                 LoadSource(openFileDialog.FileName);
-                SetTextMode();
+                SetSelectedTextMode();
             }
         }
         private void StartEndToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (exerciseStarted)
             {
-                FinishTyping(sender, e);
+                StopTyping(sender, e);
             }
             else
             {
+                if (charHandler.TextEnded && !textOpenedFromFile)
+                    ChangeText();
                 StartExercise();
             }
         }
@@ -205,16 +206,16 @@ namespace trainer
             {
                 textOpenedFromFile = false;
                 LoadSource(GetRandomTextFile(textsPath));
-                SetTextMode();
+                SetSelectedTextMode();
             }
         }
-        private void SetTextMode()
+        private void SetSelectedTextMode()
         {
             OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
             RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
         }
 
-        private void timerTypingTime_Tick(object sender, EventArgs e)
+        private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
             labelTime.Text = Result.FormatTimeSpan(statistic.Now);
             progressBar.Value = charHandler.TextProgress;
