@@ -15,28 +15,40 @@ namespace trainer
         SourceText sourceText;
         CharHandler charHandler;
         Statistic statistic;
+        bool exerciseStarted;
+        bool textOpenedFromFile;
 
         public Form1()
         {
             InitializeComponent();
-            ChooseRandomText(textsPath);
+            LoadSource(GetRandomTextFile(textsPath));
         }
 
-        private void LoadSource(string path)
+        private void LoadSource(string filePath)
         {
-            sourceText = new SourceText(path);
+            sourceText = new SourceText(filePath);
             statistic = new Statistic();
             charHandler = new CharHandler(sourceText, statistic);
             charHandler.TextEnds += FinishTyping;
 
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
-        private void ChooseRandomText(string directoryPath)
+        private string GetRandomTextFile(string directoryPath)
         {
             string[] fileNames = Directory.GetFiles(directoryPath, "*.txt");
             Random r = new Random();
-            string chosenFileName = fileNames[r.Next(fileNames.Length)];
-            LoadSource(chosenFileName);
+            return fileNames[r.Next(fileNames.Length)];
+        }
+        private void ChangeText()
+        {
+            string currentFile = sourceText.FileName;
+            string newFile;
+            do
+            {
+                newFile = Path.GetFileName(GetRandomTextFile(textsPath));
+            }
+            while (newFile == currentFile && Directory.GetFiles(textsPath, "*.txt").Length > 1);
+            LoadSource(newFile);
         }
 
         private void richTextBoxInput_KeyPress(object sender, KeyPressEventArgs e)
@@ -127,12 +139,20 @@ namespace trainer
 
         private void EndExercise()
         {
-            //
+            exerciseStarted = false;
+            StartEndToolStripMenuItem.Text = "Старт";
+
+            if (charHandler.TextEnded)
+                ChangeText();
         }
         private void StartExercise()
         {
+            exerciseStarted = true;
+            StartEndToolStripMenuItem.Text = "Финиш";
+
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
+            richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = sourceText.Lines;
 
             keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
@@ -156,25 +176,36 @@ namespace trainer
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                textOpenedFromFile = true;
                 LoadSource(openFileDialog.FileName);
-                OpenFileToolStripMenuItem.Checked = true;
-                RandomTextToolStripMenuItem.Checked = false;
+                SetTextMode();
             }
         }
-        private void StartToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StartEndToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartExercise();
+            if (exerciseStarted)
+            {
+                FinishTyping(sender, e);
+            }
+            else
+            {
+                StartExercise();
+            }
         }
         private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            OpenFileToolStripMenuItem.Checked = false;
-            RandomTextToolStripMenuItem.Checked = true;
+        {
+            if (textOpenedFromFile)
+            {
+                textOpenedFromFile = false;
+                LoadSource(GetRandomTextFile(textsPath));
+                SetTextMode();
+            }
+        }
+        private void SetTextMode()
+        {
+            OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
+            RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
         }
 
-        private void RandomTextToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RandomTextToolStripMenuItem.Checked)
-                ChooseRandomText(textsPath);
-        }
     }
 }

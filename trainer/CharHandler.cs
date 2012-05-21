@@ -40,6 +40,7 @@ namespace trainer
         {
             get { return wrongChars > 0; }
         }
+        public bool TextEnded { get; private set; }
 
         public CharHandler(SourceText sourceText, Statistic _statistic)
         {
@@ -154,6 +155,7 @@ namespace trainer
         protected virtual void OnRaiseTextEnds(EventArgs e)
         {
             TextEnds(this, e);
+            TextEnded = true;
         }
     }
 }
