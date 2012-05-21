@@ -9,9 +9,7 @@ namespace trainer
     public partial class Form1 : Form
     {
         static string textsPath  = Path.Combine(Application.StartupPath, "text");
-        static Color errorColor  = Color.Chocolate;
-        static Color passedColor = Color.Gray;
-        static Color clearColor  = Color.White;
+
         SourceText sourceText;
         CharHandler charHandler;
         Statistic statistic;
@@ -107,16 +105,16 @@ namespace trainer
 
         private void DeleteLetter(char ch)
         {
-            PaintLetter(richTextBoxSourceView, clearColor);
+            PaintLetter(richTextBoxSourceView, Colors.clearColor);
             charHandler.DeleteChar(ch);
         }
         private void DisplayPassedLetter()
         {
-            PaintLetter(richTextBoxSourceView, passedColor);
+            PaintLetter(richTextBoxSourceView, Colors.passedColor);
         }
         private void DisplayWrongLetter()
         {
-            PaintLetter(richTextBoxSourceView, errorColor);
+            PaintLetter(richTextBoxSourceView, Colors.errorColor);
             System.Media.SystemSounds.Beep.Play();
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }

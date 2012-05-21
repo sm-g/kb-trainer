@@ -12,13 +12,10 @@ namespace trainer
 {
     public partial class KeyButton : UserControl
     {
-        static Color backColor = Color.Honeydew;
-        static Color backColorSelect = Color.Red;
-        static Color borderColor = Color.Green;
         static int borderWidth = 1;
         static int radius = 5;
 
-        Color bColor = backColor;
+        bool highlighted;
 
         public char Char { get; set; }
         public string Label
@@ -32,52 +29,55 @@ namespace trainer
                 label.Text = value;
             }
         }
-        public Fingers finger { get; set; }
+        public Fingers Finger { get; set; }
 
         public KeyButton()
         {
             InitializeComponent();
         }
 
-        private void DrawRoundedRectangle(Graphics gfx, Rectangle Bounds, int CornerRadius, Pen DrawPen, Color FillColor)
+        private static void DrawRoundedRectangle(Graphics gfx, Rectangle bounds, int cornerRadius, Pen pen, Color fillColor)
         {
-            int strokeOffset = (int)(Math.Ceiling(DrawPen.Width));
-            Bounds.Inflate(-strokeOffset, -strokeOffset);
+            int strokeOffset = (int)(Math.Ceiling(pen.Width));
+            bounds.Inflate(-strokeOffset, -strokeOffset);
 
-            DrawPen.EndCap = DrawPen.StartCap = LineCap.Round;
+            pen.EndCap = pen.StartCap = LineCap.Round;
 
             GraphicsPath gfxPath = new GraphicsPath();
-            gfxPath.AddArc(Bounds.X, Bounds.Y, CornerRadius, CornerRadius, 180, 90);
-            gfxPath.AddArc(Bounds.X + Bounds.Width - CornerRadius, Bounds.Y, CornerRadius, CornerRadius, 270, 90);
-            gfxPath.AddArc(Bounds.X + Bounds.Width - CornerRadius, Bounds.Y + Bounds.Height - CornerRadius, CornerRadius, CornerRadius, 0, 90);
-            gfxPath.AddArc(Bounds.X, Bounds.Y + Bounds.Height - CornerRadius, CornerRadius, CornerRadius, 90, 90);
+            gfxPath.AddArc(bounds.X, bounds.Y, cornerRadius, cornerRadius, 180, 90);
+            gfxPath.AddArc(bounds.X + bounds.Width - cornerRadius, bounds.Y, cornerRadius, cornerRadius, 270, 90);
+            gfxPath.AddArc(bounds.X + bounds.Width - cornerRadius, bounds.Y + bounds.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            gfxPath.AddArc(bounds.X, bounds.Y + bounds.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             gfxPath.CloseAllFigures();
 
-            gfx.FillPath(new SolidBrush(FillColor), gfxPath);
-            gfx.DrawPath(DrawPen, gfxPath);
+            gfx.FillPath(new SolidBrush(fillColor), gfxPath);
+            gfx.DrawPath(pen, gfxPath);
         }
 
         private void KeyButton_Paint(object sender, PaintEventArgs e)
         {
-            DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(borderColor,borderWidth), bColor);
+            Color background = highlighted ? Colors.Highlight(Colors.OfFinger(Finger)) : Colors.OfFinger(Finger);
+            Color border = Colors.borderColor;
+            DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(border, borderWidth), background);
         }
 
-        public void Highlight()
+        public void TurnOnHighlight()
         {
-            bColor = backColorSelect;
+            highlighted = true;
+            label.ForeColor = Colors.keyLabelHighlighted;
             this.Refresh();
         }
-
-
-        internal void TurnHighlightOff()
+        public void TurnOffHighlight()
         {
-            bColor = backColor;
+            highlighted = false;
+            label.ForeColor = Colors.keyLabel;
             this.Refresh();
         }
     }
 
     public enum Fingers
     {
+        None,
         First,
         SecondLeft,
         SecondRight,

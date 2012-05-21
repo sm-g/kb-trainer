@@ -27,11 +27,11 @@ namespace trainer
                         kb = (KeyButton)tableLayoutPanel.Controls[i].Controls[j];
                         if (kb.Char == ch)
                         {
-                            kb.Highlight();
+                            kb.TurnOnHighlight();
                         }
                         else
                         {
-                            kb.TurnHighlightOff();
+                            kb.TurnOffHighlight();
                         }
                     }
             }
