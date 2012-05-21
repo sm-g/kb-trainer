@@ -143,6 +143,7 @@ namespace trainer
         {
             exerciseStarted = false;
             StartEndToolStripMenuItem.Text = "Старт";
+            SetTextMenu();
 
             timerUpdateWidgets.Enabled = false;
         }
@@ -150,7 +151,7 @@ namespace trainer
         {
             exerciseStarted = true;
             StartEndToolStripMenuItem.Text = "Финиш";
-            
+            SetTextMenu();
             PrepareTextBoxes();
             ResumeTyping();
 
@@ -184,7 +185,7 @@ namespace trainer
             {
                 textOpenedFromFile = true;
                 LoadSource(openFileDialog.FileName);
-                SetSelectedTextMode();
+                SetTextMenu();
             }
         }
         private void StartEndToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,13 +207,21 @@ namespace trainer
             {
                 textOpenedFromFile = false;
                 LoadSource(GetRandomTextFile(textsPath));
-                SetSelectedTextMode();
+                SetTextMenu();
             }
         }
-        private void SetSelectedTextMode()
+        private void SetTextMenu()
         {
-            OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
-            RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
+            OpenFileToolStripMenuItem.Checked    = textOpenedFromFile;
+            RandomTextToolStripMenuItem.Checked  = !textOpenedFromFile;
+
+            OpenFileToolStripMenuItem.Enabled    = !exerciseStarted;
+            RandomTextToolStripMenuItem.Enabled  = !exerciseStarted;
+            AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;
+        }
+        private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeText();
         }
 
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
@@ -220,6 +229,8 @@ namespace trainer
             labelTime.Text = Result.FormatTimeSpan(statistic.Now);
             progressBar.Value = charHandler.TextProgress;
         }
+
+
 
     }
 }

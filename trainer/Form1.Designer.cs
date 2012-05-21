@@ -35,6 +35,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -42,9 +44,9 @@
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelTime = new System.Windows.Forms.Label();
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.AnotherTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -133,6 +135,22 @@
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
             // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(717, 0);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(0, 13);
+            this.labelTime.TabIndex = 5;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar.Location = new System.Drawing.Point(82, 3);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(629, 24);
+            this.progressBar.TabIndex = 6;
+            // 
             // timerResultDelay
             // 
             this.timerResultDelay.Interval = 1000;
@@ -165,6 +183,8 @@
             // TextToolStripMenuItem
             // 
             this.TextToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AnotherTextToolStripMenuItem,
+            this.toolStripSeparator1,
             this.OpenFileToolStripMenuItem,
             this.RandomTextToolStripMenuItem});
             this.TextToolStripMenuItem.Name = "TextToolStripMenuItem";
@@ -189,26 +209,22 @@
             this.RandomTextToolStripMenuItem.Text = "Случайный";
             this.RandomTextToolStripMenuItem.Click += new System.EventHandler(this.RandomTextToolStripMenuItem_Click);
             // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(717, 0);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(0, 13);
-            this.labelTime.TabIndex = 5;
-            // 
             // timerUpdateWidgets
             // 
             this.timerUpdateWidgets.Interval = 1000;
             this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
             // 
-            // progressBar
+            // AnotherTextToolStripMenuItem
             // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar.Location = new System.Drawing.Point(82, 3);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(629, 24);
-            this.progressBar.TabIndex = 6;
+            this.AnotherTextToolStripMenuItem.Name = "AnotherTextToolStripMenuItem";
+            this.AnotherTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AnotherTextToolStripMenuItem.Text = "Сменить";
+            this.AnotherTextToolStripMenuItem.Click += new System.EventHandler(this.AnotherTextToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
             // 
             // keyboard
             // 
@@ -258,5 +274,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timerUpdateWidgets;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.ToolStripMenuItem AnotherTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
