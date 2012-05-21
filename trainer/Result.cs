@@ -17,14 +17,18 @@ namespace trainer
             }
 
             TimeSpan time = result.Keystrokes[result.Keystrokes.Count - 1].DownTime;
-            string hours = time.Hours > 0 ? string.Format("{0:0}:", time.Hours) : string.Empty;
-            string formattedTime = string.Format("{0}{1:0}:{2:00}", hours, time.Minutes, time.Seconds);
 
             textBoxAvSpeed.Text = result.Speed.ToString("F") + " зн/мин";
             textBoxErrors.Text = ((double)result.Errors / result.PassedChars).ToString("F2") + " %";
-            textBoxTime.Text = formattedTime;
+            textBoxTime.Text = FormatTimeSpan(time);
 
             graph.Add(result.Keystrokes);
+        }
+
+        public static string FormatTimeSpan(TimeSpan timespan)
+        {
+            string hours = timespan.Hours > 0 ? string.Format("{0:0}:", timespan.Hours) : string.Empty;
+            return String.Format("{0}{1:0}:{2:00}", hours, timespan.Minutes, timespan.Seconds);
         }
     }
 }

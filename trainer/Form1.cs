@@ -117,6 +117,7 @@ namespace trainer
         private void DisplayWrongLetter()
         {
             PaintLetter(richTextBoxSourceView, errorColor);
+            System.Media.SystemSounds.Beep.Play();
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
         private void PaintLetter(RichTextBox richTextBox, Color color)
@@ -128,13 +129,18 @@ namespace trainer
         private void FinishTyping(object sender, EventArgs e)
         {
             statistic.PauseTimer();
+
             richTextBoxInput.Enabled = false;
             timerResultDelay.Enabled = true;
+
+            timerTypingTime.Enabled = false;
         }
         private void ResumeTyping()
         {
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
+
+            timerTypingTime.Enabled = true;
         }
 
         private void EndExercise()
@@ -150,10 +156,11 @@ namespace trainer
             exerciseStarted = true;
             StartEndToolStripMenuItem.Text = "Финиш";
 
-            richTextBoxInput.Enabled = true;
-            richTextBoxInput.Focus();
+            ResumeTyping();
+
             richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = sourceText.Lines;
+
 
             keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
         }
@@ -205,6 +212,11 @@ namespace trainer
         {
             OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
             RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
+        }
+
+        private void timerTypingTime_Tick(object sender, EventArgs e)
+        {
+            labelTime.Text = Result.FormatTimeSpan(statistic.Now);
         }
 
     }

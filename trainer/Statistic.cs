@@ -32,6 +32,7 @@ namespace trainer
         {
             get { return keystrokes[keystrokes.Count - 1].DownTime; }
         }
+        public TimeSpan Now { get { return stopwatch.Elapsed; } }
 
         public Statistic()
         {

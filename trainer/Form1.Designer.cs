@@ -35,7 +35,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
-            this.keyboard = new trainer.Keyboard();
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -43,6 +42,9 @@
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyboard = new trainer.Keyboard();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.timerTypingTime = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -92,6 +94,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelVelocity, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelErrors, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.keyboard, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelTime, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -127,14 +130,6 @@
             this.richTextBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyDown);
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
-            // 
-            // keyboard
-            // 
-            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyboard.Location = new System.Drawing.Point(82, 341);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(629, 200);
-            this.keyboard.TabIndex = 4;
             // 
             // timerResultDelay
             // 
@@ -192,6 +187,27 @@
             this.RandomTextToolStripMenuItem.Text = "Случайный";
             this.RandomTextToolStripMenuItem.Click += new System.EventHandler(this.RandomTextToolStripMenuItem_Click);
             // 
+            // keyboard
+            // 
+            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(717, 0);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(0, 13);
+            this.labelTime.TabIndex = 5;
+            // 
+            // timerTypingTime
+            // 
+            this.timerTypingTime.Interval = 1000;
+            this.timerTypingTime.Tick += new System.EventHandler(this.timerTypingTime_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
         private Keyboard keyboard;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Timer timerTypingTime;
     }
 }
