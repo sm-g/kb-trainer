@@ -56,7 +56,6 @@ namespace trainer
             if (charHandler.ValidateChar(e.KeyChar))
             {
                 DisplayPassedLetter();
-
                 keyboard.HighlightKeys(charHandler.NextCharToType);
 
                 if (e.KeyChar == ' ')
@@ -152,10 +151,11 @@ namespace trainer
 
         private void FinishExercise()
         {
-            exerciseStarted = false;
-            StartEndToolStripMenuItem.Text = "Старт";
-            SetTextMenu();
-
+            exerciseStarted = false;                        
+            
+            keyboard.TurnOffHighlighting();
+            
+            SetMenus();
             timerUpdateWidgets.Enabled = false;
         }
         private void StartExercise()
@@ -164,13 +164,13 @@ namespace trainer
                 ChangeText();
 
             exerciseStarted = true;
-            StartEndToolStripMenuItem.Text = "Финиш";
-            SetTextMenu();
+            
             PrepareTextBoxes();
             ResumeTyping();
-
-            timerUpdateWidgets.Enabled = true;
+            
             keyboard.HighlightKeys(charHandler.NextCharToType);
+            SetMenus();
+            timerUpdateWidgets.Enabled = true;
         }
         private void PrepareTextBoxes()
         {
@@ -197,15 +197,6 @@ namespace trainer
             ShowResult();
         }
 
-        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                textOpenedFromFile = true;
-                LoadSource(openFileDialog.FileName);
-                SetTextMenu();
-            }
-        }
         private void StartEndToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (exerciseStarted)
@@ -217,16 +208,29 @@ namespace trainer
                 StartExercise();
             }
         }
+        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                textOpenedFromFile = true;
+                LoadSource(openFileDialog.FileName);
+                SetMenus();
+            }
+        }
         private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textOpenedFromFile)
             {
                 textOpenedFromFile = false;
                 LoadSource(GetRandomTextFile(textsPath));
-                SetTextMenu();
+                SetMenus();
             }
         }
-        private void SetTextMenu()
+        private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeText();
+        }
+        private void SetMenus()
         {
             OpenFileToolStripMenuItem.Checked    = textOpenedFromFile;
             RandomTextToolStripMenuItem.Checked  = !textOpenedFromFile;
@@ -234,11 +238,10 @@ namespace trainer
             OpenFileToolStripMenuItem.Enabled    = !exerciseStarted;
             RandomTextToolStripMenuItem.Enabled  = !exerciseStarted;
             AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;
+
+            StartEndToolStripMenuItem.Text = exerciseStarted ? "Финиш" : "Старт";
         }
-        private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeText();
-        }
+
 
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {

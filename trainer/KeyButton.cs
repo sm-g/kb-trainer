@@ -65,13 +65,13 @@ namespace trainer
             DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(border, borderWidth), background);
         }
 
-        public void TurnOnHighlight()
+        public void TurnOnHighlighting()
         {
             highlighted = true;
             label.ForeColor = Colors.keyLabelHighlighted;
             this.Refresh();
         }
-        public void TurnOffHighlight()
+        public void TurnOffHighlighting()
         {
             highlighted = false;
             label.ForeColor = Colors.keyLabel;

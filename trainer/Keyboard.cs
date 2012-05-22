@@ -60,20 +60,22 @@ namespace trainer
                     highlightedKeyButtons.Add(keyButtonBackspace);
             }
         }
-
-        public void HighlightKeys(char ch)
+        public void TurnOffHighlighting()
         {
             foreach (var kb in highlightedKeyButtons)
             {
-                kb.TurnOffHighlight();
+                kb.TurnOffHighlighting();
             }
             highlightedKeyButtons.Clear();
-
+        }
+        public void HighlightKeys(char ch)
+        {
+            TurnOffHighlighting();
             SetKeyButtonsToHighlight(ch);
 
             foreach (var kb in highlightedKeyButtons)
             {
-                kb.TurnOnHighlight();
+                kb.TurnOnHighlighting();
             }
         }
 
