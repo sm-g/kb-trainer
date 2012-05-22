@@ -11,29 +11,50 @@ namespace trainer
 {
     public partial class Keyboard : UserControl
     {
+        private const string MAP = "ё1234567890-=йцукенгшщзхъ\\фывапролджэячсмитьбю. Ё!\"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ~!@#$%^&";
+        private Dictionary<int, KeyButton> letterKeyButtons;
+
         public Keyboard()
         {
             InitializeComponent();
+            InitKeyButtons();
+        }
+
+        private void InitKeyButtons()
+        {
+            letterKeyButtons = new Dictionary<int, KeyButton>();
+            for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
+                for (int j = 0; j < tableLayoutPanel.Controls[i].Controls.Count; j++)
+                {
+                    KeyButton kb = (KeyButton)tableLayoutPanel.Controls[i].Controls[j];
+                    string kbNameCode = System.Text.RegularExpressions.Regex.Replace(kb.Name, @"[^\d]+", "");
+                    if (kbNameCode.Length > 0)
+                    {
+                        int kbCode = Int32.Parse(kbNameCode);
+                        letterKeyButtons.Add(kbCode, kb);
+
+                        kb.Label = MAP[kbCode - 1].ToString();
+                    }
+                }
         }
 
         public void HighlightKey(char ch)
         {
-            if (ch != '\0')
+            int kbCode = MAP.IndexOf(ch) % letterKeyButtons.Count + 1;
+
+            if (kbCode != -1)
             {
-                KeyButton kb;
-                for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
-                    for (int j = 0; j < tableLayoutPanel.Controls[i].Controls.Count; j++)
+                foreach (var kb in letterKeyButtons)
+                {
+                    if (kb.Key == kbCode)
                     {
-                        kb = (KeyButton)tableLayoutPanel.Controls[i].Controls[j];
-                        if (kb.Char == ch)
-                        {
-                            kb.TurnOnHighlight();
-                        }
-                        else
-                        {
-                            kb.TurnOffHighlight();
-                        }
+                        kb.Value.TurnOnHighlight();
                     }
+                    else
+                    {
+                        kb.Value.TurnOffHighlight();
+                    }
+                }
             }
         }
 

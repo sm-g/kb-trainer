@@ -12,12 +12,11 @@ namespace trainer
 {
     public partial class KeyButton : UserControl
     {
-        static int borderWidth = 1;
-        static int radius = 5;
+        private static int borderWidth = 1;
+        private static int radius = 5;
 
-        bool highlighted;
+        private bool highlighted;
 
-        public char Char { get; set; }
         public string Label
         {
             get

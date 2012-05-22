@@ -58,7 +58,7 @@ namespace trainer
             {
                 DisplayPassedLetter();
 
-                keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
+                keyboard.HighlightKey(charHandler.NextChar);
 
                 if (e.KeyChar == ' ')
                 {
@@ -83,7 +83,7 @@ namespace trainer
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
 
-                keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
+                keyboard.HighlightKey(charHandler.NextChar);
             }
             
             Console.Write(charHandler.NextChar);
@@ -155,7 +155,7 @@ namespace trainer
             ResumeTyping();
 
             timerUpdateWidgets.Enabled = true;
-            keyboard.HighlightKey(CharHandler.CharToKeyLabel(charHandler.NextChar));
+            keyboard.HighlightKey(charHandler.NextChar);
         }
         private void PrepareTextBoxes()
         {
