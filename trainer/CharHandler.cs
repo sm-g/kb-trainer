@@ -8,8 +8,6 @@ namespace trainer
 {
     class CharHandler
     {
-        public event EventHandler TextEnds;
-
         private SourceText source;
         private Statistic statistic;
         private int inLinePosition;
@@ -42,7 +40,7 @@ namespace trainer
         {
             get { return wrongChars > 0; }
         }
-        public bool TextEnded { get; private set; }
+        public bool TextEnded { get { return statistic.PassedChars - wrongChars == source.Length; } }
 
         public CharHandler(SourceText sourceText, Statistic _statistic)
         {
@@ -70,7 +68,7 @@ namespace trainer
         {
             if (lineNumber == source.Lines.Length - 1)
             {
-                OnRaiseTextEnds(new EventArgs());
+                
             }
             else
             {
@@ -124,12 +122,6 @@ namespace trainer
                 AddWrongChar(ch);
                 return false;
             }
-        }
-
-        protected virtual void OnRaiseTextEnds(EventArgs e)
-        {
-            TextEnds(this, e);
-            TextEnded = true;
         }
     }
 }

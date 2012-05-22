@@ -27,7 +27,6 @@ namespace trainer
             sourceText = new SourceText(filePath);
             statistic = new Statistic();
             charHandler = new CharHandler(sourceText, statistic);
-            charHandler.TextEnds += StopTyping;
 
             Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
         }
@@ -76,7 +75,7 @@ namespace trainer
         {
             if (e.KeyData == Keys.Escape)
             {
-                StopTyping(sender, e);
+                StopTyping();
                 return; // не записывается в статистику
             }
             statistic.RegisterKeyDown(e.KeyCode);
@@ -91,6 +90,10 @@ namespace trainer
         {
             statistic.RegisterKeyUp(e.KeyCode);
             labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
+            if (charHandler.TextEnded)
+            {
+                StopTyping();
+            }
         }
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
         {
@@ -124,7 +127,7 @@ namespace trainer
             richTextBox.SelectionColor = color;
         }
 
-        private void StopTyping(object sender, EventArgs e)
+        private void StopTyping()
         {
             statistic.PauseTimer();
 
@@ -147,6 +150,9 @@ namespace trainer
         }
         private void StartExercise()
         {
+            if (charHandler.TextEnded && !textOpenedFromFile)
+                ChangeText();
+
             exerciseStarted = true;
             StartEndToolStripMenuItem.Text = "Финиш";
             SetTextMenu();
@@ -190,12 +196,10 @@ namespace trainer
         {
             if (exerciseStarted)
             {
-                StopTyping(sender, e);
+                StopTyping();
             }
             else
-            {
-                if (charHandler.TextEnded && !textOpenedFromFile)
-                    ChangeText();
+            {                
                 StartExercise();
             }
         }
