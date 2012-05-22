@@ -34,22 +34,28 @@ namespace trainer
             get;
             private set;
         }
+        public string[] Lines
+        {
+            get { return textData; }
+        }
 
         public SourceText(string filePath)
         {
             textData = File.ReadAllLines(filePath, Encoding.Default);
             FileName = Path.GetFileName(filePath);
 
+            Format();
+        }
+
+        private void Format()
+        {
             for (int i = 0; i < textData.Length - 1; i++)
             {
                 textData[i] = textData[i].Trim();
                 textData[i] += ' '; // для разрыва со словом из следующей строки
+                textData[i] = System.Text.RegularExpressions.Regex.Replace(textData[i], " +", " ");
             }
-        }
 
-        public string[] Lines
-        {
-            get { return textData; }
         }
         public SourceInfo GetInfo()
         {
