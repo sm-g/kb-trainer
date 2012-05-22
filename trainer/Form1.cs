@@ -105,23 +105,24 @@ namespace trainer
 
         private void DeleteLetter(char ch)
         {
-            PaintLetter(richTextBoxSourceView, Colors.clearColor);
+            PaintLetter(richTextBoxSourceView, Colors.clearLetterBackground, Colors.clearLetter);
             charHandler.DeleteChar(ch);
         }
         private void DisplayPassedLetter()
         {
-            PaintLetter(richTextBoxSourceView, Colors.passedColor);
+            PaintLetter(richTextBoxSourceView, Colors.passedLetterBackground, Colors.passedLetter);
         }
         private void DisplayWrongLetter()
         {
-            PaintLetter(richTextBoxSourceView, Colors.errorColor);
+            PaintLetter(richTextBoxSourceView, Colors.wrongLetterBackground, Colors.wrongLetter);
             System.Media.SystemSounds.Beep.Play();
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
-        private void PaintLetter(RichTextBox richTextBox, Color color)
+        private void PaintLetter(RichTextBox richTextBox, Color backColor, Color color)
         {
             richTextBox.Select(charHandler.MarkerPosition - 1, 1);
-            richTextBox.SelectionBackColor = color;
+            richTextBox.SelectionBackColor = backColor;
+            richTextBox.SelectionColor = color;
         }
 
         private void StopTyping(object sender, EventArgs e)

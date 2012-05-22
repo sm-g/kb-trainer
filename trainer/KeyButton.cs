@@ -56,8 +56,13 @@ namespace trainer
 
         private void KeyButton_Paint(object sender, PaintEventArgs e)
         {
-            Color background = highlighted ? Colors.Highlight(Colors.OfFinger(Finger)) : Colors.OfFinger(Finger);
-            Color border = Colors.borderColor;
+            Color background = Colors.OfFinger(Finger);
+            Color border = Colors.OfBorder(Colors.OfFinger(Finger));
+            if (highlighted)
+            {
+                background = Colors.Highlight(background);
+                border = Colors.Highlight(border);
+            }
             DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(border, borderWidth), background);
         }
 
