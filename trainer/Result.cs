@@ -10,7 +10,7 @@ namespace trainer
         {
             InitializeComponent();
 
-            if (source.Length <= result.PassedChars) // нельзя продолжить
+            if (source.Length == result.PassedChars) // нельзя продолжить
             {
                 buttonContinue.Enabled = false;
                 CancelButton = buttonEnd;
