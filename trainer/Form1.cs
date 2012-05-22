@@ -225,7 +225,7 @@ namespace trainer
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
             labelTime.Text = Result.FormatTimeSpan(statistic.Now);
-            progressBar.Value = charHandler.TextProgress;
+            progressBar.Value = (int)(charHandler.TextProgress * progressBar.Maximum);
         }
 
 

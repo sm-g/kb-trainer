@@ -35,6 +35,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+            this.keyboard = new trainer.Keyboard();
             this.labelTime = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
@@ -42,12 +43,11 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StartEndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AnotherTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
-            this.AnotherTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -135,6 +135,14 @@
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
             // 
+            // keyboard
+            // 
+            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
+            // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
@@ -147,6 +155,7 @@
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.progressBar.Location = new System.Drawing.Point(82, 3);
+            this.progressBar.Maximum = 1000;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(629, 24);
             this.progressBar.TabIndex = 6;
@@ -191,6 +200,18 @@
             this.TextToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.TextToolStripMenuItem.Text = "Текст";
             // 
+            // AnotherTextToolStripMenuItem
+            // 
+            this.AnotherTextToolStripMenuItem.Name = "AnotherTextToolStripMenuItem";
+            this.AnotherTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AnotherTextToolStripMenuItem.Text = "Сменить";
+            this.AnotherTextToolStripMenuItem.Click += new System.EventHandler(this.AnotherTextToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
+            // 
             // OpenFileToolStripMenuItem
             // 
             this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
@@ -213,26 +234,6 @@
             // 
             this.timerUpdateWidgets.Interval = 1000;
             this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
-            // 
-            // AnotherTextToolStripMenuItem
-            // 
-            this.AnotherTextToolStripMenuItem.Name = "AnotherTextToolStripMenuItem";
-            this.AnotherTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.AnotherTextToolStripMenuItem.Text = "Сменить";
-            this.AnotherTextToolStripMenuItem.Click += new System.EventHandler(this.AnotherTextToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
-            // 
-            // keyboard
-            // 
-            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyboard.Location = new System.Drawing.Point(82, 341);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(629, 200);
-            this.keyboard.TabIndex = 4;
             // 
             // Form1
             // 
