@@ -165,7 +165,6 @@
             this.keyButtonBackspace.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonBackspace.Label = "←";
             this.keyButtonBackspace.Location = new System.Drawing.Point(549, 3);
-            this.keyButtonBackspace.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonBackspace.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonBackspace.Name = "keyButtonBackspace";
             this.keyButtonBackspace.Size = new System.Drawing.Size(48, 34);
@@ -179,7 +178,6 @@
             this.keyButton13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton13.Label = "=";
             this.keyButton13.Location = new System.Drawing.Point(507, 3);
-            this.keyButton13.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton13.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton13.Name = "keyButton13";
             this.keyButton13.Size = new System.Drawing.Size(36, 34);
@@ -193,7 +191,6 @@
             this.keyButton12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton12.Label = "-";
             this.keyButton12.Location = new System.Drawing.Point(465, 3);
-            this.keyButton12.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton12.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton12.Name = "keyButton12";
             this.keyButton12.Size = new System.Drawing.Size(36, 34);
@@ -207,7 +204,6 @@
             this.keyButton11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton11.Label = "0";
             this.keyButton11.Location = new System.Drawing.Point(423, 3);
-            this.keyButton11.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton11.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton11.Name = "keyButton11";
             this.keyButton11.Size = new System.Drawing.Size(36, 34);
@@ -221,7 +217,6 @@
             this.keyButton10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton10.Label = "9";
             this.keyButton10.Location = new System.Drawing.Point(381, 3);
-            this.keyButton10.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton10.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton10.Name = "keyButton10";
             this.keyButton10.Size = new System.Drawing.Size(36, 34);
@@ -235,7 +230,6 @@
             this.keyButton9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton9.Label = "8";
             this.keyButton9.Location = new System.Drawing.Point(339, 3);
-            this.keyButton9.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton9.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton9.Name = "keyButton9";
             this.keyButton9.Size = new System.Drawing.Size(36, 34);
@@ -250,7 +244,6 @@
             this.keyButton8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton8.Label = "7";
             this.keyButton8.Location = new System.Drawing.Point(297, 3);
-            this.keyButton8.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton8.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton8.Name = "keyButton8";
             this.keyButton8.Size = new System.Drawing.Size(36, 34);
@@ -264,7 +257,6 @@
             this.keyButton7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton7.Label = "6";
             this.keyButton7.Location = new System.Drawing.Point(255, 3);
-            this.keyButton7.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton7.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton7.Name = "keyButton7";
             this.keyButton7.Size = new System.Drawing.Size(36, 34);
@@ -278,7 +270,6 @@
             this.keyButton6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton6.Label = "5";
             this.keyButton6.Location = new System.Drawing.Point(213, 3);
-            this.keyButton6.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton6.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton6.Name = "keyButton6";
             this.keyButton6.Size = new System.Drawing.Size(36, 34);
@@ -292,7 +283,6 @@
             this.keyButton5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton5.Label = "4";
             this.keyButton5.Location = new System.Drawing.Point(171, 3);
-            this.keyButton5.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton5.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton5.Name = "keyButton5";
             this.keyButton5.Size = new System.Drawing.Size(36, 34);
@@ -306,7 +296,6 @@
             this.keyButton4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton4.Label = "3";
             this.keyButton4.Location = new System.Drawing.Point(129, 3);
-            this.keyButton4.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton4.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton4.Name = "keyButton4";
             this.keyButton4.Size = new System.Drawing.Size(36, 34);
@@ -320,7 +309,6 @@
             this.keyButton3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton3.Label = "2";
             this.keyButton3.Location = new System.Drawing.Point(87, 3);
-            this.keyButton3.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton3.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton3.Name = "keyButton3";
             this.keyButton3.Size = new System.Drawing.Size(36, 34);
@@ -334,7 +322,6 @@
             this.keyButton2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton2.Label = "1";
             this.keyButton2.Location = new System.Drawing.Point(45, 3);
-            this.keyButton2.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton2.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton2.Name = "keyButton2";
             this.keyButton2.Size = new System.Drawing.Size(36, 34);
@@ -348,7 +335,6 @@
             this.keyButton1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton1.Label = "ё";
             this.keyButton1.Location = new System.Drawing.Point(3, 3);
-            this.keyButton1.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton1.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton1.Name = "keyButton1";
             this.keyButton1.Size = new System.Drawing.Size(36, 34);
@@ -402,7 +388,6 @@
             this.keyButton26.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton26.Label = "\\";
             this.keyButton26.Location = new System.Drawing.Point(561, 3);
-            this.keyButton26.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton26.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton26.Name = "keyButton26";
             this.keyButton26.Size = new System.Drawing.Size(36, 34);
@@ -416,7 +401,6 @@
             this.keyButton25.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton25.Label = "ъ";
             this.keyButton25.Location = new System.Drawing.Point(519, 3);
-            this.keyButton25.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton25.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton25.Name = "keyButton25";
             this.keyButton25.Size = new System.Drawing.Size(36, 34);
@@ -430,7 +414,6 @@
             this.keyButton24.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton24.Label = "х";
             this.keyButton24.Location = new System.Drawing.Point(477, 3);
-            this.keyButton24.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton24.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton24.Name = "keyButton24";
             this.keyButton24.Size = new System.Drawing.Size(36, 34);
@@ -444,7 +427,6 @@
             this.keyButton23.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton23.Label = "з";
             this.keyButton23.Location = new System.Drawing.Point(435, 3);
-            this.keyButton23.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton23.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton23.Name = "keyButton23";
             this.keyButton23.Size = new System.Drawing.Size(36, 34);
@@ -458,7 +440,6 @@
             this.keyButton22.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton22.Label = "щ";
             this.keyButton22.Location = new System.Drawing.Point(393, 3);
-            this.keyButton22.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton22.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton22.Name = "keyButton22";
             this.keyButton22.Size = new System.Drawing.Size(36, 34);
@@ -472,7 +453,6 @@
             this.keyButton21.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton21.Label = "ш";
             this.keyButton21.Location = new System.Drawing.Point(351, 3);
-            this.keyButton21.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton21.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton21.Name = "keyButton21";
             this.keyButton21.Size = new System.Drawing.Size(36, 34);
@@ -486,7 +466,6 @@
             this.keyButton20.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton20.Label = "г";
             this.keyButton20.Location = new System.Drawing.Point(309, 3);
-            this.keyButton20.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton20.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton20.Name = "keyButton20";
             this.keyButton20.Size = new System.Drawing.Size(36, 34);
@@ -500,7 +479,6 @@
             this.keyButton19.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton19.Label = "н";
             this.keyButton19.Location = new System.Drawing.Point(267, 3);
-            this.keyButton19.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton19.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton19.Name = "keyButton19";
             this.keyButton19.Size = new System.Drawing.Size(36, 34);
@@ -514,7 +492,6 @@
             this.keyButton18.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton18.Label = "е";
             this.keyButton18.Location = new System.Drawing.Point(225, 3);
-            this.keyButton18.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton18.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton18.Name = "keyButton18";
             this.keyButton18.Size = new System.Drawing.Size(36, 34);
@@ -528,7 +505,6 @@
             this.keyButton17.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton17.Label = "к";
             this.keyButton17.Location = new System.Drawing.Point(183, 3);
-            this.keyButton17.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton17.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton17.Name = "keyButton17";
             this.keyButton17.Size = new System.Drawing.Size(36, 34);
@@ -542,7 +518,6 @@
             this.keyButton16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton16.Label = "у";
             this.keyButton16.Location = new System.Drawing.Point(141, 3);
-            this.keyButton16.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton16.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton16.Name = "keyButton16";
             this.keyButton16.Size = new System.Drawing.Size(36, 34);
@@ -556,7 +531,6 @@
             this.keyButton15.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton15.Label = "ц";
             this.keyButton15.Location = new System.Drawing.Point(99, 3);
-            this.keyButton15.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton15.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton15.Name = "keyButton15";
             this.keyButton15.Size = new System.Drawing.Size(36, 34);
@@ -570,7 +544,6 @@
             this.keyButton14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton14.Label = "й";
             this.keyButton14.Location = new System.Drawing.Point(57, 3);
-            this.keyButton14.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton14.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton14.Name = "keyButton14";
             this.keyButton14.Size = new System.Drawing.Size(36, 34);
@@ -584,7 +557,6 @@
             this.keyButtonTab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonTab.Label = "Tab";
             this.keyButtonTab.Location = new System.Drawing.Point(3, 3);
-            this.keyButtonTab.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonTab.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonTab.Name = "keyButtonTab";
             this.keyButtonTab.Size = new System.Drawing.Size(48, 34);
@@ -636,7 +608,6 @@
             this.keyButtonEnter.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonEnter.Label = "Enter";
             this.keyButtonEnter.Location = new System.Drawing.Point(468, 3);
-            this.keyButtonEnter.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonEnter.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonEnter.Name = "keyButtonEnter";
             this.keyButtonEnter.Size = new System.Drawing.Size(129, 34);
@@ -650,7 +621,6 @@
             this.keyButton37.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton37.Label = "э";
             this.keyButton37.Location = new System.Drawing.Point(438, 3);
-            this.keyButton37.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton37.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton37.Name = "keyButton37";
             this.keyButton37.Size = new System.Drawing.Size(24, 34);
@@ -664,7 +634,6 @@
             this.keyButton36.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton36.Label = "ж";
             this.keyButton36.Location = new System.Drawing.Point(408, 3);
-            this.keyButton36.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton36.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton36.Name = "keyButton36";
             this.keyButton36.Size = new System.Drawing.Size(24, 34);
@@ -678,7 +647,6 @@
             this.keyButton35.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton35.Label = "д";
             this.keyButton35.Location = new System.Drawing.Point(378, 3);
-            this.keyButton35.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton35.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton35.Name = "keyButton35";
             this.keyButton35.Size = new System.Drawing.Size(24, 34);
@@ -692,7 +660,6 @@
             this.keyButton34.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton34.Label = "л";
             this.keyButton34.Location = new System.Drawing.Point(348, 3);
-            this.keyButton34.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton34.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton34.Name = "keyButton34";
             this.keyButton34.Size = new System.Drawing.Size(24, 34);
@@ -706,7 +673,6 @@
             this.keyButton33.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton33.Label = "о";
             this.keyButton33.Location = new System.Drawing.Point(318, 3);
-            this.keyButton33.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton33.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton33.Name = "keyButton33";
             this.keyButton33.Size = new System.Drawing.Size(24, 34);
@@ -720,7 +686,6 @@
             this.keyButton32.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton32.Label = "р";
             this.keyButton32.Location = new System.Drawing.Point(288, 3);
-            this.keyButton32.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton32.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton32.Name = "keyButton32";
             this.keyButton32.Size = new System.Drawing.Size(24, 34);
@@ -734,7 +699,6 @@
             this.keyButton31.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton31.Label = "п";
             this.keyButton31.Location = new System.Drawing.Point(258, 3);
-            this.keyButton31.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton31.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton31.Name = "keyButton31";
             this.keyButton31.Size = new System.Drawing.Size(24, 34);
@@ -748,7 +712,6 @@
             this.keyButton30.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton30.Label = "а";
             this.keyButton30.Location = new System.Drawing.Point(228, 3);
-            this.keyButton30.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton30.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton30.Name = "keyButton30";
             this.keyButton30.Size = new System.Drawing.Size(24, 34);
@@ -762,7 +725,6 @@
             this.keyButton29.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton29.Label = "в";
             this.keyButton29.Location = new System.Drawing.Point(198, 3);
-            this.keyButton29.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton29.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton29.Name = "keyButton29";
             this.keyButton29.Size = new System.Drawing.Size(24, 34);
@@ -776,7 +738,6 @@
             this.keyButton28.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton28.Label = "ы";
             this.keyButton28.Location = new System.Drawing.Point(168, 3);
-            this.keyButton28.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton28.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton28.Name = "keyButton28";
             this.keyButton28.Size = new System.Drawing.Size(24, 34);
@@ -790,7 +751,6 @@
             this.keyButton27.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton27.Label = "ф";
             this.keyButton27.Location = new System.Drawing.Point(138, 3);
-            this.keyButton27.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton27.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton27.Name = "keyButton27";
             this.keyButton27.Size = new System.Drawing.Size(24, 34);
@@ -804,7 +764,6 @@
             this.keyButtonCaps.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonCaps.Label = "Caps Lock";
             this.keyButtonCaps.Location = new System.Drawing.Point(3, 3);
-            this.keyButtonCaps.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonCaps.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonCaps.Name = "keyButtonCaps";
             this.keyButtonCaps.Size = new System.Drawing.Size(129, 34);
@@ -854,7 +813,6 @@
             this.keyButtonRShift.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonRShift.Label = "Shift";
             this.keyButtonRShift.Location = new System.Drawing.Point(453, 3);
-            this.keyButtonRShift.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonRShift.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonRShift.Name = "keyButtonRShift";
             this.keyButtonRShift.Size = new System.Drawing.Size(144, 34);
@@ -868,7 +826,6 @@
             this.keyButton47.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton47.Label = ".";
             this.keyButton47.Location = new System.Drawing.Point(423, 3);
-            this.keyButton47.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton47.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton47.Name = "keyButton47";
             this.keyButton47.Size = new System.Drawing.Size(24, 34);
@@ -882,7 +839,6 @@
             this.keyButton46.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton46.Label = "ю";
             this.keyButton46.Location = new System.Drawing.Point(393, 3);
-            this.keyButton46.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton46.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton46.Name = "keyButton46";
             this.keyButton46.Size = new System.Drawing.Size(24, 34);
@@ -896,7 +852,6 @@
             this.keyButton45.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton45.Label = "б";
             this.keyButton45.Location = new System.Drawing.Point(363, 3);
-            this.keyButton45.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton45.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton45.Name = "keyButton45";
             this.keyButton45.Size = new System.Drawing.Size(24, 34);
@@ -910,7 +865,6 @@
             this.keyButton44.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton44.Label = "ь";
             this.keyButton44.Location = new System.Drawing.Point(333, 3);
-            this.keyButton44.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton44.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton44.Name = "keyButton44";
             this.keyButton44.Size = new System.Drawing.Size(24, 34);
@@ -924,7 +878,6 @@
             this.keyButton43.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton43.Label = "т";
             this.keyButton43.Location = new System.Drawing.Point(303, 3);
-            this.keyButton43.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton43.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton43.Name = "keyButton43";
             this.keyButton43.Size = new System.Drawing.Size(24, 34);
@@ -938,7 +891,6 @@
             this.keyButton42.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton42.Label = "и";
             this.keyButton42.Location = new System.Drawing.Point(273, 3);
-            this.keyButton42.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton42.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton42.Name = "keyButton42";
             this.keyButton42.Size = new System.Drawing.Size(24, 34);
@@ -952,7 +904,6 @@
             this.keyButton41.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton41.Label = "м";
             this.keyButton41.Location = new System.Drawing.Point(243, 3);
-            this.keyButton41.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton41.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton41.Name = "keyButton41";
             this.keyButton41.Size = new System.Drawing.Size(24, 34);
@@ -966,7 +917,6 @@
             this.keyButton40.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton40.Label = "с";
             this.keyButton40.Location = new System.Drawing.Point(213, 3);
-            this.keyButton40.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton40.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton40.Name = "keyButton40";
             this.keyButton40.Size = new System.Drawing.Size(24, 34);
@@ -980,7 +930,6 @@
             this.keyButton39.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton39.Label = "ч";
             this.keyButton39.Location = new System.Drawing.Point(183, 3);
-            this.keyButton39.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton39.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton39.Name = "keyButton39";
             this.keyButton39.Size = new System.Drawing.Size(24, 34);
@@ -994,7 +943,6 @@
             this.keyButton38.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton38.Label = "я";
             this.keyButton38.Location = new System.Drawing.Point(153, 3);
-            this.keyButton38.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton38.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton38.Name = "keyButton38";
             this.keyButton38.Size = new System.Drawing.Size(24, 34);
@@ -1008,7 +956,6 @@
             this.keyButtonLShift.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButtonLShift.Label = "Shift";
             this.keyButtonLShift.Location = new System.Drawing.Point(3, 3);
-            this.keyButtonLShift.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButtonLShift.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonLShift.Name = "keyButtonLShift";
             this.keyButtonLShift.Size = new System.Drawing.Size(144, 34);
@@ -1037,7 +984,6 @@
             this.keyButton48.ForeColor = System.Drawing.SystemColors.ControlText;
             this.keyButton48.Label = "";
             this.keyButton48.Location = new System.Drawing.Point(151, 3);
-            this.keyButton48.MaximumSize = new System.Drawing.Size(300, 300);
             this.keyButton48.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton48.Name = "keyButton48";
             this.keyButton48.Size = new System.Drawing.Size(261, 28);

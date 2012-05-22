@@ -48,7 +48,6 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MaximumSize = new System.Drawing.Size(300, 300);
             this.MinimumSize = new System.Drawing.Size(10, 10);
             this.Name = "KeyButton";
             this.Size = new System.Drawing.Size(30, 30);
