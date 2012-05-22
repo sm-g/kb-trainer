@@ -132,7 +132,17 @@ namespace trainer
             statistic.PauseTimer();
 
             richTextBoxInput.Enabled = false;
-            timerResultDelay.Enabled = true;
+            if (statistic.EnoughToResult)
+            {
+                if (charHandler.TextEnded)
+                    timerResultDelay.Enabled = true;
+                else
+                    ShowResult();
+            }
+            else
+            {
+                FinishExercise();
+            }
         }
         private void ResumeTyping()
         {
@@ -169,9 +179,8 @@ namespace trainer
             richTextBoxSourceView.Lines = sourceText.Lines;
         }
 
-        private void timerResultDelay_Tick(object sender, EventArgs e)
+        private void ShowResult()
         {
-            timerResultDelay.Enabled = false;
             Result resultForm = new Result(statistic.GetResultInfo(), sourceText.GetInfo());
             if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -181,6 +190,11 @@ namespace trainer
             {
                 ResumeTyping();
             }
+        }
+        private void timerResultDelay_Tick(object sender, EventArgs e)
+        {
+            timerResultDelay.Enabled = false;
+            ShowResult();
         }
 
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)

@@ -9,6 +9,7 @@ namespace trainer
 {
     partial class Statistic
     {
+        private const int MIN_RESULT_CHARS = 5;
         private Stopwatch stopwatch;
         private List<Keystroke> keystrokes;
         private int errorsCounter;
@@ -32,7 +33,14 @@ namespace trainer
         {
             get { return keystrokes[keystrokes.Count - 1].DownTime; }
         }
-        public TimeSpan Now { get { return stopwatch.Elapsed; } }
+        public TimeSpan Now
+        {
+            get { return stopwatch.Elapsed; }
+        }
+        public bool EnoughToResult
+        {
+            get { return PassedChars > MIN_RESULT_CHARS; }
+        }
 
         public Statistic()
         {
