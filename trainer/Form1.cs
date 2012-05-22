@@ -58,7 +58,7 @@ namespace trainer
             {
                 DisplayPassedLetter();
 
-                keyboard.HighlightKey(charHandler.NextChar);
+                keyboard.HighlightKeys(charHandler.NextCharToType);
 
                 if (e.KeyChar == ' ')
                 {
@@ -69,6 +69,7 @@ namespace trainer
             else
             {
                 DisplayWrongLetter();
+                keyboard.HighlightKeys(charHandler.NextCharToType);
             }
         }
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
@@ -83,10 +84,8 @@ namespace trainer
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
 
-                keyboard.HighlightKey(charHandler.NextChar);
+                keyboard.HighlightKeys(charHandler.NextCharToType);
             }
-            
-            Console.Write(charHandler.NextChar);
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
@@ -155,7 +154,7 @@ namespace trainer
             ResumeTyping();
 
             timerUpdateWidgets.Enabled = true;
-            keyboard.HighlightKey(charHandler.NextChar);
+            keyboard.HighlightKeys(charHandler.NextCharToType);
         }
         private void PrepareTextBoxes()
         {

@@ -13,6 +13,7 @@ namespace trainer
     {
         private const string MAP = "ё1234567890-=йцукенгшщзхъ\\фывапролджэячсмитьбю. Ё!\"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ~!@#$%^&";
         private Dictionary<int, KeyButton> letterKeyButtons;
+        private List<KeyButton> highlightedKeyButtons;
 
         public Keyboard()
         {
@@ -22,6 +23,7 @@ namespace trainer
 
         private void InitKeyButtons()
         {
+            highlightedKeyButtons = new List<KeyButton>();
             letterKeyButtons = new Dictionary<int, KeyButton>();
             for (int i = 0; i < tableLayoutPanel.Controls.Count; i++)
                 for (int j = 0; j < tableLayoutPanel.Controls[i].Controls.Count; j++)
@@ -33,28 +35,45 @@ namespace trainer
                         int kbCode = Int32.Parse(kbNameCode);
                         letterKeyButtons.Add(kbCode, kb);
 
-                        kb.Label = MAP[kbCode - 1].ToString();
+                        kb.Label = Char.ToUpper(MAP[kbCode - 1]).ToString();
                     }
                 }
         }
 
-        public void HighlightKey(char ch)
+        private void SetKeyButtonsToHighlight(char ch)
         {
-            int kbCode = MAP.IndexOf(ch) % letterKeyButtons.Count + 1;
-
-            if (kbCode != -1)
+            int layoutCode = MAP.IndexOf(ch);
+            if (layoutCode > letterKeyButtons.Count - 1)
             {
-                foreach (var kb in letterKeyButtons)
-                {
-                    if (kb.Key == kbCode)
-                    {
-                        kb.Value.TurnOnHighlight();
-                    }
-                    else
-                    {
-                        kb.Value.TurnOffHighlight();
-                    }
-                }
+                highlightedKeyButtons.Add(keyButtonLShift);
+                highlightedKeyButtons.Add(keyButtonRShift);
+            }
+
+            if (layoutCode != -1)
+            {
+                int kbCode = layoutCode % letterKeyButtons.Count + 1;
+                highlightedKeyButtons.Add(letterKeyButtons[kbCode]);
+            }
+            else
+            {
+                if (ch == '\b')
+                    highlightedKeyButtons.Add(keyButtonBackspace);
+            }
+        }
+
+        public void HighlightKeys(char ch)
+        {
+            foreach (var kb in highlightedKeyButtons)
+            {
+                kb.TurnOffHighlight();
+            }
+            highlightedKeyButtons.Clear();
+
+            SetKeyButtonsToHighlight(ch);
+
+            foreach (var kb in highlightedKeyButtons)
+            {
+                kb.TurnOnHighlight();
             }
         }
 

@@ -27,14 +27,15 @@ namespace trainer
             }
         }
         public int TextProgress { get { return (int)(100 * statistic.PassedChars / source.Length); } }
-        public char NextChar
+        public char NextCharToType
         {
             get
             {
+                if (IsCorrectingWrongChars)
+                    return '\b';
                 if (inLinePosition < source.Lines[lineNumber].Length)
                     return source.Lines[lineNumber][inLinePosition];
-                else
-                    return '\0';
+                return '\0';
             }
         }
         public bool IsCorrectingWrongChars
