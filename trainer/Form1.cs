@@ -73,22 +73,31 @@ namespace trainer
         }
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Escape)
+            Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
+            if (code == Keys.Escape)
             {
                 StopTyping();
-                return; // не записывается в статистику
+                return;
             }
-            statistic.RegisterKeyDown(e.KeyCode);
-            if (e.KeyData == Keys.Back && richTextBoxInput.Text.Length != 0)
+            
+            statistic.RegisterKeyDown(code);
+            if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
+                if (e.KeyData == (Keys.Back ^ Keys.Control))
+                {
+                    e.Handled = true;
+                    richTextBoxInput.Text = richTextBoxInput.Text.Remove(richTextBoxInput.Text.Length - 1);
+                }
 
                 keyboard.HighlightKeys(charHandler.NextCharToType);
             }
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
-            statistic.RegisterKeyUp(e.KeyCode);
+            Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
+
+            statistic.RegisterKeyUp(code);
             labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
             if (charHandler.TextEnded)
             {
