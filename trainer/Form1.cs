@@ -53,11 +53,9 @@ namespace trainer
         {
             if (Char.IsControl(e.KeyChar)) // перехват управляющих клавиш
                 return;
-
             if (charHandler.ValidateChar(e.KeyChar))
             {
-                DisplayPassedLetter();
-                keyboard.HighlightKeys(charHandler.NextCharToType);
+                DisplayCorrectInput();
 
                 if (e.KeyChar == ' ')
                 {
@@ -67,9 +65,8 @@ namespace trainer
             }
             else
             {
-                DisplayWrongLetter();
-                keyboard.HighlightKeys(charHandler.NextCharToType);
-            }
+                DisplayWrongInput();
+            }            
         }
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
@@ -83,14 +80,16 @@ namespace trainer
             statistic.RegisterKeyDown(code);
             if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
-                DeleteLetter(richTextBoxInput.Text[richTextBoxInput.Text.Length - 1]);
+                char deletingChar = richTextBoxInput.Text[richTextBoxInput.Text.Length - 1];
+                charHandler.DeleteChar(deletingChar);
+
                 if (e.KeyData == (Keys.Back ^ Keys.Control))
                 {
                     e.Handled = true;
                     richTextBoxInput.Text = richTextBoxInput.Text.Remove(richTextBoxInput.Text.Length - 1);
                 }
 
-                keyboard.HighlightKeys(charHandler.NextCharToType);
+                DisplayDeletion();                
             }
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
@@ -114,26 +113,29 @@ namespace trainer
             richTextBoxInput.Clear();
         }
 
-        private void DeleteLetter(char ch)
+        private void DisplayDeletion()
         {
-            PaintLetter(richTextBoxSourceView, Colors.clearLetterBackground, Colors.clearLetter);
-            charHandler.DeleteChar(ch);
+            PaintSourceViewChar(0, Colors.clearLetterBackground, Colors.clearLetter);
+            keyboard.HighlightKeyButtons(charHandler.NextCharToType);
         }
-        private void DisplayPassedLetter()
+        private void DisplayCorrectInput()
         {
-            PaintLetter(richTextBoxSourceView, Colors.passedLetterBackground, Colors.passedLetter);
+            PaintSourceViewChar(1, Colors.passedLetterBackground, Colors.passedLetter);
+            keyboard.HighlightKeyButtons(charHandler.NextCharToType);
         }
-        private void DisplayWrongLetter()
+        private void DisplayWrongInput()
         {
-            PaintLetter(richTextBoxSourceView, Colors.wrongLetterBackground, Colors.wrongLetter);
+            PaintSourceViewChar(1, Colors.wrongLetterBackground, Colors.wrongLetter);
+            keyboard.HighlightKeyButtons(charHandler.NextCharToType);
+
             System.Media.SystemSounds.Beep.Play();
             labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
         }
-        private void PaintLetter(RichTextBox richTextBox, Color backColor, Color color)
+        private void PaintSourceViewChar(int offset, Color backColor, Color color)
         {
-            richTextBox.Select(charHandler.MarkerPosition - 1, 1);
-            richTextBox.SelectionBackColor = backColor;
-            richTextBox.SelectionColor = color;
+            richTextBoxSourceView.Select(charHandler.MarkerPosition - offset, 1);
+            richTextBoxSourceView.SelectionBackColor = backColor;
+            richTextBoxSourceView.SelectionColor = color;            
         }
 
         private void StopTyping()
@@ -184,7 +186,7 @@ namespace trainer
             PrepareTextBoxes();
             ResumeTyping();
             
-            keyboard.HighlightKeys(charHandler.NextCharToType);
+            keyboard.HighlightKeyButtons(charHandler.NextCharToType);
             SetMenus();
             timerUpdateWidgets.Enabled = true;
         }

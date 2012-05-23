@@ -102,7 +102,7 @@ namespace trainer
             }
             highlightedKeyButtons.Clear();
         }
-        public void HighlightKeys(char ch)
+        public void HighlightKeyButtons(char ch)
         {
             TurnOffHighlighting();
             SetKeyButtonsToHighlight(ch);
