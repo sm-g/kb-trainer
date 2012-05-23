@@ -21,7 +21,7 @@ namespace trainer
         public static Color keyLabelHighlighted = Color.White;
 
         // фон клавиш
-        private static Color common = Color.FromArgb(60, 200, 60);
+        public static Color common = Color.FromArgb(60, 200, 60);
 
         private static Color firstFinger       = Color.FromArgb(60, 200, 60);
         private static Color secondLeftFinger  = Color.FromArgb(60, 200, 60);

@@ -14,6 +14,40 @@ namespace trainer
         private const string MAP = "ё1234567890-=йцукенгшщзхъ\\фывапролджэячсмитьбю. Ё!\"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ~!@#$%^&";
         private Dictionary<int, KeyButton> letterKeyButtons;
         private List<KeyButton> highlightedKeyButtons;
+        private bool labeled = true;
+        private bool colored = false;
+
+        public bool Labeled
+        {
+            get { return labeled; }
+            set
+            {
+                if (labeled != value)
+                {
+                    labeled = value;
+                    foreach (var kb in letterKeyButtons)
+                    {
+                        kb.Value.LabelVisiable = value;
+                    }
+                }
+            }
+        }
+        public bool FingerZonesColored
+        {
+            get { return colored; }
+            set
+            {
+                if (colored != value)
+                {
+                    colored = value;
+                    foreach (var kb in letterKeyButtons)
+                    {
+                        kb.Value.IsColored = value;
+                    }
+                    Refresh();
+                }
+            }
+        }
 
         public Keyboard()
         {

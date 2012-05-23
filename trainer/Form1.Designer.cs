@@ -35,9 +35,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
-            this.keyboard = new trainer.Keyboard();
             this.labelTime = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.flowLayoutPanelKeyboardSetting = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxKeyboardLabeled = new System.Windows.Forms.CheckBox();
+            this.checkBoxKeyboardColored = new System.Windows.Forms.CheckBox();
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -48,8 +50,10 @@
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
+            this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanelKeyboardSetting.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +103,7 @@
             this.tableLayoutPanel1.Controls.Add(this.keyboard, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelTime, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.progressBar, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanelKeyboardSetting, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -135,14 +140,6 @@
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
             // 
-            // keyboard
-            // 
-            this.keyboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyboard.Location = new System.Drawing.Point(82, 341);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(629, 200);
-            this.keyboard.TabIndex = 4;
-            // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
@@ -159,6 +156,45 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(629, 24);
             this.progressBar.TabIndex = 6;
+            // 
+            // flowLayoutPanelKeyboardSetting
+            // 
+            this.flowLayoutPanelKeyboardSetting.Controls.Add(this.checkBoxKeyboardLabeled);
+            this.flowLayoutPanelKeyboardSetting.Controls.Add(this.checkBoxKeyboardColored);
+            this.flowLayoutPanelKeyboardSetting.Location = new System.Drawing.Point(3, 341);
+            this.flowLayoutPanelKeyboardSetting.Name = "flowLayoutPanelKeyboardSetting";
+            this.flowLayoutPanelKeyboardSetting.Size = new System.Drawing.Size(73, 100);
+            this.flowLayoutPanelKeyboardSetting.TabIndex = 8;
+            // 
+            // checkBoxKeyboardLabeled
+            // 
+            this.checkBoxKeyboardLabeled.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxKeyboardLabeled.AutoSize = true;
+            this.checkBoxKeyboardLabeled.Checked = true;
+            this.checkBoxKeyboardLabeled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxKeyboardLabeled.FlatAppearance.BorderSize = 0;
+            this.checkBoxKeyboardLabeled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxKeyboardLabeled.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxKeyboardLabeled.Name = "checkBoxKeyboardLabeled";
+            this.checkBoxKeyboardLabeled.Size = new System.Drawing.Size(51, 23);
+            this.checkBoxKeyboardLabeled.TabIndex = 7;
+            this.checkBoxKeyboardLabeled.Text = "labeled";
+            this.checkBoxKeyboardLabeled.UseVisualStyleBackColor = true;
+            this.checkBoxKeyboardLabeled.CheckedChanged += new System.EventHandler(this.checkBoxKeyboardLabeled_CheckedChanged);
+            // 
+            // checkBoxKeyboardColored
+            // 
+            this.checkBoxKeyboardColored.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxKeyboardColored.AutoSize = true;
+            this.checkBoxKeyboardColored.FlatAppearance.BorderSize = 0;
+            this.checkBoxKeyboardColored.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxKeyboardColored.Location = new System.Drawing.Point(3, 32);
+            this.checkBoxKeyboardColored.Name = "checkBoxKeyboardColored";
+            this.checkBoxKeyboardColored.Size = new System.Drawing.Size(52, 23);
+            this.checkBoxKeyboardColored.TabIndex = 8;
+            this.checkBoxKeyboardColored.Text = "colored";
+            this.checkBoxKeyboardColored.UseVisualStyleBackColor = true;
+            this.checkBoxKeyboardColored.CheckedChanged += new System.EventHandler(this.checkBoxKeyboardColored_CheckedChanged);
             // 
             // timerResultDelay
             // 
@@ -235,6 +271,15 @@
             this.timerUpdateWidgets.Interval = 1000;
             this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
             // 
+            // keyboard
+            // 
+            this.keyboard.FingerZonesColored = false;
+            this.keyboard.Labeled = true;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +294,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.flowLayoutPanelKeyboardSetting.ResumeLayout(false);
+            this.flowLayoutPanelKeyboardSetting.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -277,5 +324,8 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ToolStripMenuItem AnotherTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.CheckBox checkBoxKeyboardLabeled;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelKeyboardSetting;
+        private System.Windows.Forms.CheckBox checkBoxKeyboardColored;
     }
 }

@@ -238,7 +238,6 @@
             // keyButton8
             // 
             this.keyButton8.BackColor = System.Drawing.Color.Transparent;
-
             this.keyButton8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton8.Finger = trainer.Fingers.SecondRight;
             this.keyButton8.ForeColor = System.Drawing.SystemColors.ControlText;

@@ -16,6 +16,8 @@ namespace trainer
         private static int radius = 5;
 
         private bool highlighted;
+        private Color backgroundColor;
+        private Color borderColor;
 
         public string Label
         {
@@ -29,6 +31,18 @@ namespace trainer
             }
         }
         public Fingers Finger { get; set; }
+        public bool LabelVisiable
+        {
+            get
+            {
+                return label.Visible;
+            }
+            set
+            {
+                label.Visible = value;
+            }
+        }
+        public bool IsColored { get; set; }
 
         public KeyButton()
         {
@@ -55,14 +69,22 @@ namespace trainer
 
         private void KeyButton_Paint(object sender, PaintEventArgs e)
         {
-            Color background = Colors.OfFinger(Finger);
-            Color border = Colors.OfBorder(Colors.OfFinger(Finger));
+            if (IsColored)
+            {
+                backgroundColor = Colors.OfFinger(Finger);
+                borderColor = Colors.OfBorder(Colors.OfFinger(Finger));
+            }
+            else
+            {
+                backgroundColor = borderColor = Colors.common;
+            }
+
             if (highlighted)
             {
-                background = Colors.Highlight(background);
-                border = Colors.Highlight(border);
+                backgroundColor = Colors.Highlight(backgroundColor);
+                borderColor = Colors.Highlight(borderColor);
             }
-            DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(border, borderWidth), background);
+            DrawRoundedRectangle(e.Graphics, new Rectangle(0, 0, Width, Height), radius, new Pen(borderColor, borderWidth), backgroundColor);
         }
 
         public void TurnOnHighlighting()

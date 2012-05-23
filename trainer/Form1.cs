@@ -249,6 +249,15 @@ namespace trainer
             progressBar.Value = (int)(charHandler.TextProgress * progressBar.Maximum);
         }
 
+        private void checkBoxKeyboardLabeled_CheckedChanged(object sender, EventArgs e)
+        {
+            keyboard.Labeled = checkBoxKeyboardLabeled.Checked;
+        }
+        private void checkBoxKeyboardColored_CheckedChanged(object sender, EventArgs e)
+        {
+            keyboard.FingerZonesColored = checkBoxKeyboardColored.Checked;
+        }
+
 
 
     }
