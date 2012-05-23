@@ -15,6 +15,7 @@ namespace trainer
         Statistic statistic;
         bool exerciseStarted;
         bool textOpenedFromFile;
+        bool windowIsActive;
 
         public Form1()
         {
@@ -131,6 +132,17 @@ namespace trainer
             statistic.PauseTimer();
 
             richTextBoxInput.Enabled = false;
+
+            if (windowIsActive)
+                EndTyping();
+        }
+        private void ResumeTyping()
+        {
+            richTextBoxInput.Enabled = true;
+            richTextBoxInput.Focus();
+        }
+        private void EndTyping()
+        {
             if (statistic.EnoughToResult)
             {
                 if (charHandler.TextEnded)
@@ -142,11 +154,6 @@ namespace trainer
             {
                 FinishExercise();
             }
-        }
-        private void ResumeTyping()
-        {
-            richTextBoxInput.Enabled = true;
-            richTextBoxInput.Focus();
         }
 
         private void FinishExercise()
@@ -239,7 +246,7 @@ namespace trainer
             RandomTextToolStripMenuItem.Enabled  = !exerciseStarted;
             AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;
 
-            StartEndToolStripMenuItem.Text = exerciseStarted ? "Финиш" : "Старт";
+            StartEndToolStripMenuItem.Text = exerciseStarted ? "Стоп" : "Старт";
         }
 
 
@@ -258,7 +265,17 @@ namespace trainer
             keyboard.FingerZonesColored = checkBoxKeyboardColored.Checked;
         }
 
-
-
+        private void Form1_Deactivate(object sender, EventArgs e)
+        {
+            windowIsActive = false;
+            if (exerciseStarted)
+                StopTyping();
+        }
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            windowIsActive = true;
+            if (exerciseStarted)
+                ResumeTyping();
+        }
     }
 }

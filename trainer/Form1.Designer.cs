@@ -291,6 +291,8 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Keyboard Trainer";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
+            this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
