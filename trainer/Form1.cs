@@ -175,6 +175,9 @@ namespace trainer
             
             SetMenus();
             timerUpdateWidgets.Enabled = false;
+
+            Progress.SaveToXml(sourceText, statistic);
+            Progress.SaveToDsv(sourceText, statistic);
         }
         private void StartExercise()
         {
@@ -199,7 +202,7 @@ namespace trainer
 
         private void ShowResult()
         {
-            Result resultForm = new Result(statistic.GetResultInfo(), sourceText.GetInfo());
+            ResultForm resultForm = new ResultForm(statistic.GetResultInfo(), sourceText.GetInfo());
             if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 FinishExercise();
@@ -263,7 +266,7 @@ namespace trainer
 
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
-            labelTime.Text = Result.FormatTimeSpan(statistic.Now);
+            labelTime.Text = ResultForm.FormatTimeSpan(statistic.Now);
             progressBar.Value = (int)(charHandler.TextProgress * progressBar.Maximum);
         }
 

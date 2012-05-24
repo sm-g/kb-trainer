@@ -6,7 +6,7 @@ using System.Text;
 
 namespace trainer
 {
-    class SourceText
+    public class SourceText
     {
         private string[] textData;
 

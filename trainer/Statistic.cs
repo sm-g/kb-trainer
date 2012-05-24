@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace trainer
 {
@@ -43,6 +45,7 @@ namespace trainer
         {
             get { return PassedChars > MIN_RESULT_CHARS; }
         }
+        public float Rhythmicity { get; set; }
 
         public Statistic()
         {
@@ -110,8 +113,11 @@ namespace trainer
 
     public class Pressure
     {
+        [XmlAttribute]
         public char Char;
+        [XmlAttribute]
         public int Amount;
+        [XmlAttribute]
         public long Duration;
     }
 
@@ -145,6 +151,45 @@ namespace trainer
             Errors = errors;
             PassedChars = passedChars;
             Keystrokes = keystrokes;
+        }
+    }
+
+    public class Exercise
+    {
+        public DateTime Date;
+        public string TextTitle;
+        public double Speed { get { return Statistic.TypingSpeed.GetAverage(TotalPrintingTime, PassedChars); } }
+        public int PassedChars;
+        public int Errors;
+        public TimeSpan TotalPrintingTime;
+        public float Rhythmicity;
+        public List<Pressure> Pressures;
+
+        public Exercise(string exercise)
+        {
+            string[] attribures = exercise.Split(Delimeters.Attribute);
+            if (attribures.Length == 7)
+            {
+                DateTime.TryParse(attribures[0], out Date);
+                TextTitle = attribures[1];
+                Int32.TryParse(attribures[2], out PassedChars);
+                Int32.TryParse(attribures[3], out Errors);
+                TimeSpan.TryParse(attribures[4], out TotalPrintingTime);
+                float.TryParse(attribures[5], out Rhythmicity);
+
+                Pressures = new List<Pressure>();
+                string[] pressures = attribures[6].Split(Delimeters.Pressure);
+                Pressure pressure;
+                for (int i = 0; i < pressures.Length; i++)
+                {
+                    attribures = pressures[i].Split(Delimeters.PressureAttr);
+                    pressure = new Pressure();
+                    Char.TryParse(attribures[0], out pressure.Char);
+                    Int32.TryParse(attribures[1], out pressure.Amount);
+                    long.TryParse(attribures[2], out pressure.Duration);
+                    Pressures.Add(pressure);
+                }
+            }
         }
     }
 }
