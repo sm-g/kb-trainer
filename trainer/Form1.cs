@@ -15,7 +15,7 @@ namespace trainer
         Statistic statistic;
         bool exerciseStarted;
         bool textOpenedFromFile;
-        bool windowIsActive;
+        bool exercisePaused;
 
         public Form1()
         {
@@ -143,12 +143,16 @@ namespace trainer
             statistic.PauseTimer();
 
             richTextBoxInput.Enabled = false;
+            SetStartButtonLabel();
 
-            if (windowIsActive)
+            if (!exercisePaused)               
                 EndTyping();
         }
         private void ResumeTyping()
         {
+            exercisePaused = false;
+
+            SetStartButtonLabel();
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
         }
@@ -174,11 +178,15 @@ namespace trainer
             keyboard.TurnOffHighlighting();
             
             SetMenusState();
+            SetStartButtonLabel();
             SetWidgetsVisability();
             timerUpdateWidgets.Enabled = false;
 
-            Progress.SaveToXml(sourceText, statistic);
-            Progress.SaveToDsv(sourceText, statistic);
+            if (statistic.EnoughToResult)
+            {
+                Progress.SaveToXml(sourceText, statistic);
+                Progress.SaveToDsv(sourceText, statistic);
+            }
         }
         private void StartExercise()
         {
@@ -192,6 +200,7 @@ namespace trainer
             
             keyboard.HighlightKeyButtons(charHandler.NextCharToType);
             SetMenusState();
+            SetStartButtonLabel();
             SetWidgetsVisability();
             timerUpdateWidgets.Enabled = true;
         }
@@ -220,8 +229,13 @@ namespace trainer
             ShowResult();
         }
 
-        private void StartEndToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (exercisePaused)
+            {
+                ResumeTyping();
+                return;
+            }
             if (exerciseStarted)
             {
                 StopTyping();
@@ -260,9 +274,14 @@ namespace trainer
 
             OpenFileToolStripMenuItem.Enabled    = !exerciseStarted;
             RandomTextToolStripMenuItem.Enabled  = !exerciseStarted;
-            AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;
-
-            StartEndToolStripMenuItem.Text = exerciseStarted ? "Стоп" : "Старт";
+            AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;            
+        }
+        private void SetStartButtonLabel()
+        {
+            if (exercisePaused) 
+                StartToolStripMenuItem.Text = "Продолжить";
+            else
+                StartToolStripMenuItem.Text = exerciseStarted ? "Стоп" : "Старт";
         }
 
         private void SetWidgetsVisability()
@@ -295,15 +314,20 @@ namespace trainer
 
         private void Form1_Deactivate(object sender, EventArgs e)
         {
-            windowIsActive = false;
+            exercisePaused = true;
             if (exerciseStarted)
                 StopTyping();
         }
         private void Form1_Activated(object sender, EventArgs e)
         {
-            windowIsActive = true;
             if (exerciseStarted)
                 ResumeTyping();
+        }
+        private void richTextBoxInput_Leave(object sender, EventArgs e)
+        {
+            exercisePaused = true;
+            if (exerciseStarted)
+                StopTyping();
         }
 
         private void ProgressToolStripMenuItem_Click(object sender, EventArgs e)

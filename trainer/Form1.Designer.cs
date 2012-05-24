@@ -47,7 +47,7 @@
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.StartEndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AnotherTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -224,6 +224,7 @@
             this.richTextBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyDown);
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
+            this.richTextBoxInput.Leave += new System.EventHandler(this.richTextBoxInput_Leave);
             // 
             // panelKeyboardSettings
             // 
@@ -284,7 +285,7 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StartEndToolStripMenuItem,
+            this.StartToolStripMenuItem,
             this.TextToolStripMenuItem,
             this.ProgressToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -293,14 +294,14 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // StartEndToolStripMenuItem
+            // StartToolStripMenuItem
             // 
-            this.StartEndToolStripMenuItem.Name = "StartEndToolStripMenuItem";
-            this.StartEndToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.StartEndToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.StartEndToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.StartEndToolStripMenuItem.Text = "Старт";
-            this.StartEndToolStripMenuItem.Click += new System.EventHandler(this.StartEndToolStripMenuItem_Click);
+            this.StartToolStripMenuItem.Name = "StartToolStripMenuItem";
+            this.StartToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.StartToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.StartToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.StartToolStripMenuItem.Text = "Старт";
+            this.StartToolStripMenuItem.Click += new System.EventHandler(this.StartToolStripMenuItem_Click);
             // 
             // TextToolStripMenuItem
             // 
@@ -438,7 +439,7 @@
         private System.Windows.Forms.Timer timerResultDelay;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem StartEndToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RandomTextToolStripMenuItem;
