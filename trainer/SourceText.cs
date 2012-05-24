@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
 
 namespace trainer
@@ -26,14 +23,10 @@ namespace trainer
         {
             get
             {
-                return textData[0];
+                return textData[0].Replace(Delimeters.Attribute, Delimeters.SafeChar);
             }
         }
-        public string FileName
-        {
-            get;
-            private set;
-        }
+        public string FileName { get; private set; }
         public string[] Lines
         {
             get { return textData; }
@@ -55,7 +48,6 @@ namespace trainer
                 textData[i] += ' '; // для разрыва со словом из следующей строки
                 textData[i] = System.Text.RegularExpressions.Regex.Replace(textData[i], " +", " ");
             }
-
         }
     }
 }
