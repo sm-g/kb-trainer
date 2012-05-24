@@ -4,9 +4,9 @@ using System.Drawing;
 
 namespace trainer
 {
-    public partial class Result : Form
+    public partial class ResultForm : Form
     {
-        public Result(ResultInfo result, SourceInfo source)
+        public ResultForm(Result result, SourceInfo source)
         {
             InitializeComponent();
 

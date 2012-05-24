@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace trainer
 {
-    partial class Statistic
+    public partial class Statistic
     {
         private const int MIN_RESULT_CHARS = 5;
+
         private Stopwatch stopwatch;
         private List<Keystroke> keystrokes;
         private int errorsCounter;
@@ -82,9 +83,9 @@ namespace trainer
         {
             stopwatch.Stop();
         }
-        public ResultInfo GetResultInfo()
+        public Result GetResultInfo()
         {
-            return new ResultInfo(Speed.Average, Errors, PassedChars, keystrokes);
+            return new Result(Speed.Average, Errors, PassedChars, keystrokes);
         }
     }
 
@@ -105,14 +106,14 @@ namespace trainer
         }
     }
 
-    public struct ResultInfo
+    public struct Result
     {
         public double Speed;
         public int Errors;
         public List<Keystroke> Keystrokes;
         public int PassedChars;
 
-        public ResultInfo(double speed, int errors, int passedChars, List<Keystroke> keystrokes)
+        public Result(double speed, int errors, int passedChars, List<Keystroke> keystrokes)
         {
             Speed = speed;
             Errors = errors;

@@ -1,6 +1,6 @@
 ﻿namespace trainer
 {
-    partial class Result
+    partial class ResultForm
     {
         /// <summary>
         /// Required designer variable.
