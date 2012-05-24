@@ -31,14 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.labelVelocity = new System.Windows.Forms.Label();
             this.labelErrors = new System.Windows.Forms.Label();
-            this.richTextBoxSourceView = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanelMainArea = new System.Windows.Forms.TableLayoutPanel();
+            this.panelTypingMeasures = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelProgress = new System.Windows.Forms.Panel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.labelTime = new System.Windows.Forms.Label();
+            this.tableLayoutPanelTextBoxes = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBoxSourceView = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+            this.panelKeyboardSettings = new System.Windows.Forms.Panel();
             this.checkBoxKeyboardLabeled = new System.Windows.Forms.CheckBox();
             this.checkBoxKeyboardColored = new System.Windows.Forms.CheckBox();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -50,18 +55,17 @@
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
-            this.panelProgress = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panelTypingMeasures = new System.Windows.Forms.Panel();
-            this.panelKeyboardSettings = new System.Windows.Forms.Panel();
+            this.tableLayoutPanelGeneral = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelKeyboard = new System.Windows.Forms.TableLayoutPanel();
             this.keyboard = new trainer.Keyboard();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.menuStrip.SuspendLayout();
-            this.panelProgress.SuspendLayout();
+            this.tableLayoutPanelMainArea.SuspendLayout();
             this.panelTypingMeasures.SuspendLayout();
+            this.panelProgress.SuspendLayout();
+            this.tableLayoutPanelTextBoxes.SuspendLayout();
             this.panelKeyboardSettings.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            this.tableLayoutPanelGeneral.SuspendLayout();
+            this.tableLayoutPanelKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelVelocity
@@ -88,66 +92,80 @@
             this.labelErrors.Text = "0";
             this.labelErrors.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // richTextBoxSourceView
+            // tableLayoutPanelMainArea
             // 
-            this.richTextBoxSourceView.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBoxSourceView.DetectUrls = false;
-            this.richTextBoxSourceView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBoxSourceView.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxSourceView.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxSourceView.Name = "richTextBoxSourceView";
-            this.richTextBoxSourceView.ReadOnly = true;
-            this.richTextBoxSourceView.Size = new System.Drawing.Size(549, 202);
-            this.richTextBoxSourceView.TabIndex = 0;
-            this.richTextBoxSourceView.TabStop = false;
-            this.richTextBoxSourceView.Text = "";
+            this.tableLayoutPanelMainArea.ColumnCount = 3;
+            this.tableLayoutPanelMainArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanelMainArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanelMainArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanelMainArea.Controls.Add(this.panelTypingMeasures, 0, 0);
+            this.tableLayoutPanelMainArea.Controls.Add(this.panelProgress, 2, 0);
+            this.tableLayoutPanelMainArea.Controls.Add(this.tableLayoutPanelTextBoxes, 1, 0);
+            this.tableLayoutPanelMainArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelMainArea.Location = new System.Drawing.Point(0, 20);
+            this.tableLayoutPanelMainArea.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelMainArea.Name = "tableLayoutPanelMainArea";
+            this.tableLayoutPanelMainArea.RowCount = 2;
+            this.tableLayoutPanelMainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMainArea.Size = new System.Drawing.Size(794, 314);
+            this.tableLayoutPanelMainArea.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // panelTypingMeasures
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.panelTypingMeasures, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.keyboard, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panelProgress, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelKeyboardSettings, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 544);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.panelTypingMeasures.AutoSize = true;
+            this.panelTypingMeasures.Controls.Add(this.label2);
+            this.panelTypingMeasures.Controls.Add(this.labelVelocity);
+            this.panelTypingMeasures.Controls.Add(this.labelErrors);
+            this.panelTypingMeasures.Controls.Add(this.label1);
+            this.panelTypingMeasures.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTypingMeasures.Location = new System.Drawing.Point(3, 3);
+            this.panelTypingMeasures.Name = "panelTypingMeasures";
+            this.panelTypingMeasures.Size = new System.Drawing.Size(113, 126);
+            this.panelTypingMeasures.TabIndex = 1;
+            this.panelTypingMeasures.Visible = false;
             // 
-            // panel1
+            // label2
             // 
-            this.panel1.Controls.Add(this.richTextBoxInput);
-            this.panel1.Controls.Add(this.richTextBoxSourceView);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(122, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 311);
-            this.panel1.TabIndex = 2;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(0, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 23);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "зн/мин";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // richTextBoxInput
+            // label1
             // 
-            this.richTextBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxInput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richTextBoxInput.Enabled = false;
-            this.richTextBoxInput.Location = new System.Drawing.Point(0, 291);
-            this.richTextBoxInput.Multiline = false;
-            this.richTextBoxInput.Name = "richTextBoxInput";
-            this.richTextBoxInput.Size = new System.Drawing.Size(549, 20);
-            this.richTextBoxInput.TabIndex = 1;
-            this.richTextBoxInput.Text = "";
-            this.richTextBoxInput.SelectionChanged += new System.EventHandler(this.richTextBoxInput_SelectionChanged);
-            this.richTextBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyDown);
-            this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
-            this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ошибок:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panelProgress
+            // 
+            this.panelProgress.AutoSize = true;
+            this.panelProgress.Controls.Add(this.progressBar);
+            this.panelProgress.Controls.Add(this.labelTime);
+            this.panelProgress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProgress.Location = new System.Drawing.Point(689, 3);
+            this.panelProgress.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.panelProgress.Name = "panelProgress";
+            this.panelProgress.Size = new System.Drawing.Size(90, 31);
+            this.panelProgress.TabIndex = 10;
+            this.panelProgress.Visible = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar.Location = new System.Drawing.Point(0, 21);
+            this.progressBar.Maximum = 1000;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(90, 10);
+            this.progressBar.TabIndex = 0;
             // 
             // labelTime
             // 
@@ -158,6 +176,66 @@
             this.labelTime.TabIndex = 1;
             this.labelTime.Text = "0:00";
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tableLayoutPanelTextBoxes
+            // 
+            this.tableLayoutPanelTextBoxes.ColumnCount = 1;
+            this.tableLayoutPanelTextBoxes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTextBoxes.Controls.Add(this.richTextBoxSourceView, 0, 0);
+            this.tableLayoutPanelTextBoxes.Controls.Add(this.richTextBoxInput, 0, 2);
+            this.tableLayoutPanelTextBoxes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelTextBoxes.Location = new System.Drawing.Point(122, 3);
+            this.tableLayoutPanelTextBoxes.Name = "tableLayoutPanelTextBoxes";
+            this.tableLayoutPanelTextBoxes.RowCount = 3;
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTextBoxes.Size = new System.Drawing.Size(549, 288);
+            this.tableLayoutPanelTextBoxes.TabIndex = 2;
+            // 
+            // richTextBoxSourceView
+            // 
+            this.richTextBoxSourceView.BackColor = System.Drawing.SystemColors.Window;
+            this.richTextBoxSourceView.DetectUrls = false;
+            this.richTextBoxSourceView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxSourceView.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxSourceView.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxSourceView.Name = "richTextBoxSourceView";
+            this.richTextBoxSourceView.ReadOnly = true;
+            this.richTextBoxSourceView.Size = new System.Drawing.Size(543, 151);
+            this.richTextBoxSourceView.TabIndex = 0;
+            this.richTextBoxSourceView.TabStop = false;
+            this.richTextBoxSourceView.Text = "";
+            // 
+            // richTextBoxInput
+            // 
+            this.richTextBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBoxInput.Enabled = false;
+            this.richTextBoxInput.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxInput.Location = new System.Drawing.Point(3, 238);
+            this.richTextBoxInput.Multiline = false;
+            this.richTextBoxInput.Name = "richTextBoxInput";
+            this.richTextBoxInput.Size = new System.Drawing.Size(543, 26);
+            this.richTextBoxInput.TabIndex = 1;
+            this.richTextBoxInput.Text = "";
+            this.richTextBoxInput.SelectionChanged += new System.EventHandler(this.richTextBoxInput_SelectionChanged);
+            this.richTextBoxInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyDown);
+            this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
+            this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
+            // 
+            // panelKeyboardSettings
+            // 
+            this.panelKeyboardSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelKeyboardSettings.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelKeyboardSettings.Controls.Add(this.checkBoxKeyboardLabeled);
+            this.panelKeyboardSettings.Controls.Add(this.checkBoxKeyboardColored);
+            this.panelKeyboardSettings.Location = new System.Drawing.Point(25, 30);
+            this.panelKeyboardSettings.Margin = new System.Windows.Forms.Padding(3, 30, 0, 3);
+            this.panelKeyboardSettings.Name = "panelKeyboardSettings";
+            this.panelKeyboardSettings.Size = new System.Drawing.Size(54, 69);
+            this.panelKeyboardSettings.TabIndex = 1;
             // 
             // checkBoxKeyboardLabeled
             // 
@@ -193,15 +271,6 @@
             this.checkBoxKeyboardColored.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxKeyboardColored.UseVisualStyleBackColor = false;
             this.checkBoxKeyboardColored.CheckedChanged += new System.EventHandler(this.checkBoxKeyboardColored_CheckedChanged);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.Location = new System.Drawing.Point(0, 21);
-            this.progressBar.Maximum = 1000;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(90, 10);
-            this.progressBar.TabIndex = 0;
             // 
             // timerResultDelay
             // 
@@ -288,72 +357,49 @@
             this.timerUpdateWidgets.Interval = 1000;
             this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
             // 
-            // panelProgress
+            // tableLayoutPanelGeneral
             // 
-            this.panelProgress.Controls.Add(this.progressBar);
-            this.panelProgress.Controls.Add(this.labelTime);
-            this.panelProgress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProgress.Location = new System.Drawing.Point(689, 24);
-            this.panelProgress.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.panelProgress.Name = "panelProgress";
-            this.panelProgress.Size = new System.Drawing.Size(90, 311);
-            this.panelProgress.TabIndex = 10;
-            this.panelProgress.Visible = false;
+            this.tableLayoutPanelGeneral.ColumnCount = 1;
+            this.tableLayoutPanelGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelGeneral.Controls.Add(this.tableLayoutPanelKeyboard, 0, 2);
+            this.tableLayoutPanelGeneral.Controls.Add(this.tableLayoutPanelMainArea, 0, 1);
+            this.tableLayoutPanelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelGeneral.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanelGeneral.Name = "tableLayoutPanelGeneral";
+            this.tableLayoutPanelGeneral.RowCount = 3;
+            this.tableLayoutPanelGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanelGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanelGeneral.Size = new System.Drawing.Size(794, 544);
+            this.tableLayoutPanelGeneral.TabIndex = 2;
             // 
-            // label1
+            // tableLayoutPanelKeyboard
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ошибок:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(0, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "зн/мин";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // panelTypingMeasures
-            // 
-            this.panelTypingMeasures.Controls.Add(this.label2);
-            this.panelTypingMeasures.Controls.Add(this.labelVelocity);
-            this.panelTypingMeasures.Controls.Add(this.labelErrors);
-            this.panelTypingMeasures.Controls.Add(this.label1);
-            this.panelTypingMeasures.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTypingMeasures.Location = new System.Drawing.Point(3, 24);
-            this.panelTypingMeasures.Name = "panelTypingMeasures";
-            this.panelTypingMeasures.Size = new System.Drawing.Size(113, 311);
-            this.panelTypingMeasures.TabIndex = 1;
-            this.panelTypingMeasures.Visible = false;
-            // 
-            // panelKeyboardSettings
-            // 
-            this.panelKeyboardSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelKeyboardSettings.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelKeyboardSettings.Controls.Add(this.checkBoxKeyboardLabeled);
-            this.panelKeyboardSettings.Controls.Add(this.checkBoxKeyboardColored);
-            this.panelKeyboardSettings.Location = new System.Drawing.Point(65, 368);
-            this.panelKeyboardSettings.Margin = new System.Windows.Forms.Padding(3, 30, 0, 3);
-            this.panelKeyboardSettings.Name = "panelKeyboardSettings";
-            this.panelKeyboardSettings.Size = new System.Drawing.Size(54, 69);
-            this.panelKeyboardSettings.TabIndex = 1;
+            this.tableLayoutPanelKeyboard.ColumnCount = 3;
+            this.tableLayoutPanelKeyboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelKeyboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelKeyboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelKeyboard.Controls.Add(this.keyboard, 1, 0);
+            this.tableLayoutPanelKeyboard.Controls.Add(this.panelKeyboardSettings, 0, 0);
+            this.tableLayoutPanelKeyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelKeyboard.Location = new System.Drawing.Point(0, 334);
+            this.tableLayoutPanelKeyboard.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelKeyboard.Name = "tableLayoutPanelKeyboard";
+            this.tableLayoutPanelKeyboard.RowCount = 1;
+            this.tableLayoutPanelKeyboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelKeyboard.Size = new System.Drawing.Size(794, 210);
+            this.tableLayoutPanelKeyboard.TabIndex = 4;
             // 
             // keyboard
             // 
             this.keyboard.BackColor = System.Drawing.SystemColors.ControlLight;
             this.keyboard.FingerZonesColored = false;
             this.keyboard.Labeled = true;
-            this.keyboard.Location = new System.Drawing.Point(119, 341);
+            this.keyboard.Location = new System.Drawing.Point(79, 3);
             this.keyboard.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.keyboard.MinimumSize = new System.Drawing.Size(450, 120);
             this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(549, 200);
+            this.keyboard.Size = new System.Drawing.Size(632, 204);
             this.keyboard.TabIndex = 3;
             // 
             // Form1
@@ -361,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 568);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelGeneral);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(480, 300);
@@ -369,13 +415,16 @@
             this.Text = "Keyboard Trainer";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanelMainArea.ResumeLayout(false);
+            this.tableLayoutPanelMainArea.PerformLayout();
+            this.panelTypingMeasures.ResumeLayout(false);
+            this.panelProgress.ResumeLayout(false);
+            this.tableLayoutPanelTextBoxes.ResumeLayout(false);
+            this.panelKeyboardSettings.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.panelProgress.ResumeLayout(false);
-            this.panelTypingMeasures.ResumeLayout(false);
-            this.panelKeyboardSettings.ResumeLayout(false);
+            this.tableLayoutPanelGeneral.ResumeLayout(false);
+            this.tableLayoutPanelKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,10 +434,7 @@
 
         private System.Windows.Forms.Label labelVelocity;
         private System.Windows.Forms.Label labelErrors;
-        private System.Windows.Forms.RichTextBox richTextBoxSourceView;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox richTextBoxInput;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMainArea;
         private System.Windows.Forms.Timer timerResultDelay;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip;
@@ -410,5 +456,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelTypingMeasures;
         private System.Windows.Forms.Panel panelKeyboardSettings;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTextBoxes;
+        private System.Windows.Forms.RichTextBox richTextBoxSourceView;
+        private System.Windows.Forms.RichTextBox richTextBoxInput;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGeneral;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKeyboard;
     }
 }

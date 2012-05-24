@@ -21,6 +21,7 @@ namespace trainer
         {
             InitializeComponent();
             LoadSource(GetRandomTextFile(textsPath));
+            DrawColorSquare();
         }
 
         private void LoadSource(string filePath)
@@ -284,6 +285,10 @@ namespace trainer
         private void checkBoxKeyboardColored_CheckedChanged(object sender, EventArgs e)
         {
             keyboard.FingerZonesColored = checkBoxKeyboardColored.Checked;
+            DrawColorSquare();
+        }
+        private void DrawColorSquare()
+        {
             int size = checkBoxKeyboardColored.Checked ? checkBoxKeyboardColored.Width / 2 : checkBoxKeyboardColored.Width - 1;
             checkBoxKeyboardColored.Image = keyboard.GetFingerColorsSquare(size);
         }
