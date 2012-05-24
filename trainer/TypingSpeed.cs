@@ -51,9 +51,7 @@ namespace trainer
             }
             public static double GetAverage(TimeSpan time, int count)
             {
-                if (time.TotalMilliseconds < MIN_MSECONDS)
-                    return 0;
-                return 60 * count / time.TotalSeconds;
+                return TypingSpeed.GetInstant(TimeSpan.Zero, time, count);
             }
             public static double GetInstant(TimeSpan first, TimeSpan last, int span)
             {
