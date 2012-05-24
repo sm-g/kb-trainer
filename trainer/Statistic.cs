@@ -13,6 +13,7 @@ namespace trainer
 
         private Stopwatch stopwatch;
         private List<Keystroke> keystrokes;
+        public List<Pressure> pressures;
         private int errorsCounter;
         private int deletedCharsCounter;
         private int typedCharsCounter;
@@ -48,6 +49,7 @@ namespace trainer
             Speed = new TypingSpeed(this);
             keystrokes = new List<Keystroke>();
             stopwatch = new Stopwatch();
+            pressures = new List<Pressure>();
         }
 
         public void AddChar(char ch)
@@ -87,6 +89,30 @@ namespace trainer
         {
             return new Result(Speed.Average, Errors, PassedChars, keystrokes);
         }
+
+        public void CalcPressures()
+        {
+            foreach (var ks in keystrokes)
+            {
+                int i = pressures.FindIndex(cd => cd.Char == ks.Char);
+                if (i == -1)
+                {
+                    var p = new Pressure();
+                    p.Char = ks.Char;
+                    pressures.Add(p);
+                    i = pressures.Count-1;
+                }
+                pressures[i].Amount++;
+                pressures[i].Duration += ks.Duration.Ticks;
+            }
+        }        
+    }
+
+    public class Pressure
+    {
+        public char Char;
+        public int Amount;
+        public long Duration;
     }
 
     public class Keystroke
