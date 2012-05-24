@@ -113,13 +113,28 @@ namespace trainer
             }
         }
 
+        public Image GetFingerColorsSquare(int size)
+        {
+            Bitmap result = new Bitmap(size, size);
+
+            int half = size / 2;
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                g.FillRectangle(new SolidBrush(Colors.OfFinger(Fingers.Fourth)), 0, 0, half, half);
+                g.FillRectangle(new SolidBrush(Colors.OfFinger(Fingers.Fifth)), half, 0, size, half);
+                g.FillRectangle(new SolidBrush(Colors.OfFinger(Fingers.SecondLeft)), 0, half, half, size);
+                g.FillRectangle(new SolidBrush(Colors.OfFinger(Fingers.Third)), half, half, size, size);
+            }
+
+            return result;
+        }
+
         private void Keyboard_Resize(object sender, EventArgs e)
         {
             float keyWidth = tableLayoutPanel1Row.Width * tableLayoutPanel1Row.ColumnStyles[0].Width / 100;
             SetKeyColumnsWidth(tableLayoutPanel3Row, keyWidth);
             SetKeyColumnsWidth(tableLayoutPanel4Row, keyWidth);
         }
-
         private void SetKeyColumnsWidth(TableLayoutPanel panel, float width)
         {
             for (int i = 1; i < panel.ColumnCount - 1; i++)

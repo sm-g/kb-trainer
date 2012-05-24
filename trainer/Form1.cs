@@ -97,7 +97,7 @@ namespace trainer
             Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
 
             statistic.RegisterKeyUp(code);
-            labelVelocity.Text = "скорость: " + statistic.Speed.Average.ToString("F");
+
             if (charHandler.TextEnded)
             {
                 StopTyping();
@@ -128,8 +128,7 @@ namespace trainer
             PaintSourceViewChar(1, Colors.wrongLetterBackground, Colors.wrongLetter);
             keyboard.HighlightKeyButtons(charHandler.NextCharToType);
 
-            System.Media.SystemSounds.Beep.Play();
-            labelErrors.Text = "ошибки: " + statistic.Errors.ToString();
+            System.Media.SystemSounds.Beep.Play();            
         }
         private void PaintSourceViewChar(int offset, Color backColor, Color color)
         {
@@ -173,7 +172,8 @@ namespace trainer
             
             keyboard.TurnOffHighlighting();
             
-            SetMenus();
+            SetMenusState();
+            SetWidgetsVisability();
             timerUpdateWidgets.Enabled = false;
 
             Progress.SaveToXml(sourceText, statistic);
@@ -190,7 +190,8 @@ namespace trainer
             ResumeTyping();
             
             keyboard.HighlightKeyButtons(charHandler.NextCharToType);
-            SetMenus();
+            SetMenusState();
+            SetWidgetsVisability();
             timerUpdateWidgets.Enabled = true;
         }
         private void PrepareTextBoxes()
@@ -235,7 +236,7 @@ namespace trainer
             {
                 textOpenedFromFile = true;
                 LoadSource(openFileDialog.FileName);
-                SetMenus();
+                SetMenusState();
             }
         }
         private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
@@ -244,14 +245,14 @@ namespace trainer
             {
                 textOpenedFromFile = false;
                 LoadSource(GetRandomTextFile(textsPath));
-                SetMenus();
+                SetMenusState();
             }
         }
         private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeText();
         }
-        private void SetMenus()
+        private void SetMenusState()
         {
             OpenFileToolStripMenuItem.Checked    = textOpenedFromFile;
             RandomTextToolStripMenuItem.Checked  = !textOpenedFromFile;
@@ -263,11 +264,17 @@ namespace trainer
             StartEndToolStripMenuItem.Text = exerciseStarted ? "Стоп" : "Старт";
         }
 
-
+        private void SetWidgetsVisability()
+        {
+            panelTypingMeasures.Visible = exerciseStarted;
+            panelProgress.Visible = exerciseStarted;
+        }
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
             labelTime.Text = ResultForm.FormatTimeSpan(statistic.Now);
             progressBar.Value = (int)(charHandler.TextProgress * progressBar.Maximum);
+            labelVelocity.Text = statistic.Speed.Average.ToString("F");
+            labelErrors.Text = statistic.Errors.ToString();
         }
 
         private void checkBoxKeyboardLabeled_CheckedChanged(object sender, EventArgs e)
@@ -277,6 +284,8 @@ namespace trainer
         private void checkBoxKeyboardColored_CheckedChanged(object sender, EventArgs e)
         {
             keyboard.FingerZonesColored = checkBoxKeyboardColored.Checked;
+            int size = checkBoxKeyboardColored.Checked ? checkBoxKeyboardColored.Width / 2 : checkBoxKeyboardColored.Width - 1;
+            checkBoxKeyboardColored.Image = keyboard.GetFingerColorsSquare(size);
         }
 
         private void Form1_Deactivate(object sender, EventArgs e)

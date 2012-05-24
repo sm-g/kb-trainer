@@ -163,7 +163,9 @@
             this.keyButtonBackspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonBackspace.Finger = trainer.Fingers.None;
             this.keyButtonBackspace.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonBackspace.IsColored = false;
             this.keyButtonBackspace.Label = "←";
+            this.keyButtonBackspace.LabelVisiable = true;
             this.keyButtonBackspace.Location = new System.Drawing.Point(549, 3);
             this.keyButtonBackspace.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonBackspace.Name = "keyButtonBackspace";
@@ -176,7 +178,9 @@
             this.keyButton13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton13.Finger = trainer.Fingers.Fifth;
             this.keyButton13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton13.IsColored = false;
             this.keyButton13.Label = "=";
+            this.keyButton13.LabelVisiable = true;
             this.keyButton13.Location = new System.Drawing.Point(507, 3);
             this.keyButton13.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton13.Name = "keyButton13";
@@ -189,7 +193,9 @@
             this.keyButton12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton12.Finger = trainer.Fingers.Fifth;
             this.keyButton12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton12.IsColored = false;
             this.keyButton12.Label = "-";
+            this.keyButton12.LabelVisiable = true;
             this.keyButton12.Location = new System.Drawing.Point(465, 3);
             this.keyButton12.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton12.Name = "keyButton12";
@@ -202,7 +208,9 @@
             this.keyButton11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton11.Finger = trainer.Fingers.Fifth;
             this.keyButton11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton11.IsColored = false;
             this.keyButton11.Label = "0";
+            this.keyButton11.LabelVisiable = true;
             this.keyButton11.Location = new System.Drawing.Point(423, 3);
             this.keyButton11.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton11.Name = "keyButton11";
@@ -215,7 +223,9 @@
             this.keyButton10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton10.Finger = trainer.Fingers.Fourth;
             this.keyButton10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton10.IsColored = false;
             this.keyButton10.Label = "9";
+            this.keyButton10.LabelVisiable = true;
             this.keyButton10.Location = new System.Drawing.Point(381, 3);
             this.keyButton10.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton10.Name = "keyButton10";
@@ -228,7 +238,9 @@
             this.keyButton9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton9.Finger = trainer.Fingers.Third;
             this.keyButton9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton9.IsColored = false;
             this.keyButton9.Label = "8";
+            this.keyButton9.LabelVisiable = true;
             this.keyButton9.Location = new System.Drawing.Point(339, 3);
             this.keyButton9.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton9.Name = "keyButton9";
@@ -241,7 +253,9 @@
             this.keyButton8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton8.Finger = trainer.Fingers.SecondRight;
             this.keyButton8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton8.IsColored = false;
             this.keyButton8.Label = "7";
+            this.keyButton8.LabelVisiable = true;
             this.keyButton8.Location = new System.Drawing.Point(297, 3);
             this.keyButton8.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton8.Name = "keyButton8";
@@ -254,7 +268,9 @@
             this.keyButton7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton7.Finger = trainer.Fingers.SecondLeft;
             this.keyButton7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton7.IsColored = false;
             this.keyButton7.Label = "6";
+            this.keyButton7.LabelVisiable = true;
             this.keyButton7.Location = new System.Drawing.Point(255, 3);
             this.keyButton7.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton7.Name = "keyButton7";
@@ -267,7 +283,9 @@
             this.keyButton6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton6.Finger = trainer.Fingers.SecondLeft;
             this.keyButton6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton6.IsColored = false;
             this.keyButton6.Label = "5";
+            this.keyButton6.LabelVisiable = true;
             this.keyButton6.Location = new System.Drawing.Point(213, 3);
             this.keyButton6.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton6.Name = "keyButton6";
@@ -280,7 +298,9 @@
             this.keyButton5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton5.Finger = trainer.Fingers.Third;
             this.keyButton5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton5.IsColored = false;
             this.keyButton5.Label = "4";
+            this.keyButton5.LabelVisiable = true;
             this.keyButton5.Location = new System.Drawing.Point(171, 3);
             this.keyButton5.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton5.Name = "keyButton5";
@@ -293,7 +313,9 @@
             this.keyButton4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton4.Finger = trainer.Fingers.Fourth;
             this.keyButton4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton4.IsColored = false;
             this.keyButton4.Label = "3";
+            this.keyButton4.LabelVisiable = true;
             this.keyButton4.Location = new System.Drawing.Point(129, 3);
             this.keyButton4.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton4.Name = "keyButton4";
@@ -306,7 +328,9 @@
             this.keyButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton3.Finger = trainer.Fingers.Fifth;
             this.keyButton3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton3.IsColored = false;
             this.keyButton3.Label = "2";
+            this.keyButton3.LabelVisiable = true;
             this.keyButton3.Location = new System.Drawing.Point(87, 3);
             this.keyButton3.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton3.Name = "keyButton3";
@@ -319,7 +343,9 @@
             this.keyButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton2.Finger = trainer.Fingers.Fifth;
             this.keyButton2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton2.IsColored = false;
             this.keyButton2.Label = "1";
+            this.keyButton2.LabelVisiable = true;
             this.keyButton2.Location = new System.Drawing.Point(45, 3);
             this.keyButton2.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton2.Name = "keyButton2";
@@ -332,7 +358,9 @@
             this.keyButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton1.Finger = trainer.Fingers.Fifth;
             this.keyButton1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton1.IsColored = false;
             this.keyButton1.Label = "ё";
+            this.keyButton1.LabelVisiable = true;
             this.keyButton1.Location = new System.Drawing.Point(3, 3);
             this.keyButton1.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton1.Name = "keyButton1";
@@ -385,7 +413,9 @@
             this.keyButton26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton26.Finger = trainer.Fingers.None;
             this.keyButton26.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton26.IsColored = false;
             this.keyButton26.Label = "\\";
+            this.keyButton26.LabelVisiable = true;
             this.keyButton26.Location = new System.Drawing.Point(561, 3);
             this.keyButton26.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton26.Name = "keyButton26";
@@ -398,7 +428,9 @@
             this.keyButton25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton25.Finger = trainer.Fingers.Fifth;
             this.keyButton25.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton25.IsColored = false;
             this.keyButton25.Label = "ъ";
+            this.keyButton25.LabelVisiable = true;
             this.keyButton25.Location = new System.Drawing.Point(519, 3);
             this.keyButton25.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton25.Name = "keyButton25";
@@ -411,7 +443,9 @@
             this.keyButton24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton24.Finger = trainer.Fingers.Fifth;
             this.keyButton24.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton24.IsColored = false;
             this.keyButton24.Label = "х";
+            this.keyButton24.LabelVisiable = true;
             this.keyButton24.Location = new System.Drawing.Point(477, 3);
             this.keyButton24.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton24.Name = "keyButton24";
@@ -424,7 +458,9 @@
             this.keyButton23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton23.Finger = trainer.Fingers.Fifth;
             this.keyButton23.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton23.IsColored = false;
             this.keyButton23.Label = "з";
+            this.keyButton23.LabelVisiable = true;
             this.keyButton23.Location = new System.Drawing.Point(435, 3);
             this.keyButton23.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton23.Name = "keyButton23";
@@ -437,7 +473,9 @@
             this.keyButton22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton22.Finger = trainer.Fingers.Fourth;
             this.keyButton22.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton22.IsColored = false;
             this.keyButton22.Label = "щ";
+            this.keyButton22.LabelVisiable = true;
             this.keyButton22.Location = new System.Drawing.Point(393, 3);
             this.keyButton22.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton22.Name = "keyButton22";
@@ -450,7 +488,9 @@
             this.keyButton21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton21.Finger = trainer.Fingers.Third;
             this.keyButton21.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton21.IsColored = false;
             this.keyButton21.Label = "ш";
+            this.keyButton21.LabelVisiable = true;
             this.keyButton21.Location = new System.Drawing.Point(351, 3);
             this.keyButton21.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton21.Name = "keyButton21";
@@ -463,7 +503,9 @@
             this.keyButton20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton20.Finger = trainer.Fingers.SecondRight;
             this.keyButton20.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton20.IsColored = false;
             this.keyButton20.Label = "г";
+            this.keyButton20.LabelVisiable = true;
             this.keyButton20.Location = new System.Drawing.Point(309, 3);
             this.keyButton20.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton20.Name = "keyButton20";
@@ -476,7 +518,9 @@
             this.keyButton19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton19.Finger = trainer.Fingers.SecondRight;
             this.keyButton19.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton19.IsColored = false;
             this.keyButton19.Label = "н";
+            this.keyButton19.LabelVisiable = true;
             this.keyButton19.Location = new System.Drawing.Point(267, 3);
             this.keyButton19.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton19.Name = "keyButton19";
@@ -489,7 +533,9 @@
             this.keyButton18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton18.Finger = trainer.Fingers.SecondLeft;
             this.keyButton18.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton18.IsColored = false;
             this.keyButton18.Label = "е";
+            this.keyButton18.LabelVisiable = true;
             this.keyButton18.Location = new System.Drawing.Point(225, 3);
             this.keyButton18.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton18.Name = "keyButton18";
@@ -502,7 +548,9 @@
             this.keyButton17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton17.Finger = trainer.Fingers.SecondLeft;
             this.keyButton17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton17.IsColored = false;
             this.keyButton17.Label = "к";
+            this.keyButton17.LabelVisiable = true;
             this.keyButton17.Location = new System.Drawing.Point(183, 3);
             this.keyButton17.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton17.Name = "keyButton17";
@@ -515,7 +563,9 @@
             this.keyButton16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton16.Finger = trainer.Fingers.Third;
             this.keyButton16.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton16.IsColored = false;
             this.keyButton16.Label = "у";
+            this.keyButton16.LabelVisiable = true;
             this.keyButton16.Location = new System.Drawing.Point(141, 3);
             this.keyButton16.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton16.Name = "keyButton16";
@@ -528,7 +578,9 @@
             this.keyButton15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton15.Finger = trainer.Fingers.Fourth;
             this.keyButton15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton15.IsColored = false;
             this.keyButton15.Label = "ц";
+            this.keyButton15.LabelVisiable = true;
             this.keyButton15.Location = new System.Drawing.Point(99, 3);
             this.keyButton15.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton15.Name = "keyButton15";
@@ -541,7 +593,9 @@
             this.keyButton14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton14.Finger = trainer.Fingers.Fifth;
             this.keyButton14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton14.IsColored = false;
             this.keyButton14.Label = "й";
+            this.keyButton14.LabelVisiable = true;
             this.keyButton14.Location = new System.Drawing.Point(57, 3);
             this.keyButton14.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton14.Name = "keyButton14";
@@ -554,7 +608,9 @@
             this.keyButtonTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonTab.Finger = trainer.Fingers.None;
             this.keyButtonTab.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonTab.IsColored = false;
             this.keyButtonTab.Label = "Tab";
+            this.keyButtonTab.LabelVisiable = true;
             this.keyButtonTab.Location = new System.Drawing.Point(3, 3);
             this.keyButtonTab.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonTab.Name = "keyButtonTab";
@@ -605,7 +661,9 @@
             this.keyButtonEnter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonEnter.Finger = trainer.Fingers.None;
             this.keyButtonEnter.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonEnter.IsColored = false;
             this.keyButtonEnter.Label = "Enter";
+            this.keyButtonEnter.LabelVisiable = true;
             this.keyButtonEnter.Location = new System.Drawing.Point(468, 3);
             this.keyButtonEnter.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonEnter.Name = "keyButtonEnter";
@@ -618,7 +676,9 @@
             this.keyButton37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton37.Finger = trainer.Fingers.Fifth;
             this.keyButton37.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton37.IsColored = false;
             this.keyButton37.Label = "э";
+            this.keyButton37.LabelVisiable = true;
             this.keyButton37.Location = new System.Drawing.Point(438, 3);
             this.keyButton37.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton37.Name = "keyButton37";
@@ -631,7 +691,9 @@
             this.keyButton36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton36.Finger = trainer.Fingers.Fifth;
             this.keyButton36.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton36.IsColored = false;
             this.keyButton36.Label = "ж";
+            this.keyButton36.LabelVisiable = true;
             this.keyButton36.Location = new System.Drawing.Point(408, 3);
             this.keyButton36.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton36.Name = "keyButton36";
@@ -644,7 +706,9 @@
             this.keyButton35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton35.Finger = trainer.Fingers.Fourth;
             this.keyButton35.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton35.IsColored = false;
             this.keyButton35.Label = "д";
+            this.keyButton35.LabelVisiable = true;
             this.keyButton35.Location = new System.Drawing.Point(378, 3);
             this.keyButton35.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton35.Name = "keyButton35";
@@ -657,7 +721,9 @@
             this.keyButton34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton34.Finger = trainer.Fingers.Third;
             this.keyButton34.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton34.IsColored = false;
             this.keyButton34.Label = "л";
+            this.keyButton34.LabelVisiable = true;
             this.keyButton34.Location = new System.Drawing.Point(348, 3);
             this.keyButton34.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton34.Name = "keyButton34";
@@ -670,7 +736,9 @@
             this.keyButton33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton33.Finger = trainer.Fingers.SecondRight;
             this.keyButton33.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton33.IsColored = false;
             this.keyButton33.Label = "о";
+            this.keyButton33.LabelVisiable = true;
             this.keyButton33.Location = new System.Drawing.Point(318, 3);
             this.keyButton33.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton33.Name = "keyButton33";
@@ -683,7 +751,9 @@
             this.keyButton32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton32.Finger = trainer.Fingers.SecondRight;
             this.keyButton32.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton32.IsColored = false;
             this.keyButton32.Label = "р";
+            this.keyButton32.LabelVisiable = true;
             this.keyButton32.Location = new System.Drawing.Point(288, 3);
             this.keyButton32.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton32.Name = "keyButton32";
@@ -696,7 +766,9 @@
             this.keyButton31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton31.Finger = trainer.Fingers.SecondLeft;
             this.keyButton31.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton31.IsColored = false;
             this.keyButton31.Label = "п";
+            this.keyButton31.LabelVisiable = true;
             this.keyButton31.Location = new System.Drawing.Point(258, 3);
             this.keyButton31.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton31.Name = "keyButton31";
@@ -709,7 +781,9 @@
             this.keyButton30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton30.Finger = trainer.Fingers.SecondLeft;
             this.keyButton30.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton30.IsColored = false;
             this.keyButton30.Label = "а";
+            this.keyButton30.LabelVisiable = true;
             this.keyButton30.Location = new System.Drawing.Point(228, 3);
             this.keyButton30.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton30.Name = "keyButton30";
@@ -722,7 +796,9 @@
             this.keyButton29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton29.Finger = trainer.Fingers.Third;
             this.keyButton29.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton29.IsColored = false;
             this.keyButton29.Label = "в";
+            this.keyButton29.LabelVisiable = true;
             this.keyButton29.Location = new System.Drawing.Point(198, 3);
             this.keyButton29.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton29.Name = "keyButton29";
@@ -735,7 +811,9 @@
             this.keyButton28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton28.Finger = trainer.Fingers.Fourth;
             this.keyButton28.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton28.IsColored = false;
             this.keyButton28.Label = "ы";
+            this.keyButton28.LabelVisiable = true;
             this.keyButton28.Location = new System.Drawing.Point(168, 3);
             this.keyButton28.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton28.Name = "keyButton28";
@@ -748,7 +826,9 @@
             this.keyButton27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton27.Finger = trainer.Fingers.Fifth;
             this.keyButton27.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton27.IsColored = false;
             this.keyButton27.Label = "ф";
+            this.keyButton27.LabelVisiable = true;
             this.keyButton27.Location = new System.Drawing.Point(138, 3);
             this.keyButton27.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton27.Name = "keyButton27";
@@ -761,7 +841,9 @@
             this.keyButtonCaps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonCaps.Finger = trainer.Fingers.None;
             this.keyButtonCaps.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonCaps.IsColored = false;
             this.keyButtonCaps.Label = "Caps Lock";
+            this.keyButtonCaps.LabelVisiable = true;
             this.keyButtonCaps.Location = new System.Drawing.Point(3, 3);
             this.keyButtonCaps.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonCaps.Name = "keyButtonCaps";
@@ -810,7 +892,9 @@
             this.keyButtonRShift.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonRShift.Finger = trainer.Fingers.None;
             this.keyButtonRShift.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonRShift.IsColored = false;
             this.keyButtonRShift.Label = "Shift";
+            this.keyButtonRShift.LabelVisiable = true;
             this.keyButtonRShift.Location = new System.Drawing.Point(453, 3);
             this.keyButtonRShift.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonRShift.Name = "keyButtonRShift";
@@ -823,7 +907,9 @@
             this.keyButton47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton47.Finger = trainer.Fingers.Fifth;
             this.keyButton47.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton47.IsColored = false;
             this.keyButton47.Label = ".";
+            this.keyButton47.LabelVisiable = true;
             this.keyButton47.Location = new System.Drawing.Point(423, 3);
             this.keyButton47.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton47.Name = "keyButton47";
@@ -836,7 +922,9 @@
             this.keyButton46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton46.Finger = trainer.Fingers.Fourth;
             this.keyButton46.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton46.IsColored = false;
             this.keyButton46.Label = "ю";
+            this.keyButton46.LabelVisiable = true;
             this.keyButton46.Location = new System.Drawing.Point(393, 3);
             this.keyButton46.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton46.Name = "keyButton46";
@@ -849,7 +937,9 @@
             this.keyButton45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton45.Finger = trainer.Fingers.Third;
             this.keyButton45.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton45.IsColored = false;
             this.keyButton45.Label = "б";
+            this.keyButton45.LabelVisiable = true;
             this.keyButton45.Location = new System.Drawing.Point(363, 3);
             this.keyButton45.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton45.Name = "keyButton45";
@@ -862,7 +952,9 @@
             this.keyButton44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton44.Finger = trainer.Fingers.SecondRight;
             this.keyButton44.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton44.IsColored = false;
             this.keyButton44.Label = "ь";
+            this.keyButton44.LabelVisiable = true;
             this.keyButton44.Location = new System.Drawing.Point(333, 3);
             this.keyButton44.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton44.Name = "keyButton44";
@@ -875,7 +967,9 @@
             this.keyButton43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton43.Finger = trainer.Fingers.SecondRight;
             this.keyButton43.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton43.IsColored = false;
             this.keyButton43.Label = "т";
+            this.keyButton43.LabelVisiable = true;
             this.keyButton43.Location = new System.Drawing.Point(303, 3);
             this.keyButton43.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton43.Name = "keyButton43";
@@ -888,7 +982,9 @@
             this.keyButton42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton42.Finger = trainer.Fingers.SecondLeft;
             this.keyButton42.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton42.IsColored = false;
             this.keyButton42.Label = "и";
+            this.keyButton42.LabelVisiable = true;
             this.keyButton42.Location = new System.Drawing.Point(273, 3);
             this.keyButton42.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton42.Name = "keyButton42";
@@ -901,7 +997,9 @@
             this.keyButton41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton41.Finger = trainer.Fingers.SecondLeft;
             this.keyButton41.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton41.IsColored = false;
             this.keyButton41.Label = "м";
+            this.keyButton41.LabelVisiable = true;
             this.keyButton41.Location = new System.Drawing.Point(243, 3);
             this.keyButton41.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton41.Name = "keyButton41";
@@ -914,7 +1012,9 @@
             this.keyButton40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton40.Finger = trainer.Fingers.Third;
             this.keyButton40.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton40.IsColored = false;
             this.keyButton40.Label = "с";
+            this.keyButton40.LabelVisiable = true;
             this.keyButton40.Location = new System.Drawing.Point(213, 3);
             this.keyButton40.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton40.Name = "keyButton40";
@@ -927,7 +1027,9 @@
             this.keyButton39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton39.Finger = trainer.Fingers.Fourth;
             this.keyButton39.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton39.IsColored = false;
             this.keyButton39.Label = "ч";
+            this.keyButton39.LabelVisiable = true;
             this.keyButton39.Location = new System.Drawing.Point(183, 3);
             this.keyButton39.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton39.Name = "keyButton39";
@@ -940,7 +1042,9 @@
             this.keyButton38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton38.Finger = trainer.Fingers.Fifth;
             this.keyButton38.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton38.IsColored = false;
             this.keyButton38.Label = "я";
+            this.keyButton38.LabelVisiable = true;
             this.keyButton38.Location = new System.Drawing.Point(153, 3);
             this.keyButton38.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton38.Name = "keyButton38";
@@ -953,7 +1057,9 @@
             this.keyButtonLShift.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButtonLShift.Finger = trainer.Fingers.None;
             this.keyButtonLShift.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButtonLShift.IsColored = false;
             this.keyButtonLShift.Label = "Shift";
+            this.keyButtonLShift.LabelVisiable = true;
             this.keyButtonLShift.Location = new System.Drawing.Point(3, 3);
             this.keyButtonLShift.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButtonLShift.Name = "keyButtonLShift";
@@ -981,7 +1087,9 @@
             this.keyButton48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.keyButton48.Finger = trainer.Fingers.First;
             this.keyButton48.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.keyButton48.IsColored = false;
             this.keyButton48.Label = "";
+            this.keyButton48.LabelVisiable = true;
             this.keyButton48.Location = new System.Drawing.Point(151, 3);
             this.keyButton48.MinimumSize = new System.Drawing.Size(10, 10);
             this.keyButton48.Name = "keyButton48";
