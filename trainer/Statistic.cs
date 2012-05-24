@@ -70,6 +70,7 @@ namespace trainer
             deletedCharsCounter++;
             keystrokes[keystrokes.Count - 1].Char = ch;
         }
+
         public void RegisterKeyDown(Keys key)
         {
             if (!stopwatch.IsRunning)
@@ -84,13 +85,20 @@ namespace trainer
             if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша (её не будет в списке)
                 keystroke.UpTime = stopwatch.Elapsed;
         }
+
         public void PauseTimer()
         {
             stopwatch.Stop();
         }
-        public Result GetResultInfo()
+
+        public Result GetResult()
         {
-            return new Result(Speed.Average, Errors, PassedChars, keystrokes);
+            Result result;
+            result.Errors = Errors;
+            result.Speed = Speed.Average;
+            result.PassedChars = PassedChars;
+            result.Keystrokes = keystrokes;
+            return result;
         }
 
         public void CalcPressures()
@@ -144,14 +152,6 @@ namespace trainer
         public int Errors;
         public List<Keystroke> Keystrokes;
         public int PassedChars;
-
-        public Result(double speed, int errors, int passedChars, List<Keystroke> keystrokes)
-        {
-            Speed = speed;
-            Errors = errors;
-            PassedChars = passedChars;
-            Keystrokes = keystrokes;
-        }
     }
 
     public class Exercise

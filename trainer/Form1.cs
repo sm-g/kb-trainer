@@ -202,7 +202,7 @@ namespace trainer
 
         private void ShowResult()
         {
-            ResultForm resultForm = new ResultForm(statistic.GetResultInfo(), sourceText.GetInfo());
+            ResultForm resultForm = new ResultForm(statistic.GetResult(), sourceText);
             if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 FinishExercise();

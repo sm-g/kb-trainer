@@ -57,19 +57,5 @@ namespace trainer
             }
 
         }
-        public SourceInfo GetInfo()
-        {
-            return new SourceInfo(Length);
-        }
-    }
-
-    public struct SourceInfo
-    {
-        public int Length;
-
-        public SourceInfo(int length)
-        {
-            Length = length;
-        }
     }
 }
