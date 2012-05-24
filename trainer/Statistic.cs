@@ -156,26 +156,26 @@ namespace trainer
 
     public class Exercise
     {
-        public DateTime Date;
-        public string TextTitle;
+        public DateTime Date { get; set; }
+        public string TextTitle { get; set; }
         public double Speed { get { return Statistic.TypingSpeed.GetAverage(TotalPrintingTime, PassedChars); } }
-        public int PassedChars;
-        public int Errors;
-        public TimeSpan TotalPrintingTime;
-        public float Rhythmicity;
-        public List<Pressure> Pressures;
+        public int PassedChars { get; set; }
+        public int Errors { get; set; }
+        public TimeSpan TotalPrintingTime { get; set; }
+        public float Rhythmicity { get; set; }
+        public List<Pressure> Pressures { get; set; }
 
         public Exercise(string exercise)
         {
             string[] attribures = exercise.Split(Delimeters.Attribute);
             if (attribures.Length == 7)
             {
-                DateTime.TryParse(attribures[0], out Date);
+                Date = DateTime.Parse(attribures[0]);
                 TextTitle = attribures[1];
-                Int32.TryParse(attribures[2], out PassedChars);
-                Int32.TryParse(attribures[3], out Errors);
-                TimeSpan.TryParse(attribures[4], out TotalPrintingTime);
-                float.TryParse(attribures[5], out Rhythmicity);
+                PassedChars = Int32.Parse(attribures[2]);
+                Errors = Int32.Parse(attribures[3]);
+                TotalPrintingTime = TimeSpan.Parse(attribures[4]);
+                Rhythmicity = float.Parse(attribures[5]);
 
                 Pressures = new List<Pressure>();
                 string[] pressures = attribures[6].Split(Delimeters.Pressure);

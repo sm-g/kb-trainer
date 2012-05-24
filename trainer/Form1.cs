@@ -291,5 +291,11 @@ namespace trainer
             if (exerciseStarted)
                 ResumeTyping();
         }
+
+        private void ProgressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Progress progressForm = new Progress();
+            progressForm.Show();
+        }
     }
 }

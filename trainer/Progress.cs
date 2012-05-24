@@ -17,6 +17,12 @@ namespace trainer
         public Progress()
         {
             InitializeComponent();
+            ReadExercises(LoadFromCsv());
+        }
+
+        private void ReadExercises(Exercise[] exercises)
+        {
+            dataGridView1.DataSource = exercises;
         }
 
         public static void SaveToXml(SourceText source, Statistic statistic)

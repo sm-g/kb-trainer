@@ -35,6 +35,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+            this.keyboard = new trainer.Keyboard();
             this.labelTime = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanelKeyboardSetting = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,7 +51,7 @@
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RandomTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
-            this.keyboard = new trainer.Keyboard();
+            this.ProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanelKeyboardSetting.SuspendLayout();
@@ -140,6 +141,15 @@
             this.richTextBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxInput_KeyPress);
             this.richTextBoxInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBoxInput_KeyUp);
             // 
+            // keyboard
+            // 
+            this.keyboard.FingerZonesColored = false;
+            this.keyboard.Labeled = true;
+            this.keyboard.Location = new System.Drawing.Point(82, 341);
+            this.keyboard.Name = "keyboard";
+            this.keyboard.Size = new System.Drawing.Size(629, 200);
+            this.keyboard.TabIndex = 4;
+            // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
@@ -209,7 +219,8 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StartEndToolStripMenuItem,
-            this.TextToolStripMenuItem});
+            this.TextToolStripMenuItem,
+            this.ProgressToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(794, 24);
@@ -271,14 +282,12 @@
             this.timerUpdateWidgets.Interval = 1000;
             this.timerUpdateWidgets.Tick += new System.EventHandler(this.timerUpdateWidgets_Tick);
             // 
-            // keyboard
+            // ProgressToolStripMenuItem
             // 
-            this.keyboard.FingerZonesColored = false;
-            this.keyboard.Labeled = true;
-            this.keyboard.Location = new System.Drawing.Point(82, 341);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(629, 200);
-            this.keyboard.TabIndex = 4;
+            this.ProgressToolStripMenuItem.Name = "ProgressToolStripMenuItem";
+            this.ProgressToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.ProgressToolStripMenuItem.Text = "Прогресс";
+            this.ProgressToolStripMenuItem.Click += new System.EventHandler(this.ProgressToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -329,5 +338,6 @@
         private System.Windows.Forms.CheckBox checkBoxKeyboardLabeled;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelKeyboardSetting;
         private System.Windows.Forms.CheckBox checkBoxKeyboardColored;
+        private System.Windows.Forms.ToolStripMenuItem ProgressToolStripMenuItem;
     }
 }
