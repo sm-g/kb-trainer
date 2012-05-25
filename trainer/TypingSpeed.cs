@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace trainer
 {
@@ -11,6 +8,7 @@ namespace trainer
         {
             const int MIN_KEYSTROKES = 2;
             const int MIN_MSECONDS = 1;
+            const int MAX_INSTANT_POINTS = 200;
 
             private Statistic parent;
 
@@ -43,11 +41,18 @@ namespace trainer
 
             public static int FitInstantSpeedSpan(int keyskrokesCount)
             {
-                if (keyskrokesCount < 10)
-                    return 1;
-                if (keyskrokesCount < 50)
-                    return 2;
-                return 3;
+                int result = 1;
+                int sup = 10;
+                while (sup < keyskrokesCount)
+                {
+                    result++;
+                    sup *= 3;
+                }
+
+                if (keyskrokesCount / result <= MAX_INSTANT_POINTS)
+                    return result;
+                else
+                    return keyskrokesCount / MAX_INSTANT_POINTS;
             }
             public static double GetAverage(TimeSpan time, int count)
             {
