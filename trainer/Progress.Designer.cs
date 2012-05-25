@@ -32,16 +32,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.speedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passedCharsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rhythmicityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrintingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.graph = new trainer.Graph();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passedChars = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rhythmicity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrintingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).BeginInit();
@@ -80,13 +80,13 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.dateDataGridViewTextBoxColumn,
-            this.textTitleDataGridViewTextBoxColumn,
-            this.speedDataGridViewTextBoxColumn,
-            this.passedCharsDataGridViewTextBoxColumn,
-            this.errorsDataGridViewTextBoxColumn,
-            this.rhythmicityDataGridViewTextBoxColumn,
-            this.totalPrintingTimeDataGridViewTextBoxColumn});
+            this.date,
+            this.textTitle,
+            this.speed,
+            this.passedChars,
+            this.errors,
+            this.rhythmicity,
+            this.totalPrintingTime});
             this.dgv.DataSource = this.exerciseBindingSource;
             this.dgv.Location = new System.Drawing.Point(3, 286);
             this.dgv.Name = "dgv";
@@ -100,78 +100,6 @@
             this.dgv.TabIndex = 2;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 41;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // textTitleDataGridViewTextBoxColumn
-            // 
-            this.textTitleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.textTitleDataGridViewTextBoxColumn.DataPropertyName = "TextTitle";
-            this.textTitleDataGridViewTextBoxColumn.HeaderText = "Текст";
-            this.textTitleDataGridViewTextBoxColumn.Name = "textTitleDataGridViewTextBoxColumn";
-            this.textTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.textTitleDataGridViewTextBoxColumn.Width = 62;
-            // 
-            // speedDataGridViewTextBoxColumn
-            // 
-            this.speedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.speedDataGridViewTextBoxColumn.DataPropertyName = "Speed";
-            this.speedDataGridViewTextBoxColumn.HeaderText = "Скорость";
-            this.speedDataGridViewTextBoxColumn.Name = "speedDataGridViewTextBoxColumn";
-            this.speedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.speedDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // passedCharsDataGridViewTextBoxColumn
-            // 
-            this.passedCharsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.passedCharsDataGridViewTextBoxColumn.DataPropertyName = "PassedChars";
-            this.passedCharsDataGridViewTextBoxColumn.HeaderText = "Длина";
-            this.passedCharsDataGridViewTextBoxColumn.Name = "passedCharsDataGridViewTextBoxColumn";
-            this.passedCharsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passedCharsDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // errorsDataGridViewTextBoxColumn
-            // 
-            this.errorsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.errorsDataGridViewTextBoxColumn.DataPropertyName = "Errors";
-            this.errorsDataGridViewTextBoxColumn.HeaderText = "Ошибки";
-            this.errorsDataGridViewTextBoxColumn.Name = "errorsDataGridViewTextBoxColumn";
-            this.errorsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.errorsDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // rhythmicityDataGridViewTextBoxColumn
-            // 
-            this.rhythmicityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.rhythmicityDataGridViewTextBoxColumn.DataPropertyName = "Rhythmicity";
-            this.rhythmicityDataGridViewTextBoxColumn.HeaderText = "Ритмичность";
-            this.rhythmicityDataGridViewTextBoxColumn.Name = "rhythmicityDataGridViewTextBoxColumn";
-            this.rhythmicityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rhythmicityDataGridViewTextBoxColumn.Width = 98;
-            // 
-            // totalPrintingTimeDataGridViewTextBoxColumn
-            // 
-            this.totalPrintingTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.totalPrintingTimeDataGridViewTextBoxColumn.DataPropertyName = "TotalPrintingTime";
-            this.totalPrintingTimeDataGridViewTextBoxColumn.HeaderText = "Время";
-            this.totalPrintingTimeDataGridViewTextBoxColumn.Name = "totalPrintingTimeDataGridViewTextBoxColumn";
-            this.totalPrintingTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalPrintingTimeDataGridViewTextBoxColumn.Width = 65;
-            // 
             // exerciseBindingSource
             // 
             this.exerciseBindingSource.DataSource = typeof(trainer.Exercise);
@@ -183,6 +111,79 @@
             this.graph.Name = "graph";
             this.graph.Size = new System.Drawing.Size(390, 277);
             this.graph.TabIndex = 3;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 22;
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.date.DataPropertyName = "Date";
+            this.date.HeaderText = "Дата";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.Width = 58;
+            // 
+            // textTitle
+            // 
+            this.textTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.textTitle.DataPropertyName = "TextTitle";
+            this.textTitle.HeaderText = "Текст";
+            this.textTitle.MinimumWidth = 30;
+            this.textTitle.Name = "textTitle";
+            this.textTitle.ReadOnly = true;
+            // 
+            // speed
+            // 
+            this.speed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.speed.DataPropertyName = "Speed";
+            this.speed.HeaderText = "Скорость";
+            this.speed.Name = "speed";
+            this.speed.ReadOnly = true;
+            this.speed.Width = 5;
+            // 
+            // passedChars
+            // 
+            this.passedChars.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.passedChars.DataPropertyName = "PassedChars";
+            this.passedChars.HeaderText = "Длина";
+            this.passedChars.Name = "passedChars";
+            this.passedChars.ReadOnly = true;
+            this.passedChars.Width = 5;
+            // 
+            // errors
+            // 
+            this.errors.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.errors.DataPropertyName = "Errors";
+            this.errors.HeaderText = "Ошибки";
+            this.errors.Name = "errors";
+            this.errors.ReadOnly = true;
+            this.errors.Width = 5;
+            // 
+            // rhythmicity
+            // 
+            this.rhythmicity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.rhythmicity.DataPropertyName = "Rhythmicity";
+            this.rhythmicity.HeaderText = "Ритмичность";
+            this.rhythmicity.Name = "rhythmicity";
+            this.rhythmicity.ReadOnly = true;
+            this.rhythmicity.Width = 5;
+            // 
+            // totalPrintingTime
+            // 
+            this.totalPrintingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.totalPrintingTime.DataPropertyName = "TotalPrintingTime";
+            this.totalPrintingTime.HeaderText = "Время";
+            this.totalPrintingTime.Name = "totalPrintingTime";
+            this.totalPrintingTime.ReadOnly = true;
+            this.totalPrintingTime.Width = 5;
             // 
             // Progress
             // 
@@ -207,12 +208,12 @@
         private System.Windows.Forms.DataGridView dgv;
         private Graph graph;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn textTitleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn speedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passedCharsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn errorsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rhythmicityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrintingTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn speed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passedChars;
+        private System.Windows.Forms.DataGridViewTextBoxColumn errors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rhythmicity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrintingTime;
     }
 }
