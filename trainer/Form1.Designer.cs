@@ -57,6 +57,7 @@
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanelGeneral = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelKeyboard = new System.Windows.Forms.TableLayoutPanel();
+            this.labelRemainTime = new System.Windows.Forms.Label();
             this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanelMainArea.SuspendLayout();
             this.panelTypingMeasures.SuspendLayout();
@@ -107,7 +108,7 @@
             this.tableLayoutPanelMainArea.Name = "tableLayoutPanelMainArea";
             this.tableLayoutPanelMainArea.RowCount = 1;
             this.tableLayoutPanelMainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 314F));
             this.tableLayoutPanelMainArea.Size = new System.Drawing.Size(794, 314);
             this.tableLayoutPanelMainArea.TabIndex = 1;
             // 
@@ -147,9 +148,9 @@
             // 
             // panelProgress
             // 
-            this.panelProgress.AutoSize = true;
-            this.panelProgress.Controls.Add(this.progressBar);
+            this.panelProgress.Controls.Add(this.labelRemainTime);
             this.panelProgress.Controls.Add(this.labelTime);
+            this.panelProgress.Controls.Add(this.progressBar);
             this.panelProgress.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProgress.Location = new System.Drawing.Point(689, 3);
             this.panelProgress.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
@@ -160,7 +161,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBar.Location = new System.Drawing.Point(0, 21);
             this.progressBar.Maximum = 1000;
             this.progressBar.Name = "progressBar";
@@ -169,13 +170,14 @@
             // 
             // labelTime
             // 
-            this.labelTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTime.AutoSize = true;
+            this.labelTime.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTime.Location = new System.Drawing.Point(0, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(90, 21);
+            this.labelTime.Size = new System.Drawing.Size(36, 17);
             this.labelTime.TabIndex = 1;
             this.labelTime.Text = "0:00";
-            this.labelTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanelTextBoxes
             // 
@@ -391,6 +393,19 @@
             this.tableLayoutPanelKeyboard.Size = new System.Drawing.Size(794, 210);
             this.tableLayoutPanelKeyboard.TabIndex = 4;
             // 
+            // labelRemainTime
+            // 
+            this.labelRemainTime.AutoSize = true;
+            this.labelRemainTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelRemainTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRemainTime.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelRemainTime.Location = new System.Drawing.Point(49, 0);
+            this.labelRemainTime.Name = "labelRemainTime";
+            this.labelRemainTime.Size = new System.Drawing.Size(41, 17);
+            this.labelRemainTime.TabIndex = 2;
+            this.labelRemainTime.Text = "-0:00";
+            this.labelRemainTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // keyboard
             // 
             this.keyboard.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -419,6 +434,7 @@
             this.tableLayoutPanelMainArea.PerformLayout();
             this.panelTypingMeasures.ResumeLayout(false);
             this.panelProgress.ResumeLayout(false);
+            this.panelProgress.PerformLayout();
             this.tableLayoutPanelTextBoxes.ResumeLayout(false);
             this.panelKeyboardSettings.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
@@ -461,5 +477,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxInput;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGeneral;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKeyboard;
+        private System.Windows.Forms.Label labelRemainTime;
     }
 }

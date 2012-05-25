@@ -306,6 +306,7 @@ namespace trainer
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
             labelTime.Text = ResultForm.FormatTimeSpan(statistic.Now);
+            labelRemainTime.Text = '-' + ResultForm.FormatTimeSpan(statistic.GetExpectedRemainTime(sourceText.Length));
             progressBar.Value = (int)(charHandler.TextProgress * progressBar.Maximum);
             labelVelocity.Text = statistic.Speed.Average.ToString("F");
             labelErrors.Text = statistic.Errors.ToString();

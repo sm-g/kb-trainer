@@ -91,6 +91,13 @@ namespace trainer
             stopwatch.Stop();
         }
 
+        public TimeSpan GetExpectedRemainTime(int textLength)
+        {
+            if (PassedChars > MIN_RESULT_CHARS)
+                return TimeSpan.FromMinutes(textLength / Speed.Average);
+            else return TimeSpan.Zero;
+        }
+
         public Result GetResult()
         {
             Result result;
