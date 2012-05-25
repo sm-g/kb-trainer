@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace trainer
@@ -15,46 +13,71 @@ namespace trainer
             Paused
         }
 
-        static string textsPath = Path.Combine(Application.StartupPath, "text");
-
         SourceText sourceText;
         CharHandler charHandler;
         Statistic statistic;
-
-        bool textOpenedFromFile;
+        
         ExerciseState exerciseState;
 
         public Form1()
         {
             InitializeComponent();
-            LoadSource(GetRandomTextFile(textsPath));
+            LoadSource(GetRandomTextFile(), false);
             DrawColorSquare();
         }
 
-        private void LoadSource(string filePath)
+        private void LoadSource(string filePath, bool byUser)
         {
-            sourceText = new SourceText(filePath);
-            statistic = new Statistic();
-            charHandler = new CharHandler(sourceText, statistic);
-
-            Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
-        }
-        private string GetRandomTextFile(string directoryPath)
-        {
-            string[] fileNames = Directory.GetFiles(directoryPath, "*.txt");
-            Random r = new Random();
-            return fileNames[r.Next(fileNames.Length)];
-        }
-        private void ChangeText()
-        {
-            string currentFile = sourceText.FileName;
-            string newFile;
-            do
+            if (filePath != "")
             {
-                newFile = GetRandomTextFile(textsPath);
+                sourceText = new SourceText(filePath, byUser);
+                statistic = new Statistic();
+                charHandler = new CharHandler(sourceText, statistic);
+
+                Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
             }
-            while (Path.GetFileName(newFile) == currentFile && Directory.GetFiles(textsPath, "*.txt").Length > 1);
-            LoadSource(newFile);
+
+            StartToolStripMenuItem.Enabled = sourceText != null;            
+        }
+        private string OnNoFiles()
+        {
+            DialogResult result = MessageBox.Show("В папке " + SourceText.textsPath.ToString() + " нет текстовых файлов.\nВыбрать файл в другом месте?", 
+                                                  "Файл не найден", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.OK)
+                OpenTextFile();
+
+            return "";
+        }
+        private string GetRandomTextFile()
+        {
+            string[] fileNames = System.IO.Directory.GetFiles(SourceText.textsPath, "*.txt");
+
+            if (fileNames.Length == 0)
+            {
+                return OnNoFiles();
+            }
+            else
+            {
+                string newFile;
+                string currentFile = "";
+                if (sourceText != null)
+                    currentFile = sourceText.FilePath;
+                Random r = new Random();                
+                do
+                {
+                    newFile = fileNames[r.Next(fileNames.Length)];
+                }
+                while (newFile == currentFile && fileNames.Length > 1);
+                return newFile;
+            }
+        }
+        private void OpenTextFile()
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadSource(openFileDialog.FileName, true);
+                SetMenusState();
+            }
         }
 
         private void richTextBoxInput_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,8 +219,8 @@ namespace trainer
         }
         private void StartExercise()
         {
-            if (charHandler.TextEnded && !textOpenedFromFile)
-                ChangeText();
+            if (charHandler.TextEnded && !sourceText.OpenedByUser)
+                LoadSource(GetRandomTextFile(), false);
 
             PrepareTextBoxes();
             ResumeTyping();
@@ -218,7 +241,7 @@ namespace trainer
         private void ShowResult()
         {
             ResultForm resultForm = new ResultForm(statistic.GetResult(), sourceText);
-            if (resultForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (resultForm.ShowDialog() == DialogResult.OK)
             {
                 FinishExercise();
             }
@@ -245,30 +268,24 @@ namespace trainer
         }
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                textOpenedFromFile = true;
-                LoadSource(openFileDialog.FileName);
-                SetMenusState();
-            }
+            OpenTextFile();
         }
         private void RandomTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (textOpenedFromFile)
+            if (sourceText != null && sourceText.OpenedByUser)
             {
-                textOpenedFromFile = false;
-                LoadSource(GetRandomTextFile(textsPath));
+                LoadSource(GetRandomTextFile(), false);
                 SetMenusState();
             }
         }
         private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeText();
+            LoadSource(GetRandomTextFile(), false);
         }
         private void SetMenusState()
         {
-            OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
-            RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
+            OpenFileToolStripMenuItem.Checked = sourceText.OpenedByUser;
+            RandomTextToolStripMenuItem.Checked = !sourceText.OpenedByUser;
 
             OpenFileToolStripMenuItem.Enabled = exerciseState == ExerciseState.NotStarted;
             RandomTextToolStripMenuItem.Enabled = exerciseState == ExerciseState.NotStarted;

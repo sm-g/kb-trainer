@@ -1,10 +1,11 @@
 ﻿using System.IO;
-using System.Text;
 
 namespace trainer
 {
     public class SourceText
     {
+        public static string textsPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "text");
+
         private string[] textData;
 
         public int Length
@@ -23,19 +24,21 @@ namespace trainer
         {
             get
             {
-                return textData[0].Replace(Delimeters.Attribute, Delimeters.SafeChar);
+                return textData[0].Replace(Delimeters.Attribute, Delimeters.SafeChar).Trim();
             }
         }
         public string FileName { get; private set; }
-        public string[] Lines
-        {
-            get { return textData; }
-        }
+        public string FilePath { get; private set; }
+        public bool OpenedByUser { get; private set; }
+        public string[] Lines { get { return textData; } }
 
-        public SourceText(string filePath)
-        {
-            textData = File.ReadAllLines(filePath, Encoding.Default);
+
+        public SourceText(string filePath, bool byUser)
+        {            
+            textData = File.ReadAllLines(filePath, System.Text.Encoding.Default);
             FileName = Path.GetFileName(filePath);
+            FilePath = filePath;
+            OpenedByUser = byUser;
 
             Format();
         }
