@@ -8,14 +8,21 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        static string textsPath  = Path.Combine(Application.StartupPath, "text");
+        enum ExerciseState
+        {
+            NotStarted,
+            Active,
+            Paused
+        }
+
+        static string textsPath = Path.Combine(Application.StartupPath, "text");
 
         SourceText sourceText;
         CharHandler charHandler;
         Statistic statistic;
-        bool exerciseStarted;
+
         bool textOpenedFromFile;
-        bool exercisePaused;
+        ExerciseState exerciseState;
 
         public Form1()
         {
@@ -67,17 +74,17 @@ namespace trainer
             else
             {
                 DisplayWrongInput();
-            }            
+            }
         }
         private void richTextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
             Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
             if (code == Keys.Escape)
             {
-                StopTyping();
+                EndTyping();
                 return;
             }
-            
+
             statistic.RegisterKeyDown(code);
             if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
@@ -90,7 +97,7 @@ namespace trainer
                     richTextBoxInput.Text = richTextBoxInput.Text.Remove(richTextBoxInput.Text.Length - 1);
                 }
 
-                DisplayDeletion();                
+                DisplayDeletion();
             }
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
@@ -101,7 +108,7 @@ namespace trainer
 
             if (charHandler.TextEnded)
             {
-                StopTyping();
+                EndTyping();
             }
         }
         private void richTextBoxInput_SelectionChanged(object sender, EventArgs e)
@@ -129,28 +136,29 @@ namespace trainer
             PaintSourceViewChar(1, Colors.wrongLetterBackground, Colors.wrongLetter);
             keyboard.HighlightKeyButtons(charHandler.NextCharToType);
 
-            System.Media.SystemSounds.Beep.Play();            
+            System.Media.SystemSounds.Beep.Play();
         }
         private void PaintSourceViewChar(int offset, Color backColor, Color color)
         {
             richTextBoxSourceView.Select(charHandler.MarkerPosition - offset, 1);
             richTextBoxSourceView.SelectionBackColor = backColor;
-            richTextBoxSourceView.SelectionColor = color;            
+            richTextBoxSourceView.SelectionColor = color;
         }
 
         private void StopTyping()
         {
-            statistic.PauseTimer();
+            if (exerciseState == ExerciseState.Active)
+            {
+                exerciseState = ExerciseState.Paused;
+                statistic.PauseTimer();
 
-            richTextBoxInput.Enabled = false;
-            SetStartButtonLabel();
-
-            if (!exercisePaused)               
-                EndTyping();
+                richTextBoxInput.Enabled = false;
+                SetStartButtonLabel();
+            }
         }
         private void ResumeTyping()
         {
-            exercisePaused = false;
+            exerciseState = ExerciseState.Active;
 
             SetStartButtonLabel();
             richTextBoxInput.Enabled = true;
@@ -158,6 +166,7 @@ namespace trainer
         }
         private void EndTyping()
         {
+            StopTyping();
             if (statistic.EnoughToResult)
             {
                 if (charHandler.TextEnded)
@@ -173,10 +182,10 @@ namespace trainer
 
         private void FinishExercise()
         {
-            exerciseStarted = false;                        
-            
+            exerciseState = ExerciseState.NotStarted;
+
             keyboard.TurnOffHighlighting();
-            
+
             SetMenusState();
             SetStartButtonLabel();
             SetWidgetsVisability();
@@ -193,11 +202,9 @@ namespace trainer
             if (charHandler.TextEnded && !textOpenedFromFile)
                 ChangeText();
 
-            exerciseStarted = true;
-            
             PrepareTextBoxes();
             ResumeTyping();
-            
+
             keyboard.HighlightKeyButtons(charHandler.NextCharToType);
             SetMenusState();
             SetStartButtonLabel();
@@ -231,18 +238,17 @@ namespace trainer
 
         private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (exercisePaused)
+            switch (exerciseState)
             {
-                ResumeTyping();
-                return;
-            }
-            if (exerciseStarted)
-            {
-                StopTyping();
-            }
-            else
-            {                
-                StartExercise();
+                case ExerciseState.Paused:
+                    ResumeTyping();
+                    return;
+                case ExerciseState.Active:
+                    EndTyping();
+                    return;
+                case ExerciseState.NotStarted:
+                    StartExercise();
+                    return;
             }
         }
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -269,25 +275,33 @@ namespace trainer
         }
         private void SetMenusState()
         {
-            OpenFileToolStripMenuItem.Checked    = textOpenedFromFile;
-            RandomTextToolStripMenuItem.Checked  = !textOpenedFromFile;
+            OpenFileToolStripMenuItem.Checked = textOpenedFromFile;
+            RandomTextToolStripMenuItem.Checked = !textOpenedFromFile;
 
-            OpenFileToolStripMenuItem.Enabled    = !exerciseStarted;
-            RandomTextToolStripMenuItem.Enabled  = !exerciseStarted;
-            AnotherTextToolStripMenuItem.Enabled = !exerciseStarted;            
+            OpenFileToolStripMenuItem.Enabled = exerciseState == ExerciseState.NotStarted;
+            RandomTextToolStripMenuItem.Enabled = exerciseState == ExerciseState.NotStarted;
+            AnotherTextToolStripMenuItem.Enabled = exerciseState == ExerciseState.NotStarted;
         }
         private void SetStartButtonLabel()
         {
-            if (exercisePaused) 
-                StartToolStripMenuItem.Text = "Продолжить";
-            else
-                StartToolStripMenuItem.Text = exerciseStarted ? "Стоп" : "Старт";
+            switch (exerciseState)
+            {
+                case ExerciseState.Paused:
+                    StartToolStripMenuItem.Text = "Продолжить";
+                    return;
+                case ExerciseState.Active:
+                    StartToolStripMenuItem.Text = "Стоп";
+                    return;
+                case ExerciseState.NotStarted:
+                    StartToolStripMenuItem.Text = "Старт";
+                    return;
+            }
         }
 
         private void SetWidgetsVisability()
         {
-            panelTypingMeasures.Visible = exerciseStarted;
-            panelProgress.Visible = exerciseStarted;
+            panelTypingMeasures.Visible = exerciseState != ExerciseState.NotStarted;
+            panelProgress.Visible = exerciseState != ExerciseState.NotStarted;
         }
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
@@ -314,20 +328,11 @@ namespace trainer
 
         private void Form1_Deactivate(object sender, EventArgs e)
         {
-            exercisePaused = true;
-            if (exerciseStarted)
-                StopTyping();
-        }
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-            if (exerciseStarted)
-                ResumeTyping();
+            StopTyping();
         }
         private void richTextBoxInput_Leave(object sender, EventArgs e)
         {
-            exercisePaused = true;
-            if (exerciseStarted)
-                StopTyping();
+            StopTyping();
         }
 
         private void ProgressToolStripMenuItem_Click(object sender, EventArgs e)
