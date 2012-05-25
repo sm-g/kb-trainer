@@ -19,7 +19,7 @@ namespace trainer
                 {
                     if (parent.keystrokes.Count < MIN_KEYSTROKES)
                         return 0;
-                    return GetAverage(parent.TotalPrintingTime, parent.PassedChars);
+                    return GetAverage(parent.Now, parent.PassedChars);
                 }
             }
             public double Instant
