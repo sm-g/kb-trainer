@@ -169,10 +169,7 @@ namespace trainer
             StopTyping();
             if (statistic.EnoughToResult)
             {
-                if (charHandler.TextEnded)
-                    timerResultDelay.Enabled = true;
-                else
-                    ShowResult();
+                ShowResult();
             }
             else
             {
@@ -229,11 +226,6 @@ namespace trainer
             {
                 ResumeTyping();
             }
-        }
-        private void timerResultDelay_Tick(object sender, EventArgs e)
-        {
-            timerResultDelay.Enabled = false;
-            ShowResult();
         }
 
         private void StartToolStripMenuItem_Click(object sender, EventArgs e)

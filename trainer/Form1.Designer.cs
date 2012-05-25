@@ -36,15 +36,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelProgress = new System.Windows.Forms.Panel();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.labelRemainTime = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanelTextBoxes = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxSourceView = new System.Windows.Forms.RichTextBox();
             this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
             this.panelKeyboardSettings = new System.Windows.Forms.Panel();
             this.checkBoxKeyboardLabeled = new System.Windows.Forms.CheckBox();
             this.checkBoxKeyboardColored = new System.Windows.Forms.CheckBox();
-            this.timerResultDelay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +57,6 @@
             this.timerUpdateWidgets = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanelGeneral = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelKeyboard = new System.Windows.Forms.TableLayoutPanel();
-            this.labelRemainTime = new System.Windows.Forms.Label();
             this.keyboard = new trainer.Keyboard();
             this.tableLayoutPanelMainArea.SuspendLayout();
             this.panelTypingMeasures.SuspendLayout();
@@ -159,14 +158,18 @@
             this.panelProgress.TabIndex = 10;
             this.panelProgress.Visible = false;
             // 
-            // progressBar
+            // labelRemainTime
             // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar.Location = new System.Drawing.Point(0, 21);
-            this.progressBar.Maximum = 1000;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(90, 10);
-            this.progressBar.TabIndex = 0;
+            this.labelRemainTime.AutoSize = true;
+            this.labelRemainTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelRemainTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRemainTime.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelRemainTime.Location = new System.Drawing.Point(49, 0);
+            this.labelRemainTime.Name = "labelRemainTime";
+            this.labelRemainTime.Size = new System.Drawing.Size(41, 17);
+            this.labelRemainTime.TabIndex = 2;
+            this.labelRemainTime.Text = "-0:00";
+            this.labelRemainTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelTime
             // 
@@ -178,6 +181,15 @@
             this.labelTime.Size = new System.Drawing.Size(36, 17);
             this.labelTime.TabIndex = 1;
             this.labelTime.Text = "0:00";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar.Location = new System.Drawing.Point(0, 21);
+            this.progressBar.Maximum = 1000;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(90, 10);
+            this.progressBar.TabIndex = 0;
             // 
             // tableLayoutPanelTextBoxes
             // 
@@ -274,11 +286,6 @@
             this.checkBoxKeyboardColored.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxKeyboardColored.UseVisualStyleBackColor = false;
             this.checkBoxKeyboardColored.CheckedChanged += new System.EventHandler(this.checkBoxKeyboardColored_CheckedChanged);
-            // 
-            // timerResultDelay
-            // 
-            this.timerResultDelay.Interval = 1000;
-            this.timerResultDelay.Tick += new System.EventHandler(this.timerResultDelay_Tick);
             // 
             // openFileDialog
             // 
@@ -393,19 +400,6 @@
             this.tableLayoutPanelKeyboard.Size = new System.Drawing.Size(794, 210);
             this.tableLayoutPanelKeyboard.TabIndex = 4;
             // 
-            // labelRemainTime
-            // 
-            this.labelRemainTime.AutoSize = true;
-            this.labelRemainTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelRemainTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelRemainTime.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelRemainTime.Location = new System.Drawing.Point(49, 0);
-            this.labelRemainTime.Name = "labelRemainTime";
-            this.labelRemainTime.Size = new System.Drawing.Size(41, 17);
-            this.labelRemainTime.TabIndex = 2;
-            this.labelRemainTime.Text = "-0:00";
-            this.labelRemainTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // keyboard
             // 
             this.keyboard.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -451,7 +445,6 @@
         private System.Windows.Forms.Label labelVelocity;
         private System.Windows.Forms.Label labelErrors;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMainArea;
-        private System.Windows.Forms.Timer timerResultDelay;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem;
