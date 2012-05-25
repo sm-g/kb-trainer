@@ -156,6 +156,7 @@ namespace trainer
 
     public class Exercise
     {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public string TextTitle { get; set; }
         public double Speed { get { return Statistic.TypingSpeed.GetAverage(TotalPrintingTime, PassedChars); } }
@@ -165,11 +166,12 @@ namespace trainer
         public float Rhythmicity { get; set; }
         public List<Pressure> Pressures { get; set; }
 
-        public Exercise(string exercise)
+        public Exercise(string exercise, int id)
         {
             string[] attribures = exercise.Split(Delimeters.Attribute);
             if (attribures.Length == 7)
             {
+                Id = id;
                 Date = DateTime.Parse(attribures[0]);
                 TextTitle = attribures[1];
                 PassedChars = Int32.Parse(attribures[2]);

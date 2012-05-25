@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
-            this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.speedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,9 +40,11 @@
             this.errorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhythmicityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPrintingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.graph = new trainer.Graph();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,7 +53,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.groupBoxGeneral, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgv, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.graph, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -70,16 +73,13 @@
             this.groupBoxGeneral.TabStop = false;
             this.groupBoxGeneral.Text = "Статистика";
             // 
-            // exerciseBindingSource
+            // dgv
             // 
-            this.exerciseBindingSource.DataSource = typeof(trainer.Exercise);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv.AutoGenerateColumns = false;
+            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.dateDataGridViewTextBoxColumn,
             this.textTitleDataGridViewTextBoxColumn,
             this.speedDataGridViewTextBoxColumn,
@@ -87,16 +87,27 @@
             this.errorsDataGridViewTextBoxColumn,
             this.rhythmicityDataGridViewTextBoxColumn,
             this.totalPrintingTimeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.exerciseBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 286);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.Height = 14;
-            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.Size = new System.Drawing.Size(390, 150);
-            this.dataGridView1.TabIndex = 2;
+            this.dgv.DataSource = this.exerciseBindingSource;
+            this.dgv.Location = new System.Drawing.Point(3, 286);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv.RowTemplate.Height = 14;
+            this.dgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(390, 150);
+            this.dgv.TabIndex = 2;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 41;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -161,6 +172,18 @@
             this.totalPrintingTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.totalPrintingTimeDataGridViewTextBoxColumn.Width = 65;
             // 
+            // exerciseBindingSource
+            // 
+            this.exerciseBindingSource.DataSource = typeof(trainer.Exercise);
+            // 
+            // graph
+            // 
+            this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graph.Location = new System.Drawing.Point(399, 3);
+            this.graph.Name = "graph";
+            this.graph.Size = new System.Drawing.Size(390, 277);
+            this.graph.TabIndex = 3;
+            // 
             // Progress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,8 +193,8 @@
             this.Name = "Progress";
             this.Text = "Прогресс";
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -181,7 +204,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxGeneral;
         private System.Windows.Forms.BindingSource exerciseBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv;
+        private Graph graph;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn textTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn speedDataGridViewTextBoxColumn;

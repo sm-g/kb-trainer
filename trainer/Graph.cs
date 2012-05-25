@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace trainer
 {
@@ -11,13 +13,19 @@ namespace trainer
             InitializeComponent();
         }
         
+        private void PrepareSerie(string serieName, SeriesChartType type = SeriesChartType.Line, MarkerStyle marker = MarkerStyle.None)
+        {
+            chart.Series.Add(serieName);
+            chart.Series[serieName].ChartType = type;
+            chart.Series[serieName].MarkerStyle = marker;
+            chart.Series[serieName].ToolTip = "#VAL{N2}";
+        }
+
         public void AddInstantSpeed(List<Keystroke> keystrokes, string serieName)
         {
             if (chart.Series.IndexOf(serieName) == -1)
             {
-                chart.Series.Add(serieName);
-                chart.Series[serieName].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                chart.Series[serieName].ToolTip = "#VAL{N2}";
+                PrepareSerie(serieName);
 
                 int span = Statistic.TypingSpeed.FitInstantSpeedSpan(keystrokes.Count);
                 double speed;
@@ -32,9 +40,7 @@ namespace trainer
         {
             if (chart.Series.IndexOf(serieName) == -1)
             {
-                chart.Series.Add(serieName);
-                chart.Series[serieName].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                chart.Series[serieName].ToolTip = "#VAL{N2}";
+                PrepareSerie(serieName);
 
                 int span = Statistic.TypingSpeed.FitInstantSpeedSpan(keystrokes.Count);
                 double speed;
@@ -42,6 +48,31 @@ namespace trainer
                 {
                     speed = Statistic.TypingSpeed.GetAverage(keystrokes[i].DownTime, i);
                     chart.Series[serieName].Points.AddXY(i, speed);
+                }
+            }
+        }
+
+        public void Bind(Exercise[] exercises, string serieName, string xValues, string yValues)
+        {
+            chart.DataSource = exercises;
+            PrepareSerie(serieName, SeriesChartType.Line, MarkerStyle.Circle);
+
+            chart.Series[serieName].XValueMember = xValues;
+            chart.Series[serieName].YValueMembers = yValues;
+        }
+
+        public void HighlightSeriePoints(string serieName, int[] ids)
+        {
+            if (chart.Series[serieName].Points.Count != 0)
+            {
+                foreach (var p in chart.Series[serieName].Points)
+                {
+                    p.MarkerColor = Color.Blue;
+                }
+
+                foreach (int id in ids)
+                {
+                    chart.Series[serieName].Points.FindByValue(id, "X").MarkerColor = Color.Orange;
                 }
             }
         }

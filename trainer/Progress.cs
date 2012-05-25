@@ -22,7 +22,9 @@ namespace trainer
 
         private void ReadExercises(Exercise[] exercises)
         {
-            dataGridView1.DataSource = exercises;
+            dgv.DataSource = exercises;
+
+            graph.Bind(exercises, "speeds", "Id", "Speed");
         }
 
         public static void SaveToXml(SourceText source, Statistic statistic)
@@ -64,7 +66,6 @@ namespace trainer
             doc.Root.Add(newExercise);
             doc.Save(FILE + ".xml");
         }
-
         public static void SaveToDsv(SourceText source, Statistic statistic)
         {
             statistic.CalcPressures();
@@ -91,7 +92,6 @@ namespace trainer
                 file.Write(sb);
             }
         }
-
         public static Exercise[] LoadFromCsv()
         {
             string s;
@@ -105,10 +105,20 @@ namespace trainer
 
             for (int i = 0; i < exercises.Length - 1; i++)
             {
-                result[i] = new Exercise(exercises[i]);
+                result[i] = new Exercise(exercises[i], i);
             }
 
             return result;
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            int[] ids = new int[dgv.SelectedRows.Count];
+            for (int i = 0; i < dgv.SelectedRows.Count; i++)
+            {
+                ids[i] = (int)dgv.SelectedRows[i].Cells["Id"].Value;
+            }
+            graph.HighlightSeriePoints("speeds", ids);
         }
     }
 
