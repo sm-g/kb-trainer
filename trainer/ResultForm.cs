@@ -10,7 +10,7 @@ namespace trainer
         {
             InitializeComponent();
 
-            if (source.Length == result.PassedChars) // нельзя продолжить
+            if (source.Length == result.PassedChars)
             {
                 buttonContinue.Enabled = false;
                 CancelButton = buttonEnd;
@@ -22,7 +22,8 @@ namespace trainer
             textBoxErrors.Text = ((double)result.Errors / result.PassedChars).ToString("F2") + " %";
             textBoxTime.Text = FormatTimeSpan(time);
 
-            graph.Add(result.Keystrokes);
+            graph.AddInstantSpeed(result.Keystrokes, "instantspeed");
+            graph.AddAverageSpeed(result.Keystrokes, "averagespeed");
         }
 
         public static string FormatTimeSpan(TimeSpan timespan)

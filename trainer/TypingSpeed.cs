@@ -9,6 +9,7 @@ namespace trainer
             const int MIN_KEYSTROKES = 2;
             const int MIN_MSECONDS = 1;
             const int MAX_INSTANT_POINTS = 200;
+            const double MAX_SPEED = 2000.0;
 
             private Statistic parent;
 
@@ -62,7 +63,11 @@ namespace trainer
             {
                 if ((last - first).TotalMilliseconds < MIN_MSECONDS)
                     return 0;
-                return 60 * span / (last - first).TotalSeconds;
+                double result = 60 * span / (last - first).TotalSeconds;
+                if (result > MAX_SPEED)
+                    return MAX_SPEED;
+                else
+                    return result;
             }
         }
     }
