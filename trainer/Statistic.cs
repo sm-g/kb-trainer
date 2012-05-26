@@ -41,7 +41,7 @@ namespace trainer
         {
             get { return PassedChars > MIN_RESULT_CHARS; }
         }
-        public double Rhythmicity
+        public int Rhythmicity
         {
             get
             {
@@ -53,7 +53,7 @@ namespace trainer
                 double average = keystrokresIntervals.Average();
                 double sumOfSquaresOfDifferences = keystrokresIntervals.Select(val => (val - average) * (val - average)).Sum();
                 double sd = Math.Sqrt(sumOfSquaresOfDifferences / keystrokresIntervals.Length);
-                return (1 - sd / average) * 100;
+                return (int)((1 - sd / average) * 100);
             }
         }
 
