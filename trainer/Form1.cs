@@ -23,6 +23,7 @@ namespace trainer
         {
             InitializeComponent();
             LoadSource(GetRandomTextFile(), false);
+            CreateExersice(); 
             DrawColorSquare();
         }
 
@@ -31,8 +32,6 @@ namespace trainer
             if (filePath != "")
             {
                 sourceText = new SourceText(filePath, byUser);
-                statistic = new Statistic();
-                charHandler = new CharHandler(sourceText, statistic);
 
                 Text = sourceText.Title + " - " + sourceText.FileName + " - Keyboard trainer";
             }
@@ -76,6 +75,7 @@ namespace trainer
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 LoadSource(openFileDialog.FileName, true);
+                CreateExersice();
                 SetMenusState();
             }
         }
@@ -167,6 +167,12 @@ namespace trainer
             richTextBoxSourceView.SelectionBackColor = backColor;
             richTextBoxSourceView.SelectionColor = color;
         }
+        private void PaintSourceViewChars(int start, int length, Color backColor, Color color)
+        {
+            richTextBoxSourceView.Select(start, length);
+            richTextBoxSourceView.SelectionBackColor = backColor;
+            richTextBoxSourceView.SelectionColor = color;
+        }
 
         private void StopTyping()
         {
@@ -199,7 +205,7 @@ namespace trainer
                 FinishExercise();
             }
         }
-
+        
         private void FinishExercise()
         {
             exerciseState = ExerciseState.NotStarted;
@@ -211,6 +217,7 @@ namespace trainer
             SetWidgetsVisability();
             timerUpdateWidgets.Enabled = false;
 
+            sourceText.Position = charHandler.MarkerPosition;
             if (statistic.EnoughToResult)
             {
                 Progress.SaveToXml(sourceText, statistic.GetResult());
@@ -221,7 +228,6 @@ namespace trainer
         {
             if (charHandler.TextEnded && !sourceText.OpenedByUser)
                 LoadSource(GetRandomTextFile(), false);
-
             PrepareTextBoxes();
             ResumeTyping();
 
@@ -231,11 +237,17 @@ namespace trainer
             SetWidgetsVisability();
             timerUpdateWidgets.Enabled = true;
         }
+        private void CreateExersice()
+        {
+            statistic = new Statistic();
+            charHandler = new CharHandler(sourceText, statistic);
+        }
         private void PrepareTextBoxes()
         {
             CleanInput();
             richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = sourceText.Lines;
+            PaintSourceViewChars(0, sourceText.Position, Colors.passedLetterBackground, Colors.passedLetter);
         }
 
         private void ShowResult()
@@ -275,12 +287,14 @@ namespace trainer
             if (sourceText != null && sourceText.OpenedByUser)
             {
                 LoadSource(GetRandomTextFile(), false);
+                CreateExersice();                
                 SetMenusState();
             }
         }
         private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadSource(GetRandomTextFile(), false);
+            CreateExersice(); 
         }
         private void SetMenusState()
         {
