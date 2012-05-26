@@ -213,8 +213,8 @@ namespace trainer
 
             if (statistic.EnoughToResult)
             {
-                Progress.SaveToXml(sourceText, statistic);
-                Progress.SaveToDsv(sourceText, statistic);
+                Progress.SaveToXml(sourceText, statistic.GetResult());
+                Progress.SaveToDsv(sourceText, statistic.GetResult());
             }
         }
         private void StartExercise()

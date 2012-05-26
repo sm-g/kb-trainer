@@ -15,12 +15,12 @@ namespace trainer
 
         private Stopwatch stopwatch;
         private List<Keystroke> keystrokes;
-        public List<Pressure> pressures;
+        private List<Pressure> pressures;
         private int errorsCounter;
         private int deletedCharsCounter;
         private int typedCharsCounter;
 
-        public TypingSpeed Speed { get; set; }
+        public TypingSpeed Speed { get; private set; }
         public int PassedChars
         {
             get { return typedCharsCounter - deletedCharsCounter; }
@@ -28,10 +28,6 @@ namespace trainer
         public int Errors
         {
             get { return errorsCounter; }
-        }
-        public bool IsEmpty
-        {
-            get { return keystrokes.Count == 0; }
         }
         public TimeSpan TotalPrintingTime
         {
@@ -98,17 +94,16 @@ namespace trainer
             else return TimeSpan.Zero;
         }
 
-        public Result GetResult()
+        public ExerciseResult GetResult()
         {
-            Result result;
-            result.Errors = Errors;
-            result.Speed = Speed.Average;
-            result.PassedChars = PassedChars;
-            result.Keystrokes = keystrokes;
-            return result;
+            return new ExerciseResult(this);
         }
 
-        public void CalcPressures()
+        public List<Keystroke> GetKeystrokes()
+        {
+            return keystrokes;
+        }
+        public List<Pressure> GetPressures()
         {
             foreach (var ks in keystrokes)
             {
@@ -123,6 +118,7 @@ namespace trainer
                 pressures[i].Amount++;
                 pressures[i].Duration += ks.Duration.Ticks;
             }
+            return pressures;
         }        
     }
 
@@ -153,29 +149,32 @@ namespace trainer
         }
     }
 
-    public struct Result
-    {
-        public double Speed;
-        public int Errors;
-        public List<Keystroke> Keystrokes;
-        public int PassedChars;
-    }
-
-    public class Exercise
+    public class ExerciseResult
     {
         private TimeSpan time;
 
-        public int Id { get; set; }
-        public DateTime Date { get; set; }
-        public string TextTitle { get; set; }
+        public int Id { get; private set; }
+        public DateTime Date { get; private set; }
+        public string TextTitle { get; private set; }
         public double Speed { get { return Math.Round(Statistic.TypingSpeed.GetAverage(time, PassedChars), 2); } }
-        public int PassedChars { get; set; }
-        public int Errors { get; set; }
+        public int PassedChars { get; private set; }
+        public int Errors { get; private set; }
         public string TotalPrintingTime { get { return ResultForm.FormatTimeSpan(time); } }
-        public float Rhythmicity { get; set; }
-        public List<Pressure> Pressures { get; set; }
+        public float Rhythmicity { get; private set; }
+        public List<Keystroke> Keystrokes { get; private set; }
+        public List<Pressure> Pressures { get; private set; }
 
-        public Exercise(string exercise, int id)
+        public ExerciseResult(Statistic statistic)
+        {
+            PassedChars = statistic.PassedChars;
+            Errors = statistic.Errors;
+            time = statistic.TotalPrintingTime;
+            Rhythmicity = statistic.Rhythmicity;
+            Pressures = statistic.GetPressures();
+            Keystrokes = statistic.GetKeystrokes();
+        }
+
+        public ExerciseResult(string exercise, int id)
         {
             string[] attribures = exercise.Split(Delimeters.Attribute);
             if (attribures.Length == 7)

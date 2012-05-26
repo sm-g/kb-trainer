@@ -20,17 +20,15 @@ namespace trainer
             ReadExercises(LoadFromCsv());
         }
 
-        private void ReadExercises(Exercise[] exercises)
+        private void ReadExercises(ExerciseResult[] exercises)
         {
             dgv.DataSource = exercises;
 
             graph.Bind(exercises, "speeds", "Id", "Speed");
         }
 
-        public static void SaveToXml(SourceText source, Statistic statistic)
+        public static void SaveToXml(SourceText source, ExerciseResult result)
         {
-            statistic.CalcPressures();
-
             XDocument doc;
 
             using (var file = File.OpenText(FILE + ".xml"))
@@ -38,51 +36,49 @@ namespace trainer
                 doc = XDocument.Load(file);
             }
 
-            XElement durations;
+            XElement pressures;
             using (var stream = new MemoryStream())
             {
                 var serializer = new XmlSerializer(typeof(List<Pressure>));
-                serializer.Serialize(stream, statistic.pressures);
+                serializer.Serialize(stream, result.Pressures);
                 stream.Position = 0;
                 using (var reader = XmlReader.Create(stream))
                 {
-                    durations = XElement.Load(reader);
+                    pressures = XElement.Load(reader);
                 }
             }
-            durations.Name = "pressures";
-            durations.RemoveAttributes();
+            pressures.Name = "pressures";
+            pressures.RemoveAttributes();
 
             var newExercise = 
                     new XElement("exercise",
                         new XAttribute("id", doc.Root.Elements().Count() + 1),
                         new XAttribute("date", DateTime.Now.ToShortDateString()),
                         new XAttribute("text", source.Title),
-                        new XAttribute("passed", statistic.PassedChars),
-                        new XAttribute("errors", statistic.Errors),
-                        new XAttribute("time", statistic.TotalPrintingTime),
-                        new XAttribute("rhythm", statistic.Rhythmicity),
-                        durations);
+                        new XAttribute("passed", result.PassedChars),
+                        new XAttribute("errors", result.Errors),
+                        new XAttribute("time", result.TotalPrintingTime),
+                        new XAttribute("rhythm", result.Rhythmicity),
+                        pressures);
 
             doc.Root.Add(newExercise);
             doc.Save(FILE + ".xml");
         }
-        public static void SaveToDsv(SourceText source, Statistic statistic)
+        public static void SaveToDsv(SourceText source, ExerciseResult result)
         {
-            statistic.CalcPressures();
-
             var sb = new StringBuilder();
 
-            sb.Append(DateTime.Now.ToShortDateString());    sb.Append(Delimeters.Attribute);
-            sb.Append(source.Title);                        sb.Append(Delimeters.Attribute);
-            sb.Append(statistic.PassedChars);               sb.Append(Delimeters.Attribute);
-            sb.Append(statistic.Errors);                    sb.Append(Delimeters.Attribute);
-            sb.Append(statistic.TotalPrintingTime);         sb.Append(Delimeters.Attribute);
-            sb.Append(statistic.Rhythmicity);               sb.Append(Delimeters.Attribute);
-            foreach (var p in statistic.pressures)
+            sb.Append(DateTime.Now.ToShortDateString()); sb.Append(Delimeters.Attribute);
+            sb.Append(source.Title);                     sb.Append(Delimeters.Attribute);
+            sb.Append(result.PassedChars);               sb.Append(Delimeters.Attribute);
+            sb.Append(result.Errors);                    sb.Append(Delimeters.Attribute);
+            sb.Append(result.TotalPrintingTime);         sb.Append(Delimeters.Attribute);
+            sb.Append(result.Rhythmicity);               sb.Append(Delimeters.Attribute);
+            foreach (var p in result.Pressures)
             {
-                sb.Append(p.Char);                          sb.Append(Delimeters.PressureAttr);
-                sb.Append(p.Amount);                        sb.Append(Delimeters.PressureAttr); 
-                sb.Append(p.Duration);                      sb.Append(Delimeters.Pressure);
+                sb.Append(p.Char);                       sb.Append(Delimeters.PressureAttr);
+                sb.Append(p.Amount);                     sb.Append(Delimeters.PressureAttr); 
+                sb.Append(p.Duration);                   sb.Append(Delimeters.Pressure);
             }
             sb.Remove(sb.Length - 1, 1);
             sb.Append(Delimeters.Exercise);
@@ -92,7 +88,7 @@ namespace trainer
                 file.Write(sb);
             }
         }
-        public static Exercise[] LoadFromCsv()
+        public static ExerciseResult[] LoadFromCsv()
         {
             string s;
             using (var file = File.OpenText(FILE + ".dsv"))
@@ -101,11 +97,11 @@ namespace trainer
             }
             string[] exercises = s.Split(Delimeters.Exercise);
 
-            Exercise[] result = new Exercise[exercises.Length - 1];
+            ExerciseResult[] result = new ExerciseResult[exercises.Length - 1];
 
             for (int i = 0; i < exercises.Length - 1; i++)
             {
-                result[i] = new Exercise(exercises[i], i);
+                result[i] = new ExerciseResult(exercises[i], i);
             }
 
             return result;

@@ -32,8 +32,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.graph = new trainer.Graph();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,8 @@
             this.errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhythmicity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPrintingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.graph = new trainer.Graph();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).BeginInit();
@@ -75,6 +75,8 @@
             // 
             // dgv
             // 
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AutoGenerateColumns = false;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -88,6 +90,7 @@
             this.rhythmicity,
             this.totalPrintingTime});
             this.dgv.DataSource = this.exerciseBindingSource;
+            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 286);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
@@ -96,21 +99,9 @@
             this.dgv.RowTemplate.Height = 14;
             this.dgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(390, 150);
+            this.dgv.Size = new System.Drawing.Size(390, 277);
             this.dgv.TabIndex = 2;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
-            // 
-            // exerciseBindingSource
-            // 
-            this.exerciseBindingSource.DataSource = typeof(trainer.Exercise);
-            // 
-            // graph
-            // 
-            this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graph.Location = new System.Drawing.Point(399, 3);
-            this.graph.Name = "graph";
-            this.graph.Size = new System.Drawing.Size(390, 277);
-            this.graph.TabIndex = 3;
             // 
             // Id
             // 
@@ -120,7 +111,6 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
-            this.Id.Width = 22;
             // 
             // date
             // 
@@ -184,6 +174,18 @@
             this.totalPrintingTime.Name = "totalPrintingTime";
             this.totalPrintingTime.ReadOnly = true;
             this.totalPrintingTime.Width = 5;
+            // 
+            // exerciseBindingSource
+            // 
+            this.exerciseBindingSource.DataSource = typeof(trainer.ExerciseResult);
+            // 
+            // graph
+            // 
+            this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graph.Location = new System.Drawing.Point(399, 3);
+            this.graph.Name = "graph";
+            this.graph.Size = new System.Drawing.Size(390, 277);
+            this.graph.TabIndex = 3;
             // 
             // Progress
             // 
