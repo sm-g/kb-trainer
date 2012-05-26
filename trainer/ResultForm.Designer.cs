@@ -39,6 +39,8 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.graph = new trainer.Graph();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxRhithmicity = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -78,21 +80,23 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxRhithmicity, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxErrors, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxAvSpeed, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxTime, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelTime, 0, 2);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 30);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(191, 60);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(191, 82);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // textBoxErrors
@@ -178,7 +182,28 @@
             this.graph.Size = new System.Drawing.Size(191, 134);
             this.graph.TabIndex = 3;
             // 
-            // Result
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Ритмичность:";
+            // 
+            // textBoxRhithmicity
+            // 
+            this.textBoxRhithmicity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRhithmicity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxRhithmicity.Location = new System.Drawing.Point(98, 63);
+            this.textBoxRhithmicity.Name = "textBoxRhithmicity";
+            this.textBoxRhithmicity.ReadOnly = true;
+            this.textBoxRhithmicity.Size = new System.Drawing.Size(90, 13);
+            this.textBoxRhithmicity.TabIndex = 7;
+            // 
+            // ResultForm
             // 
             this.AcceptButton = this.buttonEnd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,7 +212,7 @@
             this.ClientSize = new System.Drawing.Size(394, 176);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Result";
+            this.Name = "ResultForm";
             this.Text = "Результат";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -210,5 +235,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button buttonContinue;
         private Graph graph;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxRhithmicity;
     }
 }

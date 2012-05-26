@@ -19,8 +19,9 @@ namespace trainer
             TimeSpan time = result.Keystrokes[result.Keystrokes.Count - 1].DownTime;
 
             textBoxAvSpeed.Text = result.Speed.ToString("F") + " зн/мин";
-            textBoxErrors.Text = ((double)result.Errors / result.PassedChars).ToString("F2") + " %";
+            textBoxErrors.Text = result.ErrorsPercent.ToString("F2") + " %";
             textBoxTime.Text = FormatTimeSpan(time);
+            textBoxRhithmicity.Text = result.Rhythmicity.ToString("F0") + " %";
 
             graph.AddInstantSpeed(result.Keystrokes, "instantspeed");
             graph.AddAverageSpeed(result.Keystrokes, "averagespeed");

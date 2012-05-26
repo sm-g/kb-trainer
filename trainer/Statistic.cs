@@ -41,7 +41,21 @@ namespace trainer
         {
             get { return PassedChars > MIN_RESULT_CHARS; }
         }
-        public float Rhythmicity { get; set; }
+        public double Rhythmicity
+        {
+            get
+            {
+                int[] keystrokresIntervals = new int[keystrokes.Count - 1];
+                for (int i = 0; i < keystrokes.Count - 1; i++)
+                {
+                    keystrokresIntervals[i] = (keystrokes[i + 1].DownTime - keystrokes[i].DownTime).Milliseconds;
+                }
+                double average = keystrokresIntervals.Average();
+                double sumOfSquaresOfDifferences = keystrokresIntervals.Select(val => (val - average) * (val - average)).Sum();
+                double sd = Math.Sqrt(sumOfSquaresOfDifferences / keystrokresIntervals.Length);
+                return (1 - sd / average) * 100;
+            }
+        }
 
         public Statistic()
         {
@@ -159,8 +173,9 @@ namespace trainer
         public double Speed { get { return Math.Round(Statistic.TypingSpeed.GetAverage(time, PassedChars), 2); } }
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
+        public double ErrorsPercent { get { return (double)100 * Errors / PassedChars; } }
         public string TotalPrintingTime { get { return ResultForm.FormatTimeSpan(time); } }
-        public float Rhythmicity { get; private set; }
+        public double Rhythmicity { get; private set; }
         public List<Keystroke> Keystrokes { get; private set; }
         public List<Pressure> Pressures { get; private set; }
 

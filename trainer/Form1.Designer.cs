@@ -201,10 +201,9 @@
             this.tableLayoutPanelTextBoxes.Location = new System.Drawing.Point(122, 3);
             this.tableLayoutPanelTextBoxes.Name = "tableLayoutPanelTextBoxes";
             this.tableLayoutPanelTextBoxes.RowCount = 3;
-            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
-            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
-            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
-            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelTextBoxes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelTextBoxes.Size = new System.Drawing.Size(549, 308);
             this.tableLayoutPanelTextBoxes.TabIndex = 2;
             // 
@@ -217,7 +216,7 @@
             this.richTextBoxSourceView.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxSourceView.Name = "richTextBoxSourceView";
             this.richTextBoxSourceView.ReadOnly = true;
-            this.richTextBoxSourceView.Size = new System.Drawing.Size(543, 161);
+            this.richTextBoxSourceView.Size = new System.Drawing.Size(543, 178);
             this.richTextBoxSourceView.TabIndex = 0;
             this.richTextBoxSourceView.TabStop = false;
             this.richTextBoxSourceView.Text = "";
@@ -228,7 +227,7 @@
             this.richTextBoxInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.richTextBoxInput.Enabled = false;
             this.richTextBoxInput.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBoxInput.Location = new System.Drawing.Point(3, 253);
+            this.richTextBoxInput.Location = new System.Drawing.Point(3, 248);
             this.richTextBoxInput.Multiline = false;
             this.richTextBoxInput.Name = "richTextBoxInput";
             this.richTextBoxInput.Size = new System.Drawing.Size(543, 26);
