@@ -165,16 +165,15 @@ namespace trainer
 
     public class ExerciseResult
     {
-        private TimeSpan time;
-
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
         public string TextTitle { get; private set; }
-        public double Speed { get { return Math.Round(Statistic.TypingSpeed.GetAverage(time, PassedChars), 2); } }
+        public double Speed { get { return Math.Round(Statistic.TypingSpeed.GetAverage(Time, PassedChars), 2); } }
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
         public double ErrorsPercent { get { return (double)100 * Errors / PassedChars; } }
-        public string TotalPrintingTime { get { return ResultForm.FormatTimeSpan(time); } }
+        public TimeSpan Time { get; private set; }
+        public string FormattedTime { get { return ResultForm.FormatTimeSpan(Time); } }
         public double Rhythmicity { get; private set; }
         public List<Keystroke> Keystrokes { get; private set; }
         public List<Pressure> Pressures { get; private set; }
@@ -183,7 +182,7 @@ namespace trainer
         {
             PassedChars = statistic.PassedChars;
             Errors = statistic.Errors;
-            time = statistic.TotalPrintingTime;
+            Time = statistic.TotalPrintingTime;
             Rhythmicity = statistic.Rhythmicity;
             Pressures = statistic.GetPressures();
             Keystrokes = statistic.GetKeystrokes();
@@ -199,7 +198,7 @@ namespace trainer
                 TextTitle = attribures[1];
                 PassedChars = Int32.Parse(attribures[2]);
                 Errors = Int32.Parse(attribures[3]);
-                time = TimeSpan.Parse(attribures[4]);
+                Time = TimeSpan.Parse(attribures[4]);
                 Rhythmicity = float.Parse(attribures[5]);
 
                 Pressures = new List<Pressure>();

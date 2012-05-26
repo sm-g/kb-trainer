@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -42,7 +41,7 @@
             this.passedChars = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhythmicity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrintingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).BeginInit();
@@ -89,7 +88,7 @@
             this.passedChars,
             this.errors,
             this.rhythmicity,
-            this.totalPrintingTime});
+            this.FormattedTime});
             this.dgv.DataSource = this.exerciseBindingSource;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 286);
@@ -180,16 +179,14 @@
             this.rhythmicity.ReadOnly = true;
             this.rhythmicity.Width = 5;
             // 
-            // totalPrintingTime
+            // FormattedTime
             // 
-            this.totalPrintingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.totalPrintingTime.DataPropertyName = "TotalPrintingTime";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.totalPrintingTime.DefaultCellStyle = dataGridViewCellStyle1;
-            this.totalPrintingTime.HeaderText = "Время";
-            this.totalPrintingTime.Name = "totalPrintingTime";
-            this.totalPrintingTime.ReadOnly = true;
-            this.totalPrintingTime.Width = 5;
+            this.FormattedTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.FormattedTime.DataPropertyName = "FormattedTime";
+            this.FormattedTime.HeaderText = "Время";
+            this.FormattedTime.Name = "FormattedTime";
+            this.FormattedTime.ReadOnly = true;
+            this.FormattedTime.Width = 5;
             // 
             // Progress
             // 
@@ -213,6 +210,7 @@
         private System.Windows.Forms.BindingSource exerciseBindingSource;
         private System.Windows.Forms.DataGridView dgv;
         private Graph graph;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrintingTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn textTitle;
@@ -220,6 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passedChars;
         private System.Windows.Forms.DataGridViewTextBoxColumn errors;
         private System.Windows.Forms.DataGridViewTextBoxColumn rhythmicity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrintingTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedTime;
     }
 }

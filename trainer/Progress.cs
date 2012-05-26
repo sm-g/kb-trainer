@@ -17,7 +17,7 @@ namespace trainer
         public Progress()
         {
             InitializeComponent();
-            ReadExercises(LoadFromCsv());
+            ReadExercises(LoadFromDsv());
         }
 
         private void ReadExercises(ExerciseResult[] exercises)
@@ -30,10 +30,17 @@ namespace trainer
         public static void SaveToXml(SourceText source, ExerciseResult result)
         {
             XDocument doc;
-
-            using (var file = File.OpenText(FILE + ".xml"))
+            if (File.Exists(FILE + ".xml"))
             {
-                doc = XDocument.Load(file);
+                using (var file = File.OpenText(FILE + ".xml"))
+                {
+                    doc = XDocument.Load(file);
+                }
+            }
+            else
+            {
+                doc = new XDocument();
+                doc.Add(new XElement("statistic"));
             }
 
             XElement pressures;
@@ -50,14 +57,14 @@ namespace trainer
             pressures.Name = "pressures";
             pressures.RemoveAttributes();
 
-            var newExercise = 
+            XElement newExercise = 
                     new XElement("exercise",
                         new XAttribute("id", doc.Root.Elements().Count() + 1),
                         new XAttribute("date", DateTime.Now.ToShortDateString()),
                         new XAttribute("text", source.Title),
                         new XAttribute("passed", result.PassedChars),
                         new XAttribute("errors", result.Errors),
-                        new XAttribute("time", result.TotalPrintingTime),
+                        new XAttribute("time", result.Time),
                         new XAttribute("rhythm", result.Rhythmicity),
                         pressures);
 
@@ -72,7 +79,7 @@ namespace trainer
             sb.Append(source.Title);                     sb.Append(Delimeters.Attribute);
             sb.Append(result.PassedChars);               sb.Append(Delimeters.Attribute);
             sb.Append(result.Errors);                    sb.Append(Delimeters.Attribute);
-            sb.Append(result.TotalPrintingTime);         sb.Append(Delimeters.Attribute);
+            sb.Append(result.Time);                      sb.Append(Delimeters.Attribute);
             sb.Append(result.Rhythmicity);               sb.Append(Delimeters.Attribute);
             foreach (var p in result.Pressures)
             {
@@ -88,8 +95,11 @@ namespace trainer
                 file.Write(sb);
             }
         }
-        public static ExerciseResult[] LoadFromCsv()
-        {
+        public static ExerciseResult[] LoadFromDsv()
+        {            
+            if (!File.Exists(FILE + ".dsv"))
+                return new ExerciseResult[] {};
+
             string s;
             using (var file = File.OpenText(FILE + ".dsv"))
             {

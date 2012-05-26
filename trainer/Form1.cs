@@ -40,8 +40,8 @@ namespace trainer
         }
         private string OnNoFiles()
         {
-            DialogResult result = MessageBox.Show("В папке " + SourceText.textsPath.ToString() + " нет текстовых файлов.\nВыбрать файл в другом месте?", 
-                                                  "Файл не найден", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            DialogResult result = MessageBox.Show("В папке \"" + SourceText.textsPath.ToString() + "\" нет текстовых файлов.\nВыбрать файл в другом месте?",
+                                                  "Файл не найден - Keyboard trainer", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
                 OpenTextFile();
 
@@ -49,6 +49,12 @@ namespace trainer
         }
         private string GetRandomTextFile()
         {
+            if (!System.IO.Directory.Exists(SourceText.textsPath))
+            {
+                System.IO.Directory.CreateDirectory(SourceText.textsPath);
+                return OnNoFiles();
+            }
+
             string[] fileNames = System.IO.Directory.GetFiles(SourceText.textsPath, "*.txt");
 
             if (fileNames.Length == 0)
