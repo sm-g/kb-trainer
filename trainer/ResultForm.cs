@@ -6,7 +6,7 @@ namespace trainer
 {
     public partial class ResultForm : Form
     {
-        public ResultForm(ExerciseResult result, SourceText source)
+        public ResultForm(Exercise result, SourceText source)
         {
             InitializeComponent();
 

@@ -52,7 +52,7 @@ namespace trainer
             }
         }
 
-        public void Bind(ExerciseResult[] exercises, string serieName, string xValues, string yValues)
+        public void Bind(Exercise[] exercises, string serieName, string xValues, string yValues)
         {
             chart.DataSource = exercises;
             PrepareSerie(serieName, SeriesChartType.Line, MarkerStyle.Circle);
