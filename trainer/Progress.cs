@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace trainer
 {
@@ -27,7 +24,7 @@ namespace trainer
             graph.Bind(exercises, "speeds", "Id", "Speed");
         }
 
-        public static void SaveToXml(SourceText source, LoadedExercise result)
+        public static void SaveToXml(LoadedExercise result)
         {
             XDocument doc;
             if (File.Exists(FILE + ".xml"))
@@ -47,7 +44,7 @@ namespace trainer
                     new XElement("exercise",
                         new XAttribute("id", doc.Root.Elements().Count() + 1),
                         new XAttribute("date", DateTime.Now.ToShortDateString()),
-                        new XAttribute("text", source.Title),
+                        new XAttribute("text", result.TextTitle),
                         new XAttribute("passed", result.PassedChars),
                         new XAttribute("errors", result.Errors),
                         new XAttribute("time", result.Time),
@@ -56,12 +53,12 @@ namespace trainer
             doc.Root.Add(newExercise);
             doc.Save(FILE + ".xml");
         }
-        public static void SaveToDsv(SourceText source, LoadedExercise result)
+        public static void SaveToDsv(LoadedExercise result)
         {
             var sb = new StringBuilder();
 
             sb.Append(DateTime.Now.ToShortDateString()); sb.Append(Delimeters.Attribute);
-            sb.Append(source.Title);                     sb.Append(Delimeters.Attribute);
+            sb.Append(result.TextTitle);                 sb.Append(Delimeters.Attribute);
             sb.Append(result.PassedChars);               sb.Append(Delimeters.Attribute);
             sb.Append(result.Errors);                    sb.Append(Delimeters.Attribute);
             sb.Append(result.Time);                      sb.Append(Delimeters.Attribute);

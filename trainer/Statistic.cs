@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace trainer
 {
@@ -24,7 +21,7 @@ namespace trainer
             {
                 if (PassedChars < MIN_KEYSTROKES)
                     return 0;
-                return Statistic.GetAverageSpeed(TotalPrintingTime, PassedChars);
+                return GetAverageSpeed(TotalPrintingTime, PassedChars);
             }
         }
         public TimeSpan TotalPrintingTime { get { return Keystrokes[Keystrokes.Count - 1].DownTime; } }
@@ -54,7 +51,7 @@ namespace trainer
             PassedChars++;
             Keystrokes[Keystrokes.Count - 1].Char = ch;
         }
-        public void AddError(char ch)
+        public void AddError()
         {
             Errors++;
         }

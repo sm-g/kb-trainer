@@ -16,11 +16,9 @@ namespace trainer
                 CancelButton = buttonEnd;
             }
 
-            TimeSpan time = result.Keystrokes[result.Keystrokes.Count - 1].DownTime;
-
             textBoxAvSpeed.Text = result.Speed.ToString("F") + " зн/мин";
             textBoxErrors.Text = result.ErrorsPercent.ToString("F2") + " %";
-            textBoxTime.Text = FormatTimeSpan(time);
+            textBoxTime.Text = result.FormattedTime;
             textBoxRhithmicity.Text = result.Rhythmicity.ToString() + " %";
 
             graph.AddInstantSpeed(result.Keystrokes, "instantspeed");

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -19,14 +17,13 @@ namespace trainer
         private const int MIN_RESULT_CHARS = 5;
 
         private Stopwatch stopwatch;
+        private Statistic statistic;
         private SourceText source;
         private int inLinePosition;
         private int lineNumber;
         private int wrongChars;
 
         public ExerciseState State { get; set; }
-        private Statistic statistic;
-
         public TimeSpan PastTime { get { return stopwatch.Elapsed; } }
         public TimeSpan ExpectedRemainTime
         {
@@ -37,7 +34,6 @@ namespace trainer
                 else return TimeSpan.Zero;
             }
         }
-        public bool EnoughToResult { get { return statistic.PassedChars > MIN_RESULT_CHARS; } }
 
         public int MarkerPosition
         {
@@ -60,7 +56,9 @@ namespace trainer
                 return source.Lines[lineNumber][inLinePosition];
             }
         }
+
         public float TextProgress { get { return (float)(statistic.PassedChars - wrongChars) / (source.Length); } }
+        public bool EnoughToResult { get { return statistic.PassedChars > MIN_RESULT_CHARS; } }
         public bool TextEnded { get { return TextProgress == 1; } }
         public bool IsCorrectingWrongChars { get { return wrongChars > 0; } }
 
@@ -111,11 +109,11 @@ namespace trainer
             }
         }
 
-        private void AddWrongChar(char ch)
+        private void AddWrongChar()
         {
             if (!IsCorrectingWrongChars)
             {
-                statistic.AddError(ch);
+                statistic.AddError();
             }
             wrongChars++;
         }
@@ -141,7 +139,7 @@ namespace trainer
             }
             else
             {
-                AddWrongChar(ch);
+                AddWrongChar();
                 return false;
             }
         }
@@ -162,7 +160,7 @@ namespace trainer
 
         public LoadedExercise GetResult()
         {
-            return new LoadedExercise(statistic);
+            return new LoadedExercise(source, statistic);
         }
     }
 
@@ -171,17 +169,21 @@ namespace trainer
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
         public string TextTitle { get; private set; }
-        public double Speed { get { return Math.Round(Statistic.GetAverageSpeed(Time, PassedChars), 2); } }
+
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
-        public double ErrorsPercent { get { return (double)100 * Errors / PassedChars; } }
         public TimeSpan Time { get; private set; }
-        public string FormattedTime { get { return ResultForm.FormatTimeSpan(Time); } }
         public double Rhythmicity { get; private set; }
+
+        public double Speed { get { return Math.Round(Statistic.GetAverageSpeed(Time, PassedChars), 2); } }
+        public double ErrorsPercent { get { return Math.Round((double)100 * Errors / PassedChars, 2); } }
+        public string FormattedTime { get { return ResultForm.FormatTimeSpan(Time); } }
+
         public List<Keystroke> Keystrokes { get; private set; }
 
-        public LoadedExercise(Statistic statistic)
+        public LoadedExercise(SourceText source, Statistic statistic)
         {
+            TextTitle = source.Title;
             PassedChars = statistic.PassedChars;
             Errors = statistic.Errors;
             Time = statistic.TotalPrintingTime;
