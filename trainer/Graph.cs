@@ -27,11 +27,11 @@ namespace trainer
             {
                 PrepareSerie(serieName);
 
-                int span = Statistic.TypingSpeed.FitInstantSpeedSpan(keystrokes.Count);
+                int span = Statistic.FitInstantSpeedSpan(keystrokes.Count);
                 double speed;
                 for (int i = span; i < keystrokes.Count; i += span)
                 {
-                    speed = Statistic.TypingSpeed.GetInstant(keystrokes[i - span].DownTime, keystrokes[i].DownTime, span);
+                    speed = Statistic.GetInstantSpeed(keystrokes[i - span].DownTime, keystrokes[i].DownTime, span);
                     chart.Series[serieName].Points.AddXY(i, speed);
                 }
             }
@@ -42,11 +42,11 @@ namespace trainer
             {
                 PrepareSerie(serieName);
 
-                int span = Statistic.TypingSpeed.FitInstantSpeedSpan(keystrokes.Count);
+                int span = Statistic.FitInstantSpeedSpan(keystrokes.Count);
                 double speed;
                 for (int i = span; i < keystrokes.Count; i += span)
                 {
-                    speed = Statistic.TypingSpeed.GetAverage(keystrokes[i].DownTime, i);
+                    speed = Statistic.GetAverageSpeed(keystrokes[i].DownTime, i);
                     chart.Series[serieName].Points.AddXY(i, speed);
                 }
             }

@@ -34,14 +34,14 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.loadedExerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.graph = new trainer.Graph();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.averageSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passedChars = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhythmicity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formattedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadedExerciseBindingSource)).BeginInit();
@@ -81,14 +81,14 @@
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
+            this.id,
             this.date,
             this.textTitle,
-            this.AverageSpeed,
+            this.averageSpeed,
             this.passedChars,
             this.errors,
             this.rhythmicity,
-            this.FormattedTime});
+            this.formattedTime});
             this.dgv.DataSource = this.loadedExerciseBindingSource;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 286);
@@ -117,13 +117,13 @@
             // 
             // Id
             // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 22;
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "Id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 22;
             // 
             // date
             // 
@@ -145,12 +145,12 @@
             // 
             // AverageSpeed
             // 
-            this.AverageSpeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.AverageSpeed.DataPropertyName = "AverageSpeed";
-            this.AverageSpeed.HeaderText = "Скорость";
-            this.AverageSpeed.Name = "AverageSpeed";
-            this.AverageSpeed.ReadOnly = true;
-            this.AverageSpeed.Width = 5;
+            this.averageSpeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.averageSpeed.DataPropertyName = "AverageSpeed";
+            this.averageSpeed.HeaderText = "Скорость";
+            this.averageSpeed.Name = "AverageSpeed";
+            this.averageSpeed.ReadOnly = true;
+            this.averageSpeed.Width = 5;
             // 
             // passedChars
             // 
@@ -181,12 +181,12 @@
             // 
             // FormattedTime
             // 
-            this.FormattedTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.FormattedTime.DataPropertyName = "FormattedTime";
-            this.FormattedTime.HeaderText = "Время";
-            this.FormattedTime.Name = "FormattedTime";
-            this.FormattedTime.ReadOnly = true;
-            this.FormattedTime.Width = 5;
+            this.formattedTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.formattedTime.DataPropertyName = "FormattedTime";
+            this.formattedTime.HeaderText = "Время";
+            this.formattedTime.Name = "FormattedTime";
+            this.formattedTime.ReadOnly = true;
+            this.formattedTime.Width = 5;
             // 
             // Progress
             // 
@@ -209,15 +209,14 @@
         private System.Windows.Forms.GroupBox groupBoxGeneral;
         private System.Windows.Forms.DataGridView dgv;
         private Graph graph;
-        private System.Windows.Forms.DataGridViewTextBoxColumn speed;
         private System.Windows.Forms.BindingSource loadedExerciseBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn textTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageSpeed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageSpeed;
         private System.Windows.Forms.DataGridViewTextBoxColumn passedChars;
         private System.Windows.Forms.DataGridViewTextBoxColumn errors;
         private System.Windows.Forms.DataGridViewTextBoxColumn rhythmicity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formattedTime;
     }
 }

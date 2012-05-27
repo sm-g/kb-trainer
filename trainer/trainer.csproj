@@ -83,7 +83,6 @@
     </Compile>
     <Compile Include="SourceText.cs" />
     <Compile Include="Statistic.cs" />
-    <Compile Include="TypingSpeed.cs" />
     <Compile Include="KeyButton.cs">
       <SubType>UserControl</SubType>
     </Compile>

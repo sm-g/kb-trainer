@@ -33,7 +33,7 @@ namespace trainer
             get
             {
                 if (statistic.PassedChars > MIN_RESULT_CHARS)
-                    return TimeSpan.FromMinutes(source.Length / Statistic.TypingSpeed.GetAverage(PastTime, statistic.PassedChars));
+                    return TimeSpan.FromMinutes(source.Length / Statistic.GetAverageSpeed(PastTime, statistic.PassedChars));
                 else return TimeSpan.Zero;
             }
         }
@@ -177,7 +177,7 @@ namespace trainer
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
         public string TextTitle { get; private set; }
-        public double Speed { get { return Math.Round(Statistic.TypingSpeed.GetAverage(Time, PassedChars), 2); } }
+        public double Speed { get { return Math.Round(Statistic.GetAverageSpeed(Time, PassedChars), 2); } }
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
         public double ErrorsPercent { get { return (double)100 * Errors / PassedChars; } }
