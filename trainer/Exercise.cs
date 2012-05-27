@@ -173,7 +173,7 @@ namespace trainer
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
         public TimeSpan Time { get; private set; }
-        public double Rhythmicity { get; private set; }
+        public int Rhythmicity { get; private set; }
 
         public double Speed { get { return Math.Round(Statistic.GetAverageSpeed(Time, PassedChars), 2); } }
         public double ErrorsPercent { get { return Math.Round((double)100 * Errors / PassedChars, 2); } }
@@ -202,7 +202,7 @@ namespace trainer
                 PassedChars = Int32.Parse(attribures[2]);
                 Errors = Int32.Parse(attribures[3]);
                 Time = TimeSpan.Parse(attribures[4]);
-                Rhythmicity = float.Parse(attribures[5]);
+                Rhythmicity = Int32.Parse(attribures[5]);
             }
         }
     }
