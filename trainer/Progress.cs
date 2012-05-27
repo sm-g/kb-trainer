@@ -7,8 +7,8 @@ namespace trainer
 {
     public partial class Progress : Form
     {
-        private const string fileName = "statistic.txt";
-        private const char exerciseDelimeter = '\n';
+        private const string FileName = "statistic.txt";
+        private const char ExerciseDelimeter = '\n';
         public const char AttributeDelimeter = ';';
         public const char SafeChar = ',';
 
@@ -65,24 +65,24 @@ namespace trainer
             sb.Append(result.Time);                      sb.Append(AttributeDelimeter);
             sb.Append(result.Rhythmicity);               sb.Append(AttributeDelimeter);
             sb.Remove(sb.Length - 1, 1);
-            sb.Append(exerciseDelimeter);
+            sb.Append(ExerciseDelimeter);
 
-            using (var file = File.AppendText(fileName))
+            using (var file = File.AppendText(FileName))
             {
                 file.Write(sb);
             }
         }
         public static FinalizedExercise[] LoadFromFile()
         {            
-            if (!File.Exists(fileName))
+            if (!File.Exists(FileName))
                 return new FinalizedExercise[] { };
 
             string s;
-            using (var file = File.OpenText(fileName))
+            using (var file = File.OpenText(FileName))
             {
                 s = file.ReadToEnd();
             }
-            string[] exercises = s.Split(exerciseDelimeter);
+            string[] exercises = s.Split(ExerciseDelimeter);
 
             FinalizedExercise[] result = new FinalizedExercise[exercises.Length - 1];
 

@@ -4,7 +4,7 @@ namespace trainer
 {
     public class SourceText
     {
-        public static string textsPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "text");
+        public const string TextsPath = Path.Combine(System.Windows.Forms.Application.StartupPath, "text");
 
         private string[] textData;
 

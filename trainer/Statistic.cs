@@ -7,24 +7,22 @@ namespace trainer
 {
     public partial class Statistic
     {
-        const int MIN_MSECONDS = 1;
-        const int MAX_INSTANT_POINTS = 200;
-        const double MAX_SPEED = 2000.0;
-        const int MIN_KEYSTROKES = 2;
+        const int MaxInstantPoints = 200;
+        const double MaxSpeed = 2000.0;
 
         public List<Keystroke> Keystrokes { get; private set; }
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
-        public double Speed
+        public double Speed { get { return GetAverageSpeed(TotalPrintingTime, PassedChars); } }
+        public TimeSpan TotalPrintingTime
         {
             get
             {
-                if (PassedChars < MIN_KEYSTROKES)
-                    return 0;
-                return GetAverageSpeed(TotalPrintingTime, PassedChars);
+                if (Keystrokes.Count == 0)
+                    return TimeSpan.Zero;
+                return Keystrokes[Keystrokes.Count - 1].DownTime;
             }
         }
-        public TimeSpan TotalPrintingTime { get { return Keystrokes[Keystrokes.Count - 1].DownTime; } }
         public int Rhythmicity
         {
             get
@@ -71,10 +69,10 @@ namespace trainer
                 sup *= 3;
             }
 
-            if (keyskrokesCount / result <= MAX_INSTANT_POINTS)
+            if (keyskrokesCount / result <= MaxInstantPoints)
                 return result;
             else
-                return keyskrokesCount / MAX_INSTANT_POINTS;
+                return keyskrokesCount / MaxInstantPoints;
         }
         public static double GetAverageSpeed(TimeSpan time, int count)
         {
@@ -82,11 +80,11 @@ namespace trainer
         }
         public static double GetInstantSpeed(TimeSpan first, TimeSpan last, int span)
         {
-            if ((last - first).TotalMilliseconds < MIN_MSECONDS)
+            if ((last - first).TotalMilliseconds < 1)
                 return 0;
             double result = 60 * span / (last - first).TotalSeconds;
-            if (result > MAX_SPEED)
-                return MAX_SPEED;
+            if (result > MaxSpeed)
+                return MaxSpeed;
             else
                 return result;
         }
@@ -94,8 +92,6 @@ namespace trainer
         public void CleanKeystrokes()
         {
             Keystrokes.RemoveAll(keystroke => keystroke.Char == '\0');
-            foreach (var k in Keystrokes)
-                Console.WriteLine(k.Char);
         }
     }
 

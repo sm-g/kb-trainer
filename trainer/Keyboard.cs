@@ -7,7 +7,7 @@ namespace trainer
 {
     public partial class Keyboard : UserControl
     {
-        private const string MAP = "ё1234567890-=йцукенгшщзхъ\\фывапролджэячсмитьбю. Ё!\"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ~!@#$%^&";
+        private const string Map = "ё1234567890-=йцукенгшщзхъ\\фывапролджэячсмитьбю. Ё!\"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ, ~!@#$%^&";
         private Dictionary<int, KeyButton> letterKeyButtons;
         private List<KeyButton> highlightedKeyButtons;
         private bool labeled = true;
@@ -65,14 +65,14 @@ namespace trainer
                         int kbCode = Int32.Parse(kbNameCode);
                         letterKeyButtons.Add(kbCode, kb);
 
-                        kb.Label = Char.ToUpper(MAP[kbCode - 1]).ToString();
+                        kb.Label = Char.ToUpper(Map[kbCode - 1]).ToString();
                     }
                 }
         }
 
         private void SetKeyButtonsToHighlight(char ch)
         {
-            int layoutCode = MAP.IndexOf(ch);
+            int layoutCode = Map.IndexOf(ch);
             if (layoutCode > letterKeyButtons.Count - 1)
             {
                 highlightedKeyButtons.Add(keyButtonLShift);

@@ -12,7 +12,7 @@ namespace trainer
         {
             InitializeComponent();
         }
-        
+
         private void PrepareSerie(string serieName, SeriesChartType type = SeriesChartType.Line, MarkerStyle marker = MarkerStyle.None)
         {
             chart.Series.Add(serieName);
@@ -67,7 +67,7 @@ namespace trainer
             {
                 foreach (var p in chart.Series[serieName].Points)
                 {
-                    p.MarkerColor = Color.Blue;
+                    p.MarkerColor = chart.Series[serieName].MarkerColor;
                 }
 
                 foreach (int id in ids)
