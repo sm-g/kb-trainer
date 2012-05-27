@@ -158,13 +158,13 @@ namespace trainer
             statistic.Keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
         }
 
-        public LoadedExercise GetResult()
+        public FinalizedExercise GetResult()
         {
-            return new LoadedExercise(source, statistic);
+            return new FinalizedExercise(source, statistic);
         }
     }
 
-    public class LoadedExercise
+    public class FinalizedExercise
     {
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
@@ -181,7 +181,7 @@ namespace trainer
 
         public List<Keystroke> Keystrokes { get; private set; }
 
-        public LoadedExercise(SourceText source, Statistic statistic)
+        public FinalizedExercise(SourceText source, Statistic statistic)
         {
             TextTitle = source.Title;
             PassedChars = statistic.PassedChars;
@@ -191,7 +191,7 @@ namespace trainer
             Keystrokes = statistic.Keystrokes;
         }
 
-        public LoadedExercise(string exercise, int id)
+        public FinalizedExercise(string exercise, int id)
         {
             string[] attribures = exercise.Split(Delimeters.Attribute);
             if (attribures.Length == 6)

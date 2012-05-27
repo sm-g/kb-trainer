@@ -105,7 +105,7 @@
             // 
             // loadedExerciseBindingSource
             // 
-            this.loadedExerciseBindingSource.DataSource = typeof(trainer.LoadedExercise);
+            this.loadedExerciseBindingSource.DataSource = typeof(trainer.FinalizedExercise);
             // 
             // graph
             // 

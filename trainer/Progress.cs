@@ -17,14 +17,14 @@ namespace trainer
             ReadExercises(LoadFromDsv());
         }
 
-        private void ReadExercises(LoadedExercise[] exercises)
+        private void ReadExercises(FinalizedExercise[] exercises)
         {
             dgv.DataSource = exercises;
 
             graph.Bind(exercises, "speeds", "Id", "Speed");
         }
 
-        public static void SaveToXml(LoadedExercise result)
+        public static void SaveToXml(FinalizedExercise result)
         {
             XDocument doc;
             if (File.Exists(FILE + ".xml"))
@@ -53,7 +53,7 @@ namespace trainer
             doc.Root.Add(newExercise);
             doc.Save(FILE + ".xml");
         }
-        public static void SaveToDsv(LoadedExercise result)
+        public static void SaveToDsv(FinalizedExercise result)
         {
             var sb = new StringBuilder();
 
@@ -71,10 +71,10 @@ namespace trainer
                 file.Write(sb);
             }
         }
-        public static LoadedExercise[] LoadFromDsv()
+        public static FinalizedExercise[] LoadFromDsv()
         {            
             if (!File.Exists(FILE + ".dsv"))
-                return new LoadedExercise[] { };
+                return new FinalizedExercise[] { };
 
             string s;
             using (var file = File.OpenText(FILE + ".dsv"))
@@ -83,11 +83,11 @@ namespace trainer
             }
             string[] exercises = s.Split(Delimeters.Exercise);
 
-            LoadedExercise[] result = new LoadedExercise[exercises.Length - 1];
+            FinalizedExercise[] result = new FinalizedExercise[exercises.Length - 1];
 
             for (int i = 0; i < exercises.Length - 1; i++)
             {
-                result[i] = new LoadedExercise(exercises[i], i);
+                result[i] = new FinalizedExercise(exercises[i], i);
             }
 
             return result;
