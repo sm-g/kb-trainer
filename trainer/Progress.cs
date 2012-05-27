@@ -43,20 +43,6 @@ namespace trainer
                 doc.Add(new XElement("statistic"));
             }
 
-            XElement pressures;
-            using (var stream = new MemoryStream())
-            {
-                var serializer = new XmlSerializer(typeof(List<Pressure>));
-                serializer.Serialize(stream, result.Pressures);
-                stream.Position = 0;
-                using (var reader = XmlReader.Create(stream))
-                {
-                    pressures = XElement.Load(reader);
-                }
-            }
-            pressures.Name = "pressures";
-            pressures.RemoveAttributes();
-
             XElement newExercise = 
                     new XElement("exercise",
                         new XAttribute("id", doc.Root.Elements().Count() + 1),
@@ -65,8 +51,7 @@ namespace trainer
                         new XAttribute("passed", result.PassedChars),
                         new XAttribute("errors", result.Errors),
                         new XAttribute("time", result.Time),
-                        new XAttribute("rhythm", result.Rhythmicity),
-                        pressures);
+                        new XAttribute("rhythm", result.Rhythmicity));
 
             doc.Root.Add(newExercise);
             doc.Save(FILE + ".xml");
@@ -81,12 +66,6 @@ namespace trainer
             sb.Append(result.Errors);                    sb.Append(Delimeters.Attribute);
             sb.Append(result.Time);                      sb.Append(Delimeters.Attribute);
             sb.Append(result.Rhythmicity);               sb.Append(Delimeters.Attribute);
-            foreach (var p in result.Pressures)
-            {
-                sb.Append(p.Char);                       sb.Append(Delimeters.PressureAttr);
-                sb.Append(p.Amount);                     sb.Append(Delimeters.PressureAttr); 
-                sb.Append(p.Duration);                   sb.Append(Delimeters.Pressure);
-            }
             sb.Remove(sb.Length - 1, 1);
             sb.Append(Delimeters.Exercise);
 
@@ -132,8 +111,6 @@ namespace trainer
     {
         public const char Exercise = '\n';
         public const char Attribute = ';';
-        public const char Pressure = '*';
-        public const char PressureAttr = '%';
         public const char SafeChar = ',';
     }
 }
