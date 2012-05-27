@@ -14,41 +14,23 @@ namespace trainer
         private const int MIN_RESULT_CHARS = 5;
 
         private Stopwatch stopwatch;
-        private List<Keystroke> keystrokes;
         private List<Pressure> pressures;
-        private int errorsCounter;
-        private int deletedCharsCounter;
-        private int typedCharsCounter;
 
+        public List<Keystroke> Keystrokes { get; private set; }
         public TypingSpeed Speed { get; private set; }
-        public int PassedChars
-        {
-            get { return typedCharsCounter - deletedCharsCounter; }
-        }
-        public int Errors
-        {
-            get { return errorsCounter; }
-        }
-        public TimeSpan TotalPrintingTime
-        {
-            get { return keystrokes[keystrokes.Count - 1].DownTime; }
-        }
-        public TimeSpan Now
-        {
-            get { return stopwatch.Elapsed; }
-        }
-        public bool EnoughToResult
-        {
-            get { return PassedChars > MIN_RESULT_CHARS; }
-        }
+        public int PassedChars { get; private set; }
+        public int Errors { get; private set; }
+        public TimeSpan TotalPrintingTime { get { return Keystrokes[Keystrokes.Count - 1].DownTime; } }
+        public TimeSpan Now { get { return stopwatch.Elapsed; } }
+        public bool EnoughToResult { get { return PassedChars > MIN_RESULT_CHARS; } }
         public int Rhythmicity
         {
             get
             {
-                int[] keystrokresIntervals = new int[keystrokes.Count - 1];
-                for (int i = 0; i < keystrokes.Count - 1; i++)
+                int[] keystrokresIntervals = new int[Keystrokes.Count - 1];
+                for (int i = 0; i < Keystrokes.Count - 1; i++)
                 {
-                    keystrokresIntervals[i] = (keystrokes[i + 1].DownTime - keystrokes[i].DownTime).Milliseconds;
+                    keystrokresIntervals[i] = (Keystrokes[i + 1].DownTime - Keystrokes[i].DownTime).Milliseconds;
                 }
                 double average = keystrokresIntervals.Average();
                 double sumOfSquaresOfDifferences = keystrokresIntervals.Select(val => (val - average) * (val - average)).Sum();
@@ -56,29 +38,53 @@ namespace trainer
                 return (int)((1 - sd / average) * 100);
             }
         }
+        public List<Pressure> Pressures
+        {
+            get
+            {
+                foreach (var ks in Keystrokes)
+                {
+                    int i = pressures.FindIndex(pressure => pressure.Char == ks.Char);
+                    if (i == -1)
+                    {
+                        var p = new Pressure();
+                        p.Char = ks.Char;
+                        pressures.Add(p);
+                        i = pressures.Count - 1;
+                    }
+                    pressures[i].Amount++;
+                    pressures[i].Duration += ks.Duration.Ticks;
+                }
+                return pressures;
+            }
+            private set
+            {
+                pressures = value;
+            }
+        }
 
         public Statistic()
         {
             Speed = new TypingSpeed(this);
-            keystrokes = new List<Keystroke>();
+            Keystrokes = new List<Keystroke>();
             stopwatch = new Stopwatch();
-            pressures = new List<Pressure>();
+            Pressures = new List<Pressure>();
         }
 
         public void AddChar(char ch)
         {
-            typedCharsCounter++;
-            keystrokes[keystrokes.Count - 1].Char = ch;
+            PassedChars++;
+            Keystrokes[Keystrokes.Count - 1].Char = ch;
         }
         public void AddError(char ch)
         {
-            errorsCounter++;
-            keystrokes[keystrokes.Count - 1].IsError = true;
+            Errors++;
+            Keystrokes[Keystrokes.Count - 1].IsError = true;
         }
         public void AddDeletion(char ch)
         {
-            deletedCharsCounter++;
-            keystrokes[keystrokes.Count - 1].Char = ch;
+            PassedChars--;
+            Keystrokes[Keystrokes.Count - 1].Char = ch;
         }
 
         public void RegisterKeyDown(Keys key)
@@ -87,11 +93,11 @@ namespace trainer
             {
                 stopwatch.Start();
             }
-            keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
+            Keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
         }
         public void RegisterKeyUp(Keys key)
         {
-            Keystroke keystroke = keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
+            Keystroke keystroke = Keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
             if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша (её не будет в списке)
                 keystroke.UpTime = stopwatch.Elapsed;
         }
@@ -111,29 +117,7 @@ namespace trainer
         public ExerciseResult GetResult()
         {
             return new ExerciseResult(this);
-        }
-
-        public List<Keystroke> GetKeystrokes()
-        {
-            return keystrokes;
-        }
-        public List<Pressure> GetPressures()
-        {
-            foreach (var ks in keystrokes)
-            {
-                int i = pressures.FindIndex(cd => cd.Char == ks.Char);
-                if (i == -1)
-                {
-                    var p = new Pressure();
-                    p.Char = ks.Char;
-                    pressures.Add(p);
-                    i = pressures.Count-1;
-                }
-                pressures[i].Amount++;
-                pressures[i].Duration += ks.Duration.Ticks;
-            }
-            return pressures;
-        }        
+        }   
     }
 
     public class Pressure
@@ -184,8 +168,8 @@ namespace trainer
             Errors = statistic.Errors;
             Time = statistic.TotalPrintingTime;
             Rhythmicity = statistic.Rhythmicity;
-            Pressures = statistic.GetPressures();
-            Keystrokes = statistic.GetKeystrokes();
+            Pressures = statistic.Pressures;
+            Keystrokes = statistic.Keystrokes;
         }
 
         public ExerciseResult(string exercise, int id)

@@ -17,7 +17,7 @@ namespace trainer
             {
                 get
                 {
-                    if (parent.keystrokes.Count < MIN_KEYSTROKES)
+                    if (parent.Keystrokes.Count < MIN_KEYSTROKES)
                         return 0;
                     return GetAverage(parent.Now, parent.PassedChars);
                 }
@@ -26,10 +26,10 @@ namespace trainer
             {
                 get
                 {
-                    if (parent.keystrokes.Count < MIN_KEYSTROKES)
+                    if (parent.Keystrokes.Count < MIN_KEYSTROKES)
                         return 0;
-                    int span = FitInstantSpeedSpan(parent.keystrokes.Count);
-                    return GetInstant(parent.keystrokes[parent.keystrokes.Count - span].DownTime,
+                    int span = FitInstantSpeedSpan(parent.Keystrokes.Count);
+                    return GetInstant(parent.Keystrokes[parent.Keystrokes.Count - span].DownTime,
                                       parent.TotalPrintingTime,
                                       span);
                 }
