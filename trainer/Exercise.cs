@@ -146,7 +146,7 @@ namespace trainer
 
         public void PauseTimer()
         {
-
+            stopwatch.Stop();
         }
 
         public void RegisterKeyDown()
