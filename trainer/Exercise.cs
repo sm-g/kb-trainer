@@ -14,8 +14,6 @@ namespace trainer
 
     public class Exercise
     {
-        private const int MIN_RESULT_CHARS = 5;
-
         private Stopwatch stopwatch;
         private Statistic statistic;
         private SourceText source;
@@ -29,9 +27,9 @@ namespace trainer
         {
             get
             {
-                if (statistic.PassedChars > MIN_RESULT_CHARS)
+                if (EnoughToResult)
                     return TimeSpan.FromMinutes(source.Length / Statistic.GetAverageSpeed(PastTime, statistic.PassedChars));
-                else return TimeSpan.Zero;
+                return TimeSpan.Zero;
             }
         }
 
@@ -41,8 +39,7 @@ namespace trainer
             {
                 if (inLinePosition == 0 && lineNumber != 0) // учитывает невидимый символ перевода строки после ввода последней в строке буквы
                     return statistic.PassedChars + lineNumber - 1;
-                else
-                    return statistic.PassedChars + lineNumber;
+                return statistic.PassedChars + lineNumber;
             }
         }
         public char NextCharToType
@@ -58,7 +55,7 @@ namespace trainer
         }
 
         public float TextProgress { get { return (float)(statistic.PassedChars - wrongChars) / (source.Length); } }
-        public bool EnoughToResult { get { return statistic.PassedChars > MIN_RESULT_CHARS; } }
+        public bool EnoughToResult { get { return statistic.PassedChars >= 5; } }
         public bool TextEnded { get { return TextProgress == 1; } }
         public bool IsCorrectingWrongChars { get { return wrongChars > 0; } }
 
