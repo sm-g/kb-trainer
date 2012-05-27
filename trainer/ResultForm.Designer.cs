@@ -37,8 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxAvSpeed = new System.Windows.Forms.TextBox();
-            this.textBoxTime = new System.Windows.Forms.TextBox();
             this.labelTime = new System.Windows.Forms.Label();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.graph = new trainer.Graph();
             this.tableLayoutPanel1.SuspendLayout();
@@ -88,8 +88,8 @@
             this.tableLayoutPanel2.Controls.Add(this.textBoxAvSpeed, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelTime, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxTime, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 30);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(10, 30);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10, 30, 3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -97,14 +97,13 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(191, 82);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(184, 82);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 63);
+            this.label3.Location = new System.Drawing.Point(3, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
@@ -115,27 +114,26 @@
             // 
             this.textBoxRhithmicity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRhithmicity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRhithmicity.Location = new System.Drawing.Point(98, 63);
+            this.textBoxRhithmicity.Location = new System.Drawing.Point(95, 63);
             this.textBoxRhithmicity.Name = "textBoxRhithmicity";
             this.textBoxRhithmicity.ReadOnly = true;
-            this.textBoxRhithmicity.Size = new System.Drawing.Size(90, 13);
+            this.textBoxRhithmicity.Size = new System.Drawing.Size(86, 13);
             this.textBoxRhithmicity.TabIndex = 7;
             // 
             // textBoxErrors
             // 
             this.textBoxErrors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxErrors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxErrors.Location = new System.Drawing.Point(98, 43);
+            this.textBoxErrors.Location = new System.Drawing.Point(95, 43);
             this.textBoxErrors.Name = "textBoxErrors";
             this.textBoxErrors.ReadOnly = true;
-            this.textBoxErrors.Size = new System.Drawing.Size(90, 13);
+            this.textBoxErrors.Size = new System.Drawing.Size(86, 13);
             this.textBoxErrors.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 23);
+            this.label1.Location = new System.Drawing.Point(3, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
@@ -144,9 +142,8 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 43);
+            this.label2.Location = new System.Drawing.Point(3, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
@@ -157,32 +154,31 @@
             // 
             this.textBoxAvSpeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAvSpeed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxAvSpeed.Location = new System.Drawing.Point(98, 23);
+            this.textBoxAvSpeed.Location = new System.Drawing.Point(95, 23);
             this.textBoxAvSpeed.Name = "textBoxAvSpeed";
             this.textBoxAvSpeed.ReadOnly = true;
-            this.textBoxAvSpeed.Size = new System.Drawing.Size(90, 13);
+            this.textBoxAvSpeed.Size = new System.Drawing.Size(86, 13);
             this.textBoxAvSpeed.TabIndex = 1;
-            // 
-            // textBoxTime
-            // 
-            this.textBoxTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxTime.Location = new System.Drawing.Point(98, 3);
-            this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.ReadOnly = true;
-            this.textBoxTime.Size = new System.Drawing.Size(90, 13);
-            this.textBoxTime.TabIndex = 5;
             // 
             // labelTime
             // 
-            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(49, 3);
+            this.labelTime.Location = new System.Drawing.Point(3, 3);
             this.labelTime.Margin = new System.Windows.Forms.Padding(3);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(43, 13);
             this.labelTime.TabIndex = 4;
             this.labelTime.Text = "Время:";
+            // 
+            // textBoxTime
+            // 
+            this.textBoxTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxTime.Location = new System.Drawing.Point(95, 3);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.ReadOnly = true;
+            this.textBoxTime.Size = new System.Drawing.Size(86, 13);
+            this.textBoxTime.TabIndex = 5;
             // 
             // buttonContinue
             // 
