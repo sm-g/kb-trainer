@@ -6,8 +6,8 @@ namespace trainer
 {
     public partial class Form1 : Form
     {
-        SourceText source;
-        Exercise exercise;
+        private SourceText source;
+        private Exercise exercise;
 
         public Form1()
         {

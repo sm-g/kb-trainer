@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace trainer
@@ -19,29 +14,9 @@ namespace trainer
         private Color backgroundColor;
         private Color borderColor;
 
-        public string Label
-        {
-            get
-            {
-                return label.Text;
-            }
-            set
-            {
-                label.Text = value;
-            }
-        }
+        public string Label { get { return label.Text; } set { label.Text = value; } }
         public Fingers Finger { get; set; }
-        public bool LabelVisiable
-        {
-            get
-            {
-                return label.Visible;
-            }
-            set
-            {
-                label.Visible = value;
-            }
-        }
+        public bool LabelVisiable { get { return label.Visible; } set { label.Visible = value; } }
         public bool IsColored { get; set; }
 
         public KeyButton()

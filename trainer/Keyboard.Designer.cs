@@ -30,6 +30,10 @@
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1Row = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2Row = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3Row = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4Row = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5Row = new System.Windows.Forms.TableLayoutPanel();
             this.keyButtonBackspace = new trainer.KeyButton();
             this.keyButton13 = new trainer.KeyButton();
             this.keyButton12 = new trainer.KeyButton();
@@ -44,7 +48,6 @@
             this.keyButton3 = new trainer.KeyButton();
             this.keyButton2 = new trainer.KeyButton();
             this.keyButton1 = new trainer.KeyButton();
-            this.tableLayoutPanel2Row = new System.Windows.Forms.TableLayoutPanel();
             this.keyButton26 = new trainer.KeyButton();
             this.keyButton25 = new trainer.KeyButton();
             this.keyButton24 = new trainer.KeyButton();
@@ -59,7 +62,6 @@
             this.keyButton15 = new trainer.KeyButton();
             this.keyButton14 = new trainer.KeyButton();
             this.keyButtonTab = new trainer.KeyButton();
-            this.tableLayoutPanel3Row = new System.Windows.Forms.TableLayoutPanel();
             this.keyButtonEnter = new trainer.KeyButton();
             this.keyButton37 = new trainer.KeyButton();
             this.keyButton36 = new trainer.KeyButton();
@@ -73,7 +75,6 @@
             this.keyButton28 = new trainer.KeyButton();
             this.keyButton27 = new trainer.KeyButton();
             this.keyButtonCaps = new trainer.KeyButton();
-            this.tableLayoutPanel4Row = new System.Windows.Forms.TableLayoutPanel();
             this.keyButtonRShift = new trainer.KeyButton();
             this.keyButton47 = new trainer.KeyButton();
             this.keyButton46 = new trainer.KeyButton();
@@ -86,7 +87,6 @@
             this.keyButton39 = new trainer.KeyButton();
             this.keyButton38 = new trainer.KeyButton();
             this.keyButtonLShift = new trainer.KeyButton();
-            this.tableLayoutPanel5Row = new System.Windows.Forms.TableLayoutPanel();
             this.keyButton48 = new trainer.KeyButton();
             this.tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1Row.SuspendLayout();
@@ -156,6 +156,135 @@
             this.tableLayoutPanel1Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1Row.Size = new System.Drawing.Size(600, 40);
             this.tableLayoutPanel1Row.TabIndex = 0;
+            // 
+            // tableLayoutPanel2Row
+            // 
+            this.tableLayoutPanel2Row.ColumnCount = 14;
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton26, 13, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton25, 12, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton24, 11, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton23, 10, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton22, 9, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton21, 8, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton20, 7, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton19, 6, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton18, 5, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton17, 4, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton16, 3, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton15, 2, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButton14, 1, 0);
+            this.tableLayoutPanel2Row.Controls.Add(this.keyButtonTab, 0, 0);
+            this.tableLayoutPanel2Row.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2Row.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel2Row.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2Row.Name = "tableLayoutPanel2Row";
+            this.tableLayoutPanel2Row.RowCount = 1;
+            this.tableLayoutPanel2Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2Row.Size = new System.Drawing.Size(600, 40);
+            this.tableLayoutPanel2Row.TabIndex = 1;
+            // 
+            // tableLayoutPanel3Row
+            // 
+            this.tableLayoutPanel3Row.ColumnCount = 13;
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButtonEnter, 12, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton37, 11, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton36, 10, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton35, 9, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton34, 8, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton33, 7, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton32, 6, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton31, 5, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton30, 4, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton29, 3, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton28, 2, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButton27, 1, 0);
+            this.tableLayoutPanel3Row.Controls.Add(this.keyButtonCaps, 0, 0);
+            this.tableLayoutPanel3Row.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3Row.Location = new System.Drawing.Point(0, 80);
+            this.tableLayoutPanel3Row.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3Row.Name = "tableLayoutPanel3Row";
+            this.tableLayoutPanel3Row.RowCount = 1;
+            this.tableLayoutPanel3Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3Row.Size = new System.Drawing.Size(600, 40);
+            this.tableLayoutPanel3Row.TabIndex = 2;
+            // 
+            // tableLayoutPanel4Row
+            // 
+            this.tableLayoutPanel4Row.ColumnCount = 12;
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButtonRShift, 11, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton47, 10, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton46, 9, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton45, 8, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton44, 7, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton43, 6, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton42, 5, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton41, 4, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton40, 3, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton39, 2, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButton38, 1, 0);
+            this.tableLayoutPanel4Row.Controls.Add(this.keyButtonLShift, 0, 0);
+            this.tableLayoutPanel4Row.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4Row.Location = new System.Drawing.Point(0, 120);
+            this.tableLayoutPanel4Row.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4Row.Name = "tableLayoutPanel4Row";
+            this.tableLayoutPanel4Row.RowCount = 1;
+            this.tableLayoutPanel4Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4Row.Size = new System.Drawing.Size(600, 40);
+            this.tableLayoutPanel4Row.TabIndex = 3;
+            // 
+            // tableLayoutPanel5Row
+            // 
+            this.tableLayoutPanel5Row.ColumnCount = 3;
+            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel5Row.Controls.Add(this.keyButton48, 1, 0);
+            this.tableLayoutPanel5Row.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5Row.Location = new System.Drawing.Point(3, 163);
+            this.tableLayoutPanel5Row.Name = "tableLayoutPanel5Row";
+            this.tableLayoutPanel5Row.RowCount = 1;
+            this.tableLayoutPanel5Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5Row.Size = new System.Drawing.Size(594, 34);
+            this.tableLayoutPanel5Row.TabIndex = 4;
             // 
             // keyButtonBackspace
             // 
@@ -367,46 +496,6 @@
             this.keyButton1.Size = new System.Drawing.Size(36, 34);
             this.keyButton1.TabIndex = 0;
             // 
-            // tableLayoutPanel2Row
-            // 
-            this.tableLayoutPanel2Row.ColumnCount = 14;
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton26, 13, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton25, 12, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton24, 11, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton23, 10, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton22, 9, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton21, 8, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton20, 7, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton19, 6, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton18, 5, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton17, 4, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton16, 3, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton15, 2, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButton14, 1, 0);
-            this.tableLayoutPanel2Row.Controls.Add(this.keyButtonTab, 0, 0);
-            this.tableLayoutPanel2Row.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2Row.Location = new System.Drawing.Point(0, 40);
-            this.tableLayoutPanel2Row.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2Row.Name = "tableLayoutPanel2Row";
-            this.tableLayoutPanel2Row.RowCount = 1;
-            this.tableLayoutPanel2Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2Row.Size = new System.Drawing.Size(600, 40);
-            this.tableLayoutPanel2Row.TabIndex = 1;
-            // 
             // keyButton26
             // 
             this.keyButton26.BackColor = System.Drawing.Color.Transparent;
@@ -617,44 +706,6 @@
             this.keyButtonTab.Size = new System.Drawing.Size(48, 34);
             this.keyButtonTab.TabIndex = 0;
             // 
-            // tableLayoutPanel3Row
-            // 
-            this.tableLayoutPanel3Row.ColumnCount = 13;
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButtonEnter, 12, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton37, 11, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton36, 10, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton35, 9, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton34, 8, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton33, 7, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton32, 6, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton31, 5, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton30, 4, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton29, 3, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton28, 2, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButton27, 1, 0);
-            this.tableLayoutPanel3Row.Controls.Add(this.keyButtonCaps, 0, 0);
-            this.tableLayoutPanel3Row.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3Row.Location = new System.Drawing.Point(0, 80);
-            this.tableLayoutPanel3Row.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3Row.Name = "tableLayoutPanel3Row";
-            this.tableLayoutPanel3Row.RowCount = 1;
-            this.tableLayoutPanel3Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3Row.Size = new System.Drawing.Size(600, 40);
-            this.tableLayoutPanel3Row.TabIndex = 2;
-            // 
             // keyButtonEnter
             // 
             this.keyButtonEnter.BackColor = System.Drawing.Color.Transparent;
@@ -850,42 +901,6 @@
             this.keyButtonCaps.Size = new System.Drawing.Size(129, 34);
             this.keyButtonCaps.TabIndex = 0;
             // 
-            // tableLayoutPanel4Row
-            // 
-            this.tableLayoutPanel4Row.ColumnCount = 12;
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButtonRShift, 11, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton47, 10, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton46, 9, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton45, 8, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton44, 7, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton43, 6, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton42, 5, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton41, 4, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton40, 3, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton39, 2, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButton38, 1, 0);
-            this.tableLayoutPanel4Row.Controls.Add(this.keyButtonLShift, 0, 0);
-            this.tableLayoutPanel4Row.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4Row.Location = new System.Drawing.Point(0, 120);
-            this.tableLayoutPanel4Row.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel4Row.Name = "tableLayoutPanel4Row";
-            this.tableLayoutPanel4Row.RowCount = 1;
-            this.tableLayoutPanel4Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4Row.Size = new System.Drawing.Size(600, 40);
-            this.tableLayoutPanel4Row.TabIndex = 3;
-            // 
             // keyButtonRShift
             // 
             this.keyButtonRShift.BackColor = System.Drawing.Color.Transparent;
@@ -1065,21 +1080,6 @@
             this.keyButtonLShift.Name = "keyButtonLShift";
             this.keyButtonLShift.Size = new System.Drawing.Size(144, 34);
             this.keyButtonLShift.TabIndex = 0;
-            // 
-            // tableLayoutPanel5Row
-            // 
-            this.tableLayoutPanel5Row.ColumnCount = 3;
-            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanel5Row.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel5Row.Controls.Add(this.keyButton48, 1, 0);
-            this.tableLayoutPanel5Row.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5Row.Location = new System.Drawing.Point(3, 163);
-            this.tableLayoutPanel5Row.Name = "tableLayoutPanel5Row";
-            this.tableLayoutPanel5Row.RowCount = 1;
-            this.tableLayoutPanel5Row.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5Row.Size = new System.Drawing.Size(594, 34);
-            this.tableLayoutPanel5Row.TabIndex = 4;
             // 
             // keyButton48
             // 
