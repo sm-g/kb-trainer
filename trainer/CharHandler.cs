@@ -24,23 +24,20 @@ namespace trainer
                     return statistic.PassedChars + lineNumber;
             }
         }
-        public float TextProgress { get { return (float)(statistic.PassedChars - wrongChars) / (float)(source.Length); } }
+        public float TextProgress { get { return (float)(statistic.PassedChars - wrongChars) / (source.Length); } }
         public char NextCharToType
         {
             get
             {
+                if (TextEnded)
+                    return '\0';
                 if (IsCorrectingWrongChars)
                     return '\b';
-                if (inLinePosition < source.Lines[lineNumber].Length)
-                    return source.Lines[lineNumber][inLinePosition];
-                return '\0';
+                return source.Lines[lineNumber][inLinePosition];
             }
         }
-        public bool IsCorrectingWrongChars
-        {
-            get { return wrongChars > 0; }
-        }
-        public bool TextEnded { get { return statistic.PassedChars - wrongChars == source.Length; } }
+        public bool IsCorrectingWrongChars { get { return wrongChars > 0; } }
+        public bool TextEnded { get { return TextProgress == 1; } }
 
         public CharHandler(SourceText sourceText, Statistic _statistic)
         {
@@ -66,11 +63,7 @@ namespace trainer
         }
         private void MoveMarkerToNextLine()
         {
-            if (lineNumber == source.Lines.Length - 1)
-            {
-                
-            }
-            else
+            if (lineNumber != source.Lines.Length - 1)
             {
                 lineNumber++;
                 inLinePosition = 0;
