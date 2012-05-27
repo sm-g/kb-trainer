@@ -25,8 +25,6 @@ namespace trainer
         public string FilePath { get; private set; }
         public bool OpenedByUser { get; private set; }
         public string[] Lines { get { return textData; } }
-        public int LastExercisePosition { get; set; }
-
 
         public SourceText(string filePath, bool byUser)
         {            

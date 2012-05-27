@@ -159,12 +159,6 @@ namespace trainer
             richTextBoxSourceView.SelectionBackColor = backColor;
             richTextBoxSourceView.SelectionColor = color;
         }
-        private void PaintSourceViewChars(int start, int length, Color backColor, Color color)
-        {
-            richTextBoxSourceView.Select(start, length);
-            richTextBoxSourceView.SelectionBackColor = backColor;
-            richTextBoxSourceView.SelectionColor = color;
-        }
 
         private void StopTyping()
         {
@@ -211,7 +205,6 @@ namespace trainer
             SetStartButtonLabel();
             SetWidgetsVisability();
 
-            source.LastExercisePosition = exercise.MarkerPosition;
             if (exercise.EnoughToResult)
             {
                 Progress.Save(exercise.GetResult());
@@ -220,7 +213,11 @@ namespace trainer
         private void StartExercise()
         {
             if (exercise.TextEnded && !source.OpenedByUser)
-                LoadSource(GetRandomTextFile(), false);
+            {
+                LoadSource(GetRandomTextFile(), false);                
+            }
+            CreateExersice();
+            
             PrepareTextBoxes();
             ResumeTyping();
 
@@ -238,7 +235,6 @@ namespace trainer
             CleanInput();
             richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = source.Lines;
-            PaintSourceViewChars(0, source.LastExercisePosition, Colors.passedLetterBackground, Colors.passedLetter);
         }
 
         private void ShowResult()
