@@ -98,10 +98,8 @@ namespace trainer
     public class Keystroke
     {
         public TimeSpan DownTime { get; set; }
-        public TimeSpan UpTime { get; set; }
         public Keys Key { get; set; }
         public char Char { get; set; }
-        public bool IsCompleted { get { return UpTime != TimeSpan.Zero; } }
 
         public Keystroke(TimeSpan downTime, Keys key)
         {

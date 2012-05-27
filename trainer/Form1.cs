@@ -121,10 +121,6 @@ namespace trainer
         }
         private void richTextBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
-            Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
-
-            exercise.RegisterKeyUp(code);
-
             if (exercise.TextEnded)
             {
                 EndTyping();

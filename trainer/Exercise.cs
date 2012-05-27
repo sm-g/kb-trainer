@@ -159,12 +159,6 @@ namespace trainer
             }
             statistic.Keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
         }
-        public void RegisterKeyUp(Keys key)
-        {
-            Keystroke keystroke = statistic.Keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
-            if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша (её не будет в списке)
-                keystroke.UpTime = stopwatch.Elapsed;
-        }
 
         public LoadedExercise GetResult()
         {
