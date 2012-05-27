@@ -31,6 +31,8 @@
             this.buttonEnd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxRhithmicity = new System.Windows.Forms.TextBox();
             this.textBoxErrors = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.graph = new trainer.Graph();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxRhithmicity = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -82,12 +82,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxRhithmicity, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxErrors, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxAvSpeed, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxTime, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.labelTime, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxErrors, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxAvSpeed, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelTime, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxTime, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 30);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -96,14 +96,36 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(191, 82);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Ритмичность:";
+            // 
+            // textBoxRhithmicity
+            // 
+            this.textBoxRhithmicity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRhithmicity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxRhithmicity.Location = new System.Drawing.Point(98, 63);
+            this.textBoxRhithmicity.Name = "textBoxRhithmicity";
+            this.textBoxRhithmicity.ReadOnly = true;
+            this.textBoxRhithmicity.Size = new System.Drawing.Size(90, 13);
+            this.textBoxRhithmicity.TabIndex = 7;
             // 
             // textBoxErrors
             // 
             this.textBoxErrors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxErrors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxErrors.Location = new System.Drawing.Point(98, 23);
+            this.textBoxErrors.Location = new System.Drawing.Point(98, 43);
             this.textBoxErrors.Name = "textBoxErrors";
             this.textBoxErrors.ReadOnly = true;
             this.textBoxErrors.Size = new System.Drawing.Size(90, 13);
@@ -113,7 +135,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 3);
+            this.label1.Location = new System.Drawing.Point(34, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
@@ -124,7 +146,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 23);
+            this.label2.Location = new System.Drawing.Point(42, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
@@ -135,7 +157,7 @@
             // 
             this.textBoxAvSpeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAvSpeed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxAvSpeed.Location = new System.Drawing.Point(98, 3);
+            this.textBoxAvSpeed.Location = new System.Drawing.Point(98, 23);
             this.textBoxAvSpeed.Name = "textBoxAvSpeed";
             this.textBoxAvSpeed.ReadOnly = true;
             this.textBoxAvSpeed.Size = new System.Drawing.Size(90, 13);
@@ -145,7 +167,7 @@
             // 
             this.textBoxTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxTime.Location = new System.Drawing.Point(98, 43);
+            this.textBoxTime.Location = new System.Drawing.Point(98, 3);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.ReadOnly = true;
             this.textBoxTime.Size = new System.Drawing.Size(90, 13);
@@ -155,7 +177,7 @@
             // 
             this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(49, 43);
+            this.labelTime.Location = new System.Drawing.Point(49, 3);
             this.labelTime.Margin = new System.Windows.Forms.Padding(3);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(43, 13);
@@ -181,27 +203,6 @@
             this.graph.Name = "graph";
             this.graph.Size = new System.Drawing.Size(191, 134);
             this.graph.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Ритмичность:";
-            // 
-            // textBoxRhithmicity
-            // 
-            this.textBoxRhithmicity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxRhithmicity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRhithmicity.Location = new System.Drawing.Point(98, 63);
-            this.textBoxRhithmicity.Name = "textBoxRhithmicity";
-            this.textBoxRhithmicity.ReadOnly = true;
-            this.textBoxRhithmicity.Size = new System.Drawing.Size(90, 13);
-            this.textBoxRhithmicity.TabIndex = 7;
             // 
             // ResultForm
             // 
