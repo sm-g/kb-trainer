@@ -181,14 +181,15 @@ namespace trainer
         }
 
         private void StopTyping()
-        {
+        {            
             if (exerciseState == ExerciseState.Active)
             {
                 exerciseState = ExerciseState.Paused;
                 statistic.PauseTimer();
-
-                richTextBoxInput.Enabled = false;
                 SetStartButtonLabel();
+
+                timerUpdateWidgets.Enabled = false;
+                richTextBoxInput.Enabled = false;
             }
         }
         private void ResumeTyping()
@@ -196,6 +197,8 @@ namespace trainer
             exerciseState = ExerciseState.Active;
 
             SetStartButtonLabel();
+
+            timerUpdateWidgets.Enabled = true;            
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
         }
@@ -221,7 +224,6 @@ namespace trainer
             SetMenusState();
             SetStartButtonLabel();
             SetWidgetsVisability();
-            timerUpdateWidgets.Enabled = false;
 
             sourceText.Position = charHandler.MarkerPosition;
             if (statistic.EnoughToResult)
@@ -241,7 +243,6 @@ namespace trainer
             SetMenusState();
             SetStartButtonLabel();
             SetWidgetsVisability();
-            timerUpdateWidgets.Enabled = true;
         }
         private void CreateExersice()
         {
