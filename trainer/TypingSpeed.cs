@@ -6,39 +6,9 @@ namespace trainer
     {
         public class TypingSpeed
         {
-            const int MIN_KEYSTROKES = 2;
             const int MIN_MSECONDS = 1;
             const int MAX_INSTANT_POINTS = 200;
             const double MAX_SPEED = 2000.0;
-
-            private Statistic parent;
-
-            public double Average
-            {
-                get
-                {
-                    if (parent.Keystrokes.Count < MIN_KEYSTROKES)
-                        return 0;
-                    return GetAverage(parent.Now, parent.PassedChars);
-                }
-            }
-            public double Instant
-            {
-                get
-                {
-                    if (parent.Keystrokes.Count < MIN_KEYSTROKES)
-                        return 0;
-                    int span = FitInstantSpeedSpan(parent.Keystrokes.Count);
-                    return GetInstant(parent.Keystrokes[parent.Keystrokes.Count - span].DownTime,
-                                      parent.TotalPrintingTime,
-                                      span);
-                }
-            }
-
-            public TypingSpeed(Statistic _parent)
-            {
-                parent = _parent;
-            }
 
             public static int FitInstantSpeedSpan(int keyskrokesCount)
             {

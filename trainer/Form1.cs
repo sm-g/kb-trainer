@@ -13,7 +13,7 @@ namespace trainer
         {
             InitializeComponent();
             LoadSource(GetRandomTextFile(), false);
-            CreateExersice(); 
+            CreateExersice();
             DrawColorSquare();
         }
 
@@ -26,7 +26,7 @@ namespace trainer
                 Text = source.Title + " - " + source.FileName + " - Keyboard trainer";
             }
 
-            StartToolStripMenuItem.Enabled = source != null;            
+            StartToolStripMenuItem.Enabled = source != null;
         }
         private string OnNoFiles()
         {
@@ -57,7 +57,7 @@ namespace trainer
                 string currentFile = "";
                 if (source != null)
                     currentFile = source.FilePath;
-                Random r = new Random();                
+                Random r = new Random();
                 do
                 {
                     newFile = fileNames[r.Next(fileNames.Length)];
@@ -104,7 +104,7 @@ namespace trainer
                 return;
             }
 
-            exercise.statistic.RegisterKeyDown(code);
+            exercise.RegisterKeyDown(code);
             if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 char deletingChar = richTextBoxInput.Text[richTextBoxInput.Text.Length - 1];
@@ -123,7 +123,7 @@ namespace trainer
         {
             Keys code = e.KeyData != (Keys.Back ^ Keys.Control) ? e.KeyData : Keys.Back;
 
-            exercise.statistic.RegisterKeyUp(code);
+            exercise.RegisterKeyUp(code);
 
             if (exercise.TextEnded)
             {
@@ -171,11 +171,11 @@ namespace trainer
         }
 
         private void StopTyping()
-        {            
+        {
             if (exercise.State == ExerciseState.Active)
             {
                 exercise.State = ExerciseState.Paused;
-                exercise.statistic.PauseTimer();
+                exercise.PauseTimer();
                 SetStartButtonLabel();
 
                 timerUpdateWidgets.Enabled = false;
@@ -188,14 +188,14 @@ namespace trainer
 
             SetStartButtonLabel();
 
-            timerUpdateWidgets.Enabled = true;            
+            timerUpdateWidgets.Enabled = true;
             richTextBoxInput.Enabled = true;
             richTextBoxInput.Focus();
         }
         private void EndTyping()
         {
             StopTyping();
-            if (exercise.statistic.EnoughToResult)
+            if (exercise.EnoughToResult)
             {
                 ShowResult();
             }
@@ -204,7 +204,7 @@ namespace trainer
                 FinishExercise();
             }
         }
-        
+
         private void FinishExercise()
         {
             exercise.State = ExerciseState.NotStarted;
@@ -216,10 +216,10 @@ namespace trainer
             SetWidgetsVisability();
 
             source.LastExercisePosition = exercise.MarkerPosition;
-            if (exercise.statistic.EnoughToResult)
+            if (exercise.EnoughToResult)
             {
-                Progress.SaveToXml(source, exercise.statistic.GetResult());
-                Progress.SaveToDsv(source, exercise.statistic.GetResult());
+                Progress.SaveToXml(source, exercise.GetResult());
+                Progress.SaveToDsv(source, exercise.GetResult());
             }
         }
         private void StartExercise()
@@ -236,7 +236,7 @@ namespace trainer
         }
         private void CreateExersice()
         {
-            exercise = new Exercise(source);            
+            exercise = new Exercise(source);
         }
         private void PrepareTextBoxes()
         {
@@ -248,7 +248,7 @@ namespace trainer
 
         private void ShowResult()
         {
-            ResultForm resultForm = new ResultForm(exercise.statistic.GetResult(), source);
+            ResultForm resultForm = new ResultForm(exercise.GetResult(), source);
             if (resultForm.ShowDialog() == DialogResult.OK)
             {
                 FinishExercise();
@@ -283,22 +283,22 @@ namespace trainer
             if (source != null && source.OpenedByUser)
             {
                 LoadSource(GetRandomTextFile(), false);
-                CreateExersice();                
+                CreateExersice();
                 SetMenusState();
             }
         }
         private void AnotherTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadSource(GetRandomTextFile(), false);
-            CreateExersice(); 
+            CreateExersice();
         }
         private void SetMenusState()
         {
             OpenFileToolStripMenuItem.Checked = source.OpenedByUser;
             RandomTextToolStripMenuItem.Checked = !source.OpenedByUser;
 
-            OpenFileToolStripMenuItem.Enabled = 
-                RandomTextToolStripMenuItem.Enabled = 
+            OpenFileToolStripMenuItem.Enabled =
+                RandomTextToolStripMenuItem.Enabled =
                 AnotherTextToolStripMenuItem.Enabled = exercise.State == ExerciseState.NotStarted;
         }
         private void SetStartButtonLabel()
@@ -324,11 +324,11 @@ namespace trainer
         }
         private void timerUpdateWidgets_Tick(object sender, EventArgs e)
         {
-            labelTime.Text = ResultForm.FormatTimeSpan(exercise.statistic.Now);
-            labelRemainTime.Text = '-' + ResultForm.FormatTimeSpan(exercise.statistic.GetExpectedRemainTime(source.Length));
+            labelTime.Text = ResultForm.FormatTimeSpan(exercise.PastTime);
+            labelRemainTime.Text = '-' + ResultForm.FormatTimeSpan(exercise.ExpectedRemainTime);
             progressBar.Value = (int)(exercise.TextProgress * progressBar.Maximum);
-            labelVelocity.Text = exercise.statistic.Speed.Average.ToString("F");
-            labelErrors.Text = exercise.statistic.Errors.ToString();
+            labelVelocity.Text = exercise.Speed.ToString("F");
+            labelErrors.Text = exercise.Errors.ToString();
         }
 
         private void checkBoxKeyboardLabeled_CheckedChanged(object sender, EventArgs e)

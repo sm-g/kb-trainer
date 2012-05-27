@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -11,18 +10,22 @@ namespace trainer
 {
     public partial class Statistic
     {
-        private const int MIN_RESULT_CHARS = 5;
-
-        private Stopwatch stopwatch;
+        const int MIN_KEYSTROKES = 2;
         private List<Pressure> pressures;
 
         public List<Keystroke> Keystrokes { get; private set; }
-        public TypingSpeed Speed { get; private set; }
         public int PassedChars { get; private set; }
         public int Errors { get; private set; }
+        public double Speed
+        {
+            get
+            {
+                if (PassedChars < MIN_KEYSTROKES)
+                    return 0;
+                return Statistic.TypingSpeed.GetAverage(TotalPrintingTime, PassedChars);
+            }
+        }
         public TimeSpan TotalPrintingTime { get { return Keystrokes[Keystrokes.Count - 1].DownTime; } }
-        public TimeSpan Now { get { return stopwatch.Elapsed; } }
-        public bool EnoughToResult { get { return PassedChars > MIN_RESULT_CHARS; } }
         public int Rhythmicity
         {
             get
@@ -65,9 +68,7 @@ namespace trainer
 
         public Statistic()
         {
-            Speed = new TypingSpeed(this);
             Keystrokes = new List<Keystroke>();
-            stopwatch = new Stopwatch();
             Pressures = new List<Pressure>();
         }
 
@@ -86,38 +87,6 @@ namespace trainer
             PassedChars--;
             Keystrokes[Keystrokes.Count - 1].Char = ch;
         }
-
-        public void RegisterKeyDown(Keys key)
-        {
-            if (!stopwatch.IsRunning)
-            {
-                stopwatch.Start();
-            }
-            Keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
-        }
-        public void RegisterKeyUp(Keys key)
-        {
-            Keystroke keystroke = Keystrokes.LastOrDefault(item => item.Key == key && !item.IsCompleted);
-            if (keystroke != null) // может быть зарегистрирована нажатая в другом окне клавиша (её не будет в списке)
-                keystroke.UpTime = stopwatch.Elapsed;
-        }
-
-        public void PauseTimer()
-        {
-            stopwatch.Stop();
-        }
-
-        public TimeSpan GetExpectedRemainTime(int textLength)
-        {
-            if (PassedChars > MIN_RESULT_CHARS)
-                return TimeSpan.FromMinutes(textLength / Speed.Average);
-            else return TimeSpan.Zero;
-        }
-
-        public Exercise GetResult()
-        {
-            return new Exercise(this);
-        }   
     }
 
     public class Pressure

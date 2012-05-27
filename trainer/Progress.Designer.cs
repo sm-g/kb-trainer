@@ -32,19 +32,19 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.exerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loadedExerciseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.graph = new trainer.Graph();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passedChars = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rhythmicity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadedExerciseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -84,12 +84,12 @@
             this.Id,
             this.date,
             this.textTitle,
-            this.speed,
+            this.AverageSpeed,
             this.passedChars,
             this.errors,
             this.rhythmicity,
             this.FormattedTime});
-            this.dgv.DataSource = this.exerciseBindingSource;
+            this.dgv.DataSource = this.loadedExerciseBindingSource;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 286);
             this.dgv.Name = "dgv";
@@ -103,9 +103,9 @@
             this.dgv.TabIndex = 2;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
-            // exerciseBindingSource
+            // loadedExerciseBindingSource
             // 
-            this.exerciseBindingSource.DataSource = typeof(trainer.Exercise);
+            this.loadedExerciseBindingSource.DataSource = typeof(trainer.LoadedExercise);
             // 
             // graph
             // 
@@ -143,14 +143,14 @@
             this.textTitle.Name = "textTitle";
             this.textTitle.ReadOnly = true;
             // 
-            // speed
+            // AverageSpeed
             // 
-            this.speed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.speed.DataPropertyName = "Speed";
-            this.speed.HeaderText = "Скорость";
-            this.speed.Name = "speed";
-            this.speed.ReadOnly = true;
-            this.speed.Width = 5;
+            this.AverageSpeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.AverageSpeed.DataPropertyName = "AverageSpeed";
+            this.AverageSpeed.HeaderText = "Скорость";
+            this.AverageSpeed.Name = "AverageSpeed";
+            this.AverageSpeed.ReadOnly = true;
+            this.AverageSpeed.Width = 5;
             // 
             // passedChars
             // 
@@ -198,7 +198,7 @@
             this.Text = "Прогресс";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exerciseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadedExerciseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,14 +207,14 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxGeneral;
-        private System.Windows.Forms.BindingSource exerciseBindingSource;
         private System.Windows.Forms.DataGridView dgv;
         private Graph graph;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrintingTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn speed;
+        private System.Windows.Forms.BindingSource loadedExerciseBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn textTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn speed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageSpeed;
         private System.Windows.Forms.DataGridViewTextBoxColumn passedChars;
         private System.Windows.Forms.DataGridViewTextBoxColumn errors;
         private System.Windows.Forms.DataGridViewTextBoxColumn rhythmicity;
