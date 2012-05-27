@@ -90,18 +90,23 @@ namespace trainer
             else
                 return result;
         }
+
+        public void CleanKeystrokes()
+        {
+            Keystrokes.RemoveAll(keystroke => keystroke.Char == '\0');
+            foreach (var k in Keystrokes)
+                Console.WriteLine(k.Char);
+        }
     }
 
     public class Keystroke
     {
-        public TimeSpan DownTime { get; set; }
-        public Keys Key { get; set; }
+        public TimeSpan DownTime { get; private set; }
         public char Char { get; set; }
 
-        public Keystroke(TimeSpan downTime, Keys key)
+        public Keystroke(TimeSpan downTime)
         {
             DownTime = downTime;
-            Key = key;
         }
     }
 }

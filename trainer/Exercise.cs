@@ -149,17 +149,18 @@ namespace trainer
 
         }
 
-        public void RegisterKeyDown(Keys key)
+        public void RegisterKeyDown()
         {
             if (!stopwatch.IsRunning)
             {
                 stopwatch.Start();
             }
-            statistic.Keystrokes.Add(new Keystroke(stopwatch.Elapsed, key));
+            statistic.Keystrokes.Add(new Keystroke(stopwatch.Elapsed));
         }
 
         public FinalizedExercise GetResult()
         {
+            statistic.CleanKeystrokes();
             return new FinalizedExercise(source, statistic);
         }
     }

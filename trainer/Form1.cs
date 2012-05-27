@@ -104,7 +104,7 @@ namespace trainer
                 return;
             }
 
-            exercise.RegisterKeyDown(code);
+            exercise.RegisterKeyDown();
             if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 char deletingChar = richTextBoxInput.Text[richTextBoxInput.Text.Length - 1];
