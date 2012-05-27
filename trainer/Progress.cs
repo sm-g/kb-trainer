@@ -101,7 +101,7 @@ namespace trainer
             int[] ids = new int[dgv.SelectedRows.Count];
             for (int i = 0; i < dgv.SelectedRows.Count; i++)
             {
-                ids[i] = (int)dgv.SelectedRows[i].Cells["Id"].Value;
+                ids[i] = (int)dgv.SelectedRows[i].Cells["idDataGridViewTextBoxColumn"].Value;
             }
             graph.HighlightSeriePoints("speeds", ids);
         }
