@@ -214,8 +214,7 @@ namespace trainer
             source.LastExercisePosition = exercise.MarkerPosition;
             if (exercise.EnoughToResult)
             {
-                Progress.SaveToXml(exercise.GetResult());
-                Progress.SaveToDsv(exercise.GetResult());
+                Progress.Save(exercise.GetResult());
             }
         }
         private void StartExercise()

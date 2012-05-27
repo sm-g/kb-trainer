@@ -193,7 +193,7 @@ namespace trainer
 
         public FinalizedExercise(string exercise, int id)
         {
-            string[] attribures = exercise.Split(Delimeters.Attribute);
+            string[] attribures = exercise.Split(Progress.AttributeDelimeter);
             if (attribures.Length == 6)
             {
                 Id = id;

@@ -9,12 +9,15 @@ namespace trainer
 {
     public partial class Progress : Form
     {
-        const string FILE = "stat";
+        private const string fileName = "statistic.txt";
+        private const char exerciseDelimeter = '\n';
+        public const char AttributeDelimeter = ';';
+        public const char SafeChar = ',';
 
         public Progress()
         {
             InitializeComponent();
-            ReadExercises(LoadFromDsv());
+            ReadExercises(LoadFromFile());
         }
 
         private void ReadExercises(FinalizedExercise[] exercises)
@@ -24,64 +27,35 @@ namespace trainer
             graph.Bind(exercises, "speeds", "Id", "Speed");
         }
 
-        public static void SaveToXml(FinalizedExercise result)
-        {
-            XDocument doc;
-            if (File.Exists(FILE + ".xml"))
-            {
-                using (var file = File.OpenText(FILE + ".xml"))
-                {
-                    doc = XDocument.Load(file);
-                }
-            }
-            else
-            {
-                doc = new XDocument();
-                doc.Add(new XElement("statistic"));
-            }
-
-            XElement newExercise = 
-                    new XElement("exercise",
-                        new XAttribute("id", doc.Root.Elements().Count() + 1),
-                        new XAttribute("date", DateTime.Now.ToShortDateString()),
-                        new XAttribute("text", result.TextTitle),
-                        new XAttribute("passed", result.PassedChars),
-                        new XAttribute("errors", result.Errors),
-                        new XAttribute("time", result.Time),
-                        new XAttribute("rhythm", result.Rhythmicity));
-
-            doc.Root.Add(newExercise);
-            doc.Save(FILE + ".xml");
-        }
-        public static void SaveToDsv(FinalizedExercise result)
+        public static void Save(FinalizedExercise result)
         {
             var sb = new StringBuilder();
 
-            sb.Append(DateTime.Now.ToShortDateString()); sb.Append(Delimeters.Attribute);
-            sb.Append(result.TextTitle);                 sb.Append(Delimeters.Attribute);
-            sb.Append(result.PassedChars);               sb.Append(Delimeters.Attribute);
-            sb.Append(result.Errors);                    sb.Append(Delimeters.Attribute);
-            sb.Append(result.Time);                      sb.Append(Delimeters.Attribute);
-            sb.Append(result.Rhythmicity);               sb.Append(Delimeters.Attribute);
+            sb.Append(DateTime.Now.ToShortDateString()); sb.Append(AttributeDelimeter);
+            sb.Append(result.TextTitle);                 sb.Append(AttributeDelimeter);
+            sb.Append(result.PassedChars);               sb.Append(AttributeDelimeter);
+            sb.Append(result.Errors);                    sb.Append(AttributeDelimeter);
+            sb.Append(result.Time);                      sb.Append(AttributeDelimeter);
+            sb.Append(result.Rhythmicity);               sb.Append(AttributeDelimeter);
             sb.Remove(sb.Length - 1, 1);
-            sb.Append(Delimeters.Exercise);
+            sb.Append(exerciseDelimeter);
 
-            using (var file = File.AppendText(FILE + ".dsv"))
+            using (var file = File.AppendText(fileName))
             {
                 file.Write(sb);
             }
         }
-        public static FinalizedExercise[] LoadFromDsv()
+        public static FinalizedExercise[] LoadFromFile()
         {            
-            if (!File.Exists(FILE + ".dsv"))
+            if (!File.Exists(fileName))
                 return new FinalizedExercise[] { };
 
             string s;
-            using (var file = File.OpenText(FILE + ".dsv"))
+            using (var file = File.OpenText(fileName))
             {
                 s = file.ReadToEnd();
             }
-            string[] exercises = s.Split(Delimeters.Exercise);
+            string[] exercises = s.Split(exerciseDelimeter);
 
             FinalizedExercise[] result = new FinalizedExercise[exercises.Length - 1];
 
@@ -102,12 +76,5 @@ namespace trainer
             }
             graph.HighlightSeriePoints("speeds", ids);
         }
-    }
-
-    public static class Delimeters
-    {
-        public const char Exercise = '\n';
-        public const char Attribute = ';';
-        public const char SafeChar = ',';
     }
 }
