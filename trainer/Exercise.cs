@@ -5,8 +5,18 @@ using System.Text;
 
 namespace trainer
 {
-    class Exercise
+    public enum ExerciseState
     {
+        NotStarted,
+        Active,
+        Paused
+    }
+
+    public class Exercise
+    {
+        public ExerciseState State { get; set; }
+        public CharHandler charHandler { get; set; }
+        public Statistic statistic { get; set; }
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
         public string TextTitle { get; private set; }
@@ -19,6 +29,12 @@ namespace trainer
         public double Rhythmicity { get; private set; }
         public List<Keystroke> Keystrokes { get; private set; }
         public List<Pressure> Pressures { get; private set; }
+
+        public Exercise(SourceText source)
+        {
+            statistic = new Statistic();
+            charHandler = new CharHandler(source, statistic);
+        }
 
         public Exercise(Statistic statistic)
         {

@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CharHandler.cs" />
     <Compile Include="Colors.cs" />
+    <Compile Include="Exercise.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

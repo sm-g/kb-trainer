@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace trainer
 {
-    class CharHandler
+    public class CharHandler
     {
         private SourceText source;
         private Statistic statistic;
