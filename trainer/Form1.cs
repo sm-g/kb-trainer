@@ -80,7 +80,7 @@ namespace trainer
         {
             if (Char.IsControl(e.KeyChar)) // перехват управляющих клавиш
                 return;
-            if (exercise.charHandler.ValidateChar(e.KeyChar))
+            if (exercise.ValidateChar(e.KeyChar))
             {
                 DisplayCorrectInput();
 
@@ -108,7 +108,7 @@ namespace trainer
             if (code == Keys.Back && richTextBoxInput.Text.Length != 0)
             {
                 char deletingChar = richTextBoxInput.Text[richTextBoxInput.Text.Length - 1];
-                exercise.charHandler.DeleteChar(deletingChar);
+                exercise.DeleteChar(deletingChar);
 
                 if (e.KeyData == (Keys.Back ^ Keys.Control))
                 {
@@ -125,7 +125,7 @@ namespace trainer
 
             exercise.statistic.RegisterKeyUp(code);
 
-            if (exercise.charHandler.TextEnded)
+            if (exercise.TextEnded)
             {
                 EndTyping();
             }
@@ -143,23 +143,23 @@ namespace trainer
         private void DisplayDeletion()
         {
             PaintSourceViewChar(0, Colors.clearLetterBackground, Colors.clearLetter);
-            keyboard.HighlightKeyButtons(exercise.charHandler.NextCharToType);
+            keyboard.HighlightKeyButtons(exercise.NextCharToType);
         }
         private void DisplayCorrectInput()
         {
             PaintSourceViewChar(1, Colors.passedLetterBackground, Colors.passedLetter);
-            keyboard.HighlightKeyButtons(exercise.charHandler.NextCharToType);
+            keyboard.HighlightKeyButtons(exercise.NextCharToType);
         }
         private void DisplayWrongInput()
         {
             PaintSourceViewChar(1, Colors.wrongLetterBackground, Colors.wrongLetter);
-            keyboard.HighlightKeyButtons(exercise.charHandler.NextCharToType);
+            keyboard.HighlightKeyButtons(exercise.NextCharToType);
 
             System.Media.SystemSounds.Beep.Play();
         }
         private void PaintSourceViewChar(int offset, Color backColor, Color color)
         {
-            richTextBoxSourceView.Select(exercise.charHandler.MarkerPosition - offset, 1);
+            richTextBoxSourceView.Select(exercise.MarkerPosition - offset, 1);
             richTextBoxSourceView.SelectionBackColor = backColor;
             richTextBoxSourceView.SelectionColor = color;
         }
@@ -215,7 +215,7 @@ namespace trainer
             SetStartButtonLabel();
             SetWidgetsVisability();
 
-            source.Position = exercise.charHandler.MarkerPosition;
+            source.LastExercisePosition = exercise.MarkerPosition;
             if (exercise.statistic.EnoughToResult)
             {
                 Progress.SaveToXml(source, exercise.statistic.GetResult());
@@ -224,12 +224,12 @@ namespace trainer
         }
         private void StartExercise()
         {
-            if (exercise.charHandler.TextEnded && !source.OpenedByUser)
+            if (exercise.TextEnded && !source.OpenedByUser)
                 LoadSource(GetRandomTextFile(), false);
             PrepareTextBoxes();
             ResumeTyping();
 
-            keyboard.HighlightKeyButtons(exercise.charHandler.NextCharToType);
+            keyboard.HighlightKeyButtons(exercise.NextCharToType);
             SetMenusState();
             SetStartButtonLabel();
             SetWidgetsVisability();
@@ -243,7 +243,7 @@ namespace trainer
             CleanInput();
             richTextBoxSourceView.Clear();
             richTextBoxSourceView.Lines = source.Lines;
-            PaintSourceViewChars(0, source.Position, Colors.passedLetterBackground, Colors.passedLetter);
+            PaintSourceViewChars(0, source.LastExercisePosition, Colors.passedLetterBackground, Colors.passedLetter);
         }
 
         private void ShowResult()
@@ -326,7 +326,7 @@ namespace trainer
         {
             labelTime.Text = ResultForm.FormatTimeSpan(exercise.statistic.Now);
             labelRemainTime.Text = '-' + ResultForm.FormatTimeSpan(exercise.statistic.GetExpectedRemainTime(source.Length));
-            progressBar.Value = (int)(exercise.charHandler.TextProgress * progressBar.Maximum);
+            progressBar.Value = (int)(exercise.TextProgress * progressBar.Maximum);
             labelVelocity.Text = exercise.statistic.Speed.Average.ToString("F");
             labelErrors.Text = exercise.statistic.Errors.ToString();
         }

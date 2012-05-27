@@ -20,18 +20,12 @@ namespace trainer
                 return result;
             }
         }
-        public string Title
-        {
-            get
-            {
-                return textData[0].Replace(Delimeters.Attribute, Delimeters.SafeChar).Trim();
-            }
-        }
+        public string Title { get { return textData[0].Replace(Delimeters.Attribute, Delimeters.SafeChar).Trim(); } }
         public string FileName { get; private set; }
         public string FilePath { get; private set; }
         public bool OpenedByUser { get; private set; }
         public string[] Lines { get { return textData; } }
-        public int Position { get; set; }
+        public int LastExercisePosition { get; set; }
 
 
         public SourceText(string filePath, bool byUser)

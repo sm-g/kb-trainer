@@ -14,9 +14,39 @@ namespace trainer
 
     public class Exercise
     {
+        private SourceText source;
+        private int inLinePosition;
+        private int lineNumber;
+        private int wrongChars;
+
         public ExerciseState State { get; set; }
-        public CharHandler charHandler { get; set; }
         public Statistic statistic { get; set; }
+
+        public int MarkerPosition
+        {
+            get
+            {
+                if (inLinePosition == 0 && lineNumber != 0) // учитывает невидимый символ перевода строки после ввода последней в строке буквы
+                    return statistic.PassedChars + lineNumber - 1;
+                else
+                    return statistic.PassedChars + lineNumber;
+            }
+        }
+        public char NextCharToType
+        {
+            get
+            {
+                if (TextEnded)
+                    return '\0';
+                if (IsCorrectingWrongChars)
+                    return '\b';
+                return source.Lines[lineNumber][inLinePosition];
+            }
+        }
+        public float TextProgress { get { return (float)(statistic.PassedChars - wrongChars) / (source.Length); } }
+        public bool TextEnded { get { return TextProgress == 1; } }
+        public bool IsCorrectingWrongChars { get { return wrongChars > 0; } }
+
         public int Id { get; private set; }
         public DateTime Date { get; private set; }
         public string TextTitle { get; private set; }
@@ -30,10 +60,10 @@ namespace trainer
         public List<Keystroke> Keystrokes { get; private set; }
         public List<Pressure> Pressures { get; private set; }
 
-        public Exercise(SourceText source)
+        public Exercise(SourceText sourcetext)
         {
             statistic = new Statistic();
-            charHandler = new CharHandler(source, statistic);
+            source = sourcetext;
         }
 
         public Exercise(Statistic statistic)
@@ -71,6 +101,78 @@ namespace trainer
                     long.TryParse(attribures[2], out pressure.Duration);
                     Pressures.Add(pressure);
                 }
+            }
+        }
+
+        private void MoveMarkerForward()
+        {
+            inLinePosition++;
+            if (inLinePosition == source.Lines[lineNumber].Length)
+            {
+                MoveMarkerToNextLine();
+            }
+        }
+        private void MoveMarkerBack()
+        {
+            inLinePosition--;
+            if (inLinePosition == -1)
+            {
+                MoveMarkerToPrevLine();
+            }
+        }
+        private void MoveMarkerToNextLine()
+        {
+            if (lineNumber != source.Lines.Length - 1)
+            {
+                lineNumber++;
+                inLinePosition = 0;
+            }
+        }
+        private void MoveMarkerToPrevLine()
+        {
+            if (lineNumber > 0)
+            {
+                lineNumber--;
+                inLinePosition = source.Lines[lineNumber].Length - 1;
+            }
+            else
+            {
+                inLinePosition = 0;
+            }
+        }
+
+        private void AddWrongChar(char ch)
+        {
+            if (!IsCorrectingWrongChars)
+            {
+                statistic.AddError(ch);
+            }
+            wrongChars++;
+        }
+        public void DeleteChar(char ch)
+        {
+            statistic.AddDeletion(ch);
+            if (!IsCorrectingWrongChars)
+            {
+                MoveMarkerBack();
+            }
+            else
+            {
+                wrongChars--;
+            }
+        }
+        public bool ValidateChar(char ch)
+        {
+            statistic.AddChar(ch);
+            if (!IsCorrectingWrongChars && source.Lines[lineNumber][inLinePosition] == ch)
+            {
+                MoveMarkerForward();
+                return true;
+            }
+            else
+            {
+                AddWrongChar(ch);
+                return false;
             }
         }
     }
