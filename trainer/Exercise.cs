@@ -181,6 +181,7 @@ namespace trainer
 
         public FinalizedExercise(SourceText source, Statistic statistic)
         {
+            Date = DateTime.Now;
             TextTitle = source.Title;
             PassedChars = statistic.PassedChars;
             Errors = statistic.Errors;

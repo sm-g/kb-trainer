@@ -58,14 +58,12 @@ namespace trainer
         {
             var sb = new StringBuilder();
 
-            sb.Append(DateTime.Now.ToShortDateString()); sb.Append(AttributeDelimeter);
-            sb.Append(result.TextTitle);                 sb.Append(AttributeDelimeter);
-            sb.Append(result.PassedChars);               sb.Append(AttributeDelimeter);
-            sb.Append(result.Errors);                    sb.Append(AttributeDelimeter);
-            sb.Append(result.Time);                      sb.Append(AttributeDelimeter);
-            sb.Append(result.Rhythmicity);               sb.Append(AttributeDelimeter);
-            sb.Remove(sb.Length - 1, 1);
-            sb.Append(ExerciseDelimeter);
+            sb.Append(result.Date);        sb.Append(AttributeDelimeter);
+            sb.Append(result.TextTitle);   sb.Append(AttributeDelimeter);
+            sb.Append(result.PassedChars); sb.Append(AttributeDelimeter);
+            sb.Append(result.Errors);      sb.Append(AttributeDelimeter);
+            sb.Append(result.Time);        sb.Append(AttributeDelimeter);
+            sb.Append(result.Rhythmicity); sb.Append(ExerciseDelimeter);
 
             using (var file = File.AppendText(FileName))
             {
@@ -108,7 +106,6 @@ namespace trainer
         {
             dgv.SelectAll();
         }
-
         private void buttonLast10_Click(object sender, EventArgs e)
         {
             dgv.ClearSelection();
